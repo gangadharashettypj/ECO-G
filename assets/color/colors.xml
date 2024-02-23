@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#00374A</color>
+    <color name="primaryDark">#43BFEB</color>
+    <color name="accent">#82D1ED</color>
+    <color name="black">#FF272B2D</color>
+    <color name="textColor">#ff1D1D1D</color>
+    <color name="textLightColor">#ff596574</color>
+    <color name="textDarkColor">#FF505050</color>
+    <color name="dividerColor">#FFDEE5EC</color>
+    <color name="copperGold">#CA9442</color>
+    <color name='grayishBlack'>#131212</color>
+    <color name='background'>#FAFBFB</color>
+    <color name='greyTextColor'>#828282</color>
+</resources>

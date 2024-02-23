@@ -1,11 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_game/db/db.dart';
 import 'package:flutter_game/di/di.dart';
 import 'package:flutter_game/main_class/main_class.dart';
 import 'package:flutter_game/pages/app_screen/app_screen.dart';
-import 'package:flutter_game/services/notification/notification.dart';
 
 class MobileMain implements MainClass {
   @override
@@ -18,9 +15,9 @@ class MobileMain implements MainClass {
     // }
     configureDependencies();
     await getIt<DB>().register();
-    if (Platform.isIOS || Platform.isAndroid) {
-      getIt<NotificationService>().init();
-    }
+    // if (Platform.isIOS || Platform.isAndroid) {
+    //   getIt<NotificationService>().init();
+    // }
     // if (Platform.isIOS || Platform.isAndroid) {
     //   AppRemoteConfig.instance.init();
     // }

@@ -4,9 +4,9 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_game/di/di.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-import 'package:flutter_game/di/di.dart';
 
 DB get dbInstance => getIt<DB>();
 
@@ -85,5 +85,5 @@ class DB {
 
 enum DBKeys {
   deviceId,
-  loginResponse,
+  players,
 }

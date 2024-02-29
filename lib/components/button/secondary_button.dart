@@ -11,6 +11,7 @@ class SecondaryButton extends StatelessWidget {
   final Color? backGroundColor;
   final double? fontSize;
   final double? height;
+  final double borderThickness;
   final double? width;
   final double borderRadius;
   final FontWeight? fontWeight;
@@ -28,7 +29,8 @@ class SecondaryButton extends StatelessWidget {
     this.color = ColorName.primary,
     this.fontSize,
     this.fontWeight,
-    this.borderRadius = 4,
+    this.borderRadius = 8,
+    this.borderThickness = 1,
     this.padding,
     this.height,
     this.width,
@@ -51,7 +53,7 @@ class SecondaryButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: backGroundColor,
           borderRadius: BorderRadius.circular(borderRadius),
-          border: Border.all(color: color),
+          border: Border.all(color: color, width: borderThickness),
         ),
         child: (controller != null && controller!.showLoading)
             ? const CircularProgressIndicator()

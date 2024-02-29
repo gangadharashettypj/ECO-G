@@ -13,11 +13,14 @@ import 'package:lottie/lottie.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/bg1.jpeg
+  AssetGenImage get bg1 => const AssetGenImage('assets/images/bg1.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [logo];
+  List<AssetGenImage> get values => [bg1, logo];
 }
 
 class $AssetsLottieGen {

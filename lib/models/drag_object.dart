@@ -1,14 +1,50 @@
 import 'dart:ui';
 
 import 'package:flutter_game/constants/constants.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'drag_object.g.dart';
+
+Map offsetToJson(Offset offset) {
+  return {
+    'dx': offset.dx,
+    'dy': offset.dy,
+  };
+}
+
+Offset jsonToOffset(Map json) {
+  return Offset(
+    json['dx'] as double? ?? 0,
+    json['dy'] as double? ?? 0,
+  );
+}
+
+Map sizeToJson(Size size) {
+  return {
+    'width': size.width,
+    'height': size.height,
+  };
+}
+
+Size josnToSize(Map json) {
+  return Size(
+    json['width'] as double? ?? 0,
+    json['height'] as double? ?? 0,
+  );
+}
+
+@JsonSerializable(anyMap: true, explicitToJson: true)
 class DragObject {
   int id;
   String text;
   String image;
+  @JsonKey(toJson: offsetToJson, fromJson: jsonToOffset)
   Offset targetPosition;
+  @JsonKey(toJson: offsetToJson, fromJson: jsonToOffset)
   Offset rootPosition;
+  @JsonKey(toJson: offsetToJson, fromJson: jsonToOffset)
   Offset tapOffset;
+  @JsonKey(toJson: sizeToJson, fromJson: josnToSize)
   Size size;
   int visibleTime;
   int ownBy;
@@ -72,4 +108,9 @@ class DragObject {
   bool checkIsSecondPlayerWinner(Size boundary) {
     return (rootPosition.dy + size.height > (boundary.height - 100));
   }
+
+  factory DragObject.fromJson(Map<String, dynamic> json) =>
+      _$DragObjectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DragObjectToJson(this);
 }

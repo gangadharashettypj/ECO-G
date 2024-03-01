@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/game.dart';
 import 'package:flutter_game/pages/home/home.dart';
+import 'package:flutter_game/pages/options/options.dart';
 import 'package:flutter_game/pages/splash/splash.dart';
 
 part 'app_router.gr.dart';
@@ -14,5 +15,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SplashRoute.page, initial: true),
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: GameRoute.page),
+        AutoRoute(page: OptionsRoute.page),
       ];
 }

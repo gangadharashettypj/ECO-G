@@ -1,5 +1,7 @@
 import 'package:flutter_game/db/db.dart';
 import 'package:flutter_game/di/di.dart';
+import 'package:flutter_game/enums/modes.dart';
+import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/models/player_model.dart';
 import 'package:flutter_game/pages/dashboard/controller/game_controller.dart';
 import 'package:get/get.dart';
@@ -16,6 +18,8 @@ class GameStore {
 
   final firstPlayer = signal<PlayerModel?>(null);
   final secondPlayer = signal<PlayerModel?>(null);
+  final selectedGame = signal<LevelDataModel?>(null);
+  final selectedGameMode = signal<GameMode>(GameMode.bullet);
 
   void loadAllPlayers() {
     dynamic data = dbInstance.get(DBKeys.players);

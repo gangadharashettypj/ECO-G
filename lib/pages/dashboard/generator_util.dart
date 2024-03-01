@@ -3,37 +3,6 @@ import 'dart:ui';
 
 import 'package:flutter_game/models/drag_object.dart';
 
-List collectibles = [
-  {
-    'object': 'Alice',
-    'dimensions': {'width': 10, 'height': 30}
-  },
-  {
-    'object': 'Bob',
-    'dimensions': {'width': 10, 'height': 30}
-  },
-  {
-    'object': 'Emma',
-    'dimensions': {'width': 10, 'height': 30}
-  },
-  {
-    'object': 'Mathew',
-    'dimensions': {'width': 10, 'height': 30}
-  },
-  {
-    'object': 'Barney',
-    'dimensions': {'width': 10, 'height': 30}
-  },
-  {
-    'object': 'Conan',
-    'dimensions': {'width': 10, 'height': 30}
-  },
-  {
-    'object': 'Goku',
-    'dimensions': {'width': 20, 'height': 40}
-  },
-];
-
 double randomInRange({required double min, required double max}) {
   Random random = Random();
   return min + random.nextDouble() * (max - min);

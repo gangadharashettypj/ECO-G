@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'player_model.g.dart';
+
+@JsonSerializable(anyMap: true, explicitToJson: true)
 class PlayerModel {
   final String id;
   final String name;
@@ -7,15 +12,8 @@ class PlayerModel {
     required this.name,
   });
 
-  factory PlayerModel.fromJson(Map<String, dynamic> json) => PlayerModel(
-        id: json['id'],
-        name: json['name'],
-      );
+  factory PlayerModel.fromJson(Map<String, dynamic> json) =>
+      _$PlayerModelFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['id'] = id;
-    data['name'] = name;
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$PlayerModelToJson(this);
 }

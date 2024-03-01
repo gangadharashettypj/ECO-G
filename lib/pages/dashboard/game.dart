@@ -5,19 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_game/constants/constants.dart';
 import 'package:flutter_game/data/game_type_data.dart';
 import 'package:flutter_game/models/drag_object.dart';
-import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/generator_util.dart';
 import 'package:flutter_game/pages/dashboard/widgets/drag_object_view.dart';
 import 'package:flutter_game/utils/widget_position_utill.dart';
 
 @RoutePage()
 class GameScreen extends StatefulWidget {
-  const GameScreen({
-    super.key,
-    required this.selectedGame,
-  });
-
-  final LevelDataModel selectedGame;
+  const GameScreen({super.key});
 
   @override
   State<GameScreen> createState() => _GameScreenState();
@@ -26,13 +20,10 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   final GlobalKey dragRegion = GlobalKey();
 
-  // DragObject dragObject = DragObject(
-  //   id: 123,
-  //   width: 100,
-  //   height: 200,
-  // );
-
-  List<DragObject> objects = objectData;
+  List<DragObject> objects = objectData
+      .map((e) => e.toJson())
+      .map((e) => DragObject.fromJson(e))
+      .toList();
 
   Size dragRegionSize = const Size(0, 0);
 

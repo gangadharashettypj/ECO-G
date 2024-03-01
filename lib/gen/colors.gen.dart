@@ -16,8 +16,8 @@ class ColorName {
   /// Color: #82D1ED
   static const Color accent = Color(0xFF82D1ED);
 
-  /// Color: #FAFBFB
-  static const Color background = Color(0xFFFAFBFB);
+  /// Color: #1E1B1C
+  static const Color background = Color(0xFF1E1B1C);
 
   /// Color: #FF272B2D
   static const Color black = Color(0xFF272B2D);

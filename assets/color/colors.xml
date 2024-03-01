@@ -10,6 +10,7 @@
     <color name="dividerColor">#FFDEE5EC</color>
     <color name="copperGold">#CA9442</color>
     <color name='grayishBlack'>#131212</color>
-    <color name='background'>#FAFBFB</color>
+    <color name='background'>#1E1B1C</color>
     <color name='greyTextColor'>#828282</color>
+
 </resources>

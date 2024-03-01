@@ -2,10 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_game/components/button/secondary_button.dart';
+import 'package:flutter_game/components/image/image_widget.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/data/levels_data.dart';
+import 'package:flutter_game/extension/color_extension.dart';
+import 'package:flutter_game/gen/assets.gen.dart';
 import 'package:flutter_game/gen/colors.gen.dart';
-import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:flutter_game/pages/home/widgets/PlayerSelectedDialog.dart';
 import 'package:flutter_game/routes/app_router.dart';
@@ -20,68 +22,78 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  LevelDataModel? selectedGame;
-
   @override
   void initState() {
     gameStoreInstance.loadAllPlayers();
     super.initState();
   }
 
-  Widget buildMenus() {
-    return SecondaryButton(
-      title: 'PLAY',
-      onPressed: () {
-        selectedGame;
-        context.router.push(GameRoute(selectedGame: selectedGame!));
-      },
-      color: Colors.black,
-      fontWeight: FontWeight.bold,
-      borderThickness: 3,
-    );
-  }
-
   Widget buildLevelView() {
-    selectedGame ??= levelData[0];
+    gameStoreInstance.selectedGame.value ??= levelData[0];
+
     return Column(
       children: [
-        Wrap(
-          children: levelData
-              .map(
-                (e) => Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    side: const BorderSide(
-                      color: ColorName.textLightColor,
-                      width: 2,
-                    ),
-                  ),
-                  color: selectedGame?.id == e.id
-                      ? Colors.grey.shade400
-                      : Colors.white,
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(10),
-                    onTap: () {
-                      setState(() {
-                        selectedGame = e;
-                      });
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 32,
-                        vertical: 16,
-                      ),
-                      child: LabelWidget(
-                        e.levelNumber.toString(),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
+        ...levelData.map(
+          (e) => Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide(
+                color: gameStoreInstance.selectedGame.value?.id == e.id
+                    ? HexColor.fromHex(e.color).withOpacity(0.6)
+                    : HexColor.fromHex(e.color).withOpacity(0.2),
+                width: 4,
+              ),
+            ),
+            margin: const EdgeInsets.symmetric(
+              horizontal: 32,
+              vertical: 16,
+            ),
+            color: ColorName.background,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(10),
+              onTap: () {
+                setState(() {
+                  gameStoreInstance.selectedGame.value = e;
+                  context.router.push(const OptionsRoute());
+                });
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 16,
                 ),
-              )
-              .toList(),
-        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    ImageWidget(
+                      imageLocation: Assets.images.logo.path,
+                      height: 80,
+                    ),
+                    const Gap.h16(),
+                    Center(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 22,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.white,
+                        ),
+                        child: LabelWidget(
+                          e.title.toString(),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: ColorName.textDarkColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        )
       ],
     );
   }
@@ -110,13 +122,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   );
                 },
-                color: ColorName.textDarkColor,
+                color: Colors.white70,
                 fontWeight: FontWeight.bold,
                 borderThickness: 2,
+                width: 150,
               ),
               const LabelWidget(
                 'Player 1',
                 fontSize: 12,
+                color: Colors.grey,
               ),
             ],
           ),
@@ -138,13 +152,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   );
                 },
-                color: ColorName.textDarkColor,
+                width: 150,
+                color: Colors.white70,
                 fontWeight: FontWeight.bold,
                 borderThickness: 2,
               ),
               const LabelWidget(
                 'Player 2',
                 fontSize: 12,
+                color: Colors.grey,
               ),
             ],
           ),
@@ -156,6 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorName.background,
       body: SafeArea(
         child: Watch(
           (context) {
@@ -166,8 +183,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   child: buildLevelView(),
                 ),
-                const Gap.h32(),
-                buildMenus(),
                 const Gap.h32(),
               ],
             );

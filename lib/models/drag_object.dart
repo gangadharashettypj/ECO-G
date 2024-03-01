@@ -9,18 +9,20 @@ class DragObject {
   Offset targetPosition;
   Offset rootPosition;
   Offset tapOffset;
-  double height;
-  double width;
+  Size size;
+  int visibleTime;
+  int ownBy;
 
   DragObject({
     required this.id,
-    required this.width,
-    required this.height,
+    required this.size,
+    this.visibleTime = 0,
     this.rootPosition = const Offset(0, 0),
     this.targetPosition = const Offset(0, 0),
     this.tapOffset = const Offset(0, 0),
     this.image = '',
     this.text = '',
+    this.ownBy = 0,
   });
 
   bool updateActualPosition() {
@@ -60,7 +62,7 @@ class DragObject {
 
   bool checkIsWinner(Size boundary) {
     return (rootPosition.dy < 100 ||
-        rootPosition.dy + height > (boundary.height - 100));
+        rootPosition.dy + size.height > (boundary.height - 100));
   }
 
   bool checkIsFirstPlayerWinner(Size boundary) {
@@ -68,6 +70,6 @@ class DragObject {
   }
 
   bool checkIsSecondPlayerWinner(Size boundary) {
-    return (rootPosition.dy + height > (boundary.height - 100));
+    return (rootPosition.dy + size.height > (boundary.height - 100));
   }
 }

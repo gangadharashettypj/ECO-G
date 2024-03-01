@@ -38,9 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
               side: BorderSide(
-                color: gameStoreInstance.selectedGame.value?.id == e.id
-                    ? HexColor.fromHex(e.color).withOpacity(0.6)
-                    : HexColor.fromHex(e.color).withOpacity(0.2),
+                color: HexColor.fromHex(e.color).withOpacity(0.7),
                 width: 4,
               ),
             ),
@@ -66,25 +64,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ImageWidget(
-                      imageLocation: Assets.images.logo.path,
-                      height: 80,
+                      imageLocation: e.image,
+                      height: 100,
                     ),
                     const Gap.h16(),
                     Center(
                       child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 22,
-                          vertical: 4,
-                        ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
-                          color: Colors.white,
                         ),
                         child: LabelWidget(
                           e.title.toString(),
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: ColorName.textDarkColor,
+                          fontSize: 20,
+                          color: HexColor.fromHex(e.color),
                         ),
                       ),
                     ),
@@ -179,6 +172,10 @@ class _HomeScreenState extends State<HomeScreen> {
             return Column(
               children: [
                 buildPlayerSelectionView(),
+                const Gap.h32(),
+                ImageWidget(
+                  imageLocation: Assets.images.logo.path,
+                ),
                 const Gap.h32(),
                 Expanded(
                   child: buildLevelView(),

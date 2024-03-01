@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:flutter_game/constants/constants.dart';
 import 'package:flutter_game/models/drag_object.dart';
 
 double randomInRange({required double min, required double max}) {
@@ -14,8 +15,10 @@ Offset generateRandomCoordinates({
   required Size size,
 }) {
   double randomX = randomInRange(min: 1, max: (screenWidth - size.width));
-  double randomY =
-      randomInRange(min: 130, max: (screenHeight - size.height - 130));
+  double randomY = randomInRange(
+    min: targetPlayerHeight + 30,
+    max: (screenHeight - size.height - targetPlayerHeight + 30),
+  );
 
   return Offset(randomX, randomY);
 }

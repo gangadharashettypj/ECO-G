@@ -9,6 +9,7 @@ part of 'drag_object.dart';
 DragObject _$DragObjectFromJson(Map json) => DragObject(
       id: json['id'] as int,
       size: josnToSize(json['size'] as Map),
+      item: ItemModel.fromJson(Map<String, dynamic>.from(json['item'] as Map)),
       visibleTime: json['visibleTime'] as int? ?? 0,
       rootPosition: json['rootPosition'] == null
           ? const Offset(0, 0)
@@ -19,16 +20,13 @@ DragObject _$DragObjectFromJson(Map json) => DragObject(
       tapOffset: json['tapOffset'] == null
           ? const Offset(0, 0)
           : jsonToOffset(json['tapOffset'] as Map),
-      image: json['image'] as String? ?? '',
-      text: json['text'] as String? ?? '',
       ownBy: json['ownBy'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$DragObjectToJson(DragObject instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'text': instance.text,
-      'image': instance.image,
+      'item': instance.item.toJson(),
       'targetPosition': offsetToJson(instance.targetPosition),
       'rootPosition': offsetToJson(instance.rootPosition),
       'tapOffset': offsetToJson(instance.tapOffset),

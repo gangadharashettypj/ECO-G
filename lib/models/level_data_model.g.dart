@@ -9,13 +9,12 @@ part of 'level_data_model.dart';
 LevelDataModel _$LevelDataModelFromJson(Map json) => LevelDataModel(
       id: json['id'] as String,
       title: json['title'] as String,
+      image: json['image'] as String,
       concept: json['concept'] as String,
       levelNumber: json['levelNumber'] as int,
-      itemImages: (json['itemImages'] as List<dynamic>)
-          .map((e) => e as String)
+      items: (json['items'] as List<dynamic>)
+          .map((e) => ItemModel.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
-      itemNames:
-          (json['itemNames'] as List<dynamic>).map((e) => e as String).toList(),
       color: json['color'] as String? ?? '#FFFFFF',
       isImage: json['isImage'] as bool? ?? false,
     );
@@ -25,9 +24,21 @@ Map<String, dynamic> _$LevelDataModelToJson(LevelDataModel instance) =>
       'id': instance.id,
       'levelNumber': instance.levelNumber,
       'title': instance.title,
+      'image': instance.image,
       'concept': instance.concept,
       'isImage': instance.isImage,
       'color': instance.color,
-      'itemImages': instance.itemImages,
-      'itemNames': instance.itemNames,
+      'items': instance.items.map((e) => e.toJson()).toList(),
+    };
+
+ItemModel _$ItemModelFromJson(Map json) => ItemModel(
+      name: json['name'] as String,
+      image: json['image'] as String? ?? '',
+      color: json['color'] as String? ?? '#FFFFFF',
+    );
+
+Map<String, dynamic> _$ItemModelToJson(ItemModel instance) => <String, dynamic>{
+      'name': instance.name,
+      'image': instance.image,
+      'color': instance.color,
     };

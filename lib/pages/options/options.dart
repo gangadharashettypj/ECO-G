@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_game/components/button/secondary_button.dart';
 import 'package:flutter_game/components/image/image_widget.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/enums/modes.dart';
@@ -40,6 +39,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
         borderRadius: BorderRadius.circular(10),
         onTap: () {
           gameStoreInstance.selectedGameMode.value = e;
+          context.router.push(const GameRoute());
         },
         child: Container(
           padding: const EdgeInsets.symmetric(
@@ -79,27 +79,23 @@ class _OptionsScreenState extends State<OptionsScreen> {
     );
   }
 
-  Widget buildMenus() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
-      child: SecondaryButton(
-        title: 'PLAY',
-        onPressed: () {
-          context.router.push(const GameRoute());
-        },
-        color: Colors.white,
-        width: double.infinity,
-        fontSize: 22,
-        fontWeight: FontWeight.bold,
-        borderThickness: 3,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorName.background,
+      appBar: AppBar(
+        backgroundColor: ColorName.background,
+        title: const LabelWidget(
+          'BACK',
+          color: ColorName.copperGold,
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
+        ),
+        iconTheme: const IconThemeData(
+          color: ColorName.copperGold,
+        ),
+        centerTitle: false,
+      ),
       body: SafeArea(
         child: Watch(
           (context) {
@@ -115,8 +111,6 @@ class _OptionsScreenState extends State<OptionsScreen> {
                 ...GameMode.values.map(
                   (e) => buildModeCard(e),
                 ),
-                const Expanded(child: SizedBox.shrink()),
-                buildMenus(),
                 const Expanded(child: SizedBox.shrink()),
               ],
             );

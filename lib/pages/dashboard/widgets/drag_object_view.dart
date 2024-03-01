@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
-import 'package:flutter_game/gen/colors.gen.dart';
+import 'package:flutter_game/extension/color_extension.dart';
 import 'package:flutter_game/models/drag_object.dart';
 
 class DragObjectView extends StatefulWidget {
@@ -86,11 +86,11 @@ class _DragObjectViewState extends State<DragObjectView> {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white),
                 borderRadius: BorderRadius.circular(8),
-                color: ColorName.primary,
+                color: HexColor.fromHex(dragObject.item.color),
               ),
               child: Center(
                 child: LabelWidget(
-                  dragObject.text,
+                  dragObject.item.name,
                   color: Colors.white,
                 ),
               ),

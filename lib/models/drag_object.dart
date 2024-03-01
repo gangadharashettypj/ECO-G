@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter_game/constants/constants.dart';
+import 'package:flutter_game/models/level_data_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'drag_object.g.dart';
@@ -36,8 +37,8 @@ Size josnToSize(Map json) {
 @JsonSerializable(anyMap: true, explicitToJson: true)
 class DragObject {
   int id;
-  String text;
-  String image;
+  ItemModel item;
+
   @JsonKey(toJson: offsetToJson, fromJson: jsonToOffset)
   Offset targetPosition;
   @JsonKey(toJson: offsetToJson, fromJson: jsonToOffset)
@@ -52,12 +53,11 @@ class DragObject {
   DragObject({
     required this.id,
     required this.size,
+    required this.item,
     this.visibleTime = 0,
     this.rootPosition = const Offset(0, 0),
     this.targetPosition = const Offset(0, 0),
     this.tapOffset = const Offset(0, 0),
-    this.image = '',
-    this.text = '',
     this.ownBy = 0,
   });
 
@@ -97,16 +97,17 @@ class DragObject {
   }
 
   bool checkIsWinner(Size boundary) {
-    return (rootPosition.dy < 100 ||
-        rootPosition.dy + size.height > (boundary.height - 100));
+    return (rootPosition.dy < targetPlayerHeight ||
+        rootPosition.dy + size.height > (boundary.height - targetPlayerHeight));
   }
 
   bool checkIsFirstPlayerWinner(Size boundary) {
-    return (rootPosition.dy < 100);
+    return (rootPosition.dy < targetPlayerHeight);
   }
 
   bool checkIsSecondPlayerWinner(Size boundary) {
-    return (rootPosition.dy + size.height > (boundary.height - 100));
+    return (rootPosition.dy + size.height >
+        (boundary.height - targetPlayerHeight));
   }
 
   factory DragObject.fromJson(Map<String, dynamic> json) =>

@@ -1,12 +1,18 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_game/constants/constants.dart';
-import 'package:flutter_game/data/game_type_data.dart';
+import 'package:flutter_game/extension/color_extension.dart';
+import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/models/drag_object.dart';
 import 'package:flutter_game/pages/dashboard/generator_util.dart';
+import 'package:flutter_game/pages/dashboard/store/game_store.dart';
+import 'package:flutter_game/pages/dashboard/widgets/collected_item_indicator.dart';
 import 'package:flutter_game/pages/dashboard/widgets/drag_object_view.dart';
+import 'package:flutter_game/pages/dashboard/widgets/game_options_view.dart';
+import 'package:flutter_game/pages/dashboard/widgets/target_player_card.dart';
 import 'package:flutter_game/utils/widget_position_utill.dart';
 
 @RoutePage()
@@ -20,10 +26,7 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   final GlobalKey dragRegion = GlobalKey();
 
-  List<DragObject> objects = objectData
-      .map((e) => e.toJson())
-      .map((e) => DragObject.fromJson(e))
-      .toList();
+  List<DragObject> objects = [];
 
   Size dragRegionSize = const Size(0, 0);
 
@@ -31,6 +34,11 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   void initState() {
+    objects = gameStoreInstance.selectedGame.value!.getDragObjects
+        .map((e) => e.toJson())
+        .map((e) => DragObject.fromJson(e))
+        .toList();
+
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       dragRegionSize = getSize(dragRegion);
       addRandomStartPositionForObjects(
@@ -67,6 +75,7 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorName.background,
       body: SafeArea(
         child: Stack(
           key: dragRegion,
@@ -81,39 +90,70 @@ class _GameScreenState extends State<GameScreen> {
               top: 0,
               left: 0,
               right: 0,
-              child: DragTarget<int>(
-                builder: (context, candidateItems, rejectedItems) {
-                  return Container(
-                    color: Colors.orange.withOpacity(0.7),
-                    height: 100,
-                    width: double.infinity,
-                  );
-                },
-                onAcceptWithDetails: (details) {
-                  // if (dragObject.checkIsFirstPlayerWinner(dragRegionsize)) {
-                  //   BotToast.showText(text: 'Winner is 1');
-                  // }
-                },
+              child: Column(
+                children: [
+                  Row(
+                    children:
+                        gameStoreInstance.selectedGame.value!.items.reversed
+                            .map(
+                              (e) => Expanded(
+                                child: CollectedItemIndicator(
+                                  color: HexColor.fromHex(e.color),
+                                  reversed: true,
+                                ),
+                              ),
+                            )
+                            .toList(),
+                  ),
+                  const Gap.h8(),
+                  const TargetPlayerCard(
+                    color: Colors.blue,
+                  ),
+                ],
               ),
             ),
             Positioned(
               bottom: 0,
               left: 0,
               right: 0,
-              child: DragTarget<int>(
-                builder: (context, candidateItems, rejectedItems) {
-                  return Container(
-                    color: Colors.red.withOpacity(0.7),
-                    height: 100,
-                    width: double.infinity,
-                  );
-                },
-                onAcceptWithDetails: (details) {
-                  // if (dragObject.checkIsSecondPlayerWinner(dragRegionsize)) {
-                  //   BotToast.showText(text: 'Winner is 2');
-                  // }
-                },
+              child: Column(
+                children: [
+                  const TargetPlayerCard(
+                    color: Colors.red,
+                  ),
+                  const Gap.h8(),
+                  Row(
+                    children: gameStoreInstance.selectedGame.value!.items
+                        .map(
+                          (e) => Expanded(
+                            child: CollectedItemIndicator(
+                              color: HexColor.fromHex(e.color),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ],
               ),
+            ),
+            // Positioned(
+            //   bottom: 0,
+            //   left: 0,
+            //   right: 0,
+            //   child: Row(
+            //     children: gameStoreInstance.selectedGame.value!.items
+            //         .map(
+            //           (e) => Expanded(
+            //             child: CollectedItemIndicator(
+            //               color: HexColor.fromHex(e.color),
+            //             ),
+            //           ),
+            //         )
+            //         .toList(),
+            //   ),
+            // ),
+            const Positioned.fill(
+              child: GameOptionsView(),
             ),
           ],
         ),

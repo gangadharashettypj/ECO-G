@@ -19,8 +19,18 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/solar_panel.png
+  AssetGenImage get solarPanel =>
+      const AssetGenImage('assets/images/solar_panel.png');
+
+  /// File path: assets/images/tree.png
+  AssetGenImage get tree => const AssetGenImage('assets/images/tree.png');
+
+  /// File path: assets/images/water.png
+  AssetGenImage get water => const AssetGenImage('assets/images/water.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [bg1, logo];
+  List<AssetGenImage> get values => [bg1, logo, solarPanel, tree];
 }
 
 class $AssetsLottieGen {

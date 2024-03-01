@@ -8,6 +8,7 @@ import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:flutter_game/pages/home/widgets/PlayerSelectedDialog.dart';
+import 'package:flutter_game/routes/app_router.dart';
 import 'package:signals/signals_flutter.dart';
 
 @RoutePage()
@@ -19,7 +20,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  LevelDataModel? selectedIndex;
+  LevelDataModel? selectedGame;
 
   @override
   void initState() {
@@ -30,7 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget buildMenus() {
     return SecondaryButton(
       title: 'PLAY',
-      onPressed: () {},
+      onPressed: () {
+        selectedGame;
+        context.router.push(GameRoute(selectedGame: selectedGame!));
+      },
       color: Colors.black,
       fontWeight: FontWeight.bold,
       borderThickness: 3,
@@ -38,49 +42,47 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildLevelView() {
-    selectedIndex ??= levelData[0];
-    return Container(
-      child: Column(
-        children: [
-          Wrap(
-            children: levelData
-                .map(
-                  (e) => Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      side: const BorderSide(
-                        color: ColorName.textLightColor,
-                        width: 2,
-                      ),
+    selectedGame ??= levelData[0];
+    return Column(
+      children: [
+        Wrap(
+          children: levelData
+              .map(
+                (e) => Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    side: const BorderSide(
+                      color: ColorName.textLightColor,
+                      width: 2,
                     ),
-                    color: selectedIndex?.id == e.id
-                        ? Colors.grey.shade400
-                        : Colors.white,
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(10),
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = e;
-                        });
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 32,
-                          vertical: 16,
-                        ),
-                        child: LabelWidget(
-                          e.levelNumber.toString(),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+                  ),
+                  color: selectedGame?.id == e.id
+                      ? Colors.grey.shade400
+                      : Colors.white,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () {
+                      setState(() {
+                        selectedGame = e;
+                      });
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 16,
+                      ),
+                      child: LabelWidget(
+                        e.levelNumber.toString(),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
                     ),
                   ),
-                )
-                .toList(),
-          ),
-        ],
-      ),
+                ),
+              )
+              .toList(),
+        ),
+      ],
     );
   }
 
@@ -154,21 +156,23 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Watch(
-        (context) {
-          return Column(
-            children: [
-              buildPlayerSelectionView(),
-              const Gap.h32(),
-              Expanded(
-                child: buildLevelView(),
-              ),
-              const Gap.h32(),
-              buildMenus(),
-              const Gap.h32(),
-            ],
-          );
-        },
+      body: SafeArea(
+        child: Watch(
+          (context) {
+            return Column(
+              children: [
+                buildPlayerSelectionView(),
+                const Gap.h32(),
+                Expanded(
+                  child: buildLevelView(),
+                ),
+                const Gap.h32(),
+                buildMenus(),
+                const Gap.h32(),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

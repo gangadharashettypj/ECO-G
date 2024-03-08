@@ -752,6 +752,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  paper_card:
+    dependency: "direct main"
+    description:
+      name: paper_card
+      sha256: "0fd5caa82234393639f9898710aeaad5b2346ea99b54987b65c46588936f0feb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.4"
   path:
     dependency: transitive
     description:
@@ -1237,6 +1245,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.6"
+  widget_mask:
+    dependency: transitive
+    description:
+      name: widget_mask
+      sha256: fa1f5b6b9ac7f7a300a67ae267191b329f3f812cf86ad7a0d03369dc68e5e732
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0+0"
   win32:
     dependency: transitive
     description:

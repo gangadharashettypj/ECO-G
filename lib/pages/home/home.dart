@@ -11,6 +11,7 @@ import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:flutter_game/pages/home/widgets/PlayerSelectedDialog.dart';
 import 'package:flutter_game/routes/app_router.dart';
+import 'package:paper_card/paper_card.dart';
 import 'package:signals/signals_flutter.dart';
 
 @RoutePage()
@@ -22,9 +23,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  BlendMode? blendMode;
+  String name = '';
+  int index = 0;
+
   @override
   void initState() {
     gameStoreInstance.loadAllPlayers();
+
     super.initState();
   }
 
@@ -34,19 +40,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       children: [
         ...levelData.map(
-          (e) => Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-              side: BorderSide(
-                color: HexColor.fromHex(e.color).withOpacity(0.7),
-                width: 4,
-              ),
-            ),
+          (e) => PaperCard(
             margin: const EdgeInsets.symmetric(
               horizontal: 32,
               vertical: 16,
             ),
-            color: ColorName.background,
+            backgroundColor: ColorName.copperGold.withOpacity(0.1),
+            borderColor: Colors.brown,
+            borderRadius: 8,
             child: InkWell(
               borderRadius: BorderRadius.circular(10),
               onTap: () {
@@ -115,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   );
                 },
-                color: Colors.white70,
+                color: ColorName.copperGold,
                 fontWeight: FontWeight.bold,
                 borderThickness: 2,
                 width: 150,
@@ -123,7 +124,6 @@ class _HomeScreenState extends State<HomeScreen> {
               const LabelWidget(
                 'Player 1',
                 fontSize: 12,
-                color: Colors.grey,
               ),
             ],
           ),
@@ -146,14 +146,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 width: 150,
-                color: Colors.white70,
+                color: ColorName.copperGold,
                 fontWeight: FontWeight.bold,
                 borderThickness: 2,
               ),
               const LabelWidget(
                 'Player 2',
                 fontSize: 12,
-                color: Colors.grey,
               ),
             ],
           ),
@@ -167,23 +166,26 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: ColorName.background,
       body: SafeArea(
-        child: Watch(
-          (context) {
-            return Column(
-              children: [
-                buildPlayerSelectionView(),
-                const Gap.h32(),
-                ImageWidget(
-                  imageLocation: Assets.images.logo.path,
+        child: PaperCard(
+          height: double.infinity,
+          child: Watch(
+            (context) {
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    buildPlayerSelectionView(),
+                    const Gap.h32(),
+                    ImageWidget(
+                      imageLocation: Assets.images.logo.path,
+                    ),
+                    const Gap.h32(),
+                    buildLevelView(),
+                    const Gap.h32(),
+                  ],
                 ),
-                const Gap.h32(),
-                Expanded(
-                  child: buildLevelView(),
-                ),
-                const Gap.h32(),
-              ],
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

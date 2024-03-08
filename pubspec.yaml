@@ -37,6 +37,7 @@ dependencies:
   uuid: 4.3.3
   package_info_plus: 5.0.1
   json_annotation: 4.8.1
+  paper_card: 0.1.4
 
 dependency_overrides:
   flutter_lints: 3.0.1

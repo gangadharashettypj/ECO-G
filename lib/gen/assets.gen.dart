@@ -16,6 +16,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/bg1.png
   AssetGenImage get bg1 => const AssetGenImage('assets/images/bg1.png');
 
+  /// File path: assets/images/crayon_mask.png
+  AssetGenImage get crayonMask =>
+      const AssetGenImage('assets/images/crayon_mask.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
@@ -30,7 +34,8 @@ class $AssetsImagesGen {
   AssetGenImage get water => const AssetGenImage('assets/images/water.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [bg1, logo, solarPanel, tree];
+  List<AssetGenImage> get values =>
+      [bg1, crayonMask, logo, solarPanel, tree, water];
 }
 
 class $AssetsLottieGen {

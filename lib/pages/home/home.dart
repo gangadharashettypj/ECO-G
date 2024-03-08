@@ -5,7 +5,6 @@ import 'package:flutter_game/components/button/secondary_button.dart';
 import 'package:flutter_game/components/image/image_widget.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/data/levels_data.dart';
-import 'package:flutter_game/extension/color_extension.dart';
 import 'package:flutter_game/gen/assets.gen.dart';
 import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
@@ -42,7 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ...levelData.map(
           (e) => PaperCard(
             margin: const EdgeInsets.symmetric(
-              horizontal: 32,
               vertical: 16,
             ),
             backgroundColor: ColorName.copperGold.withOpacity(0.1),
@@ -53,36 +51,21 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 setState(() {
                   gameStoreInstance.selectedGame.value = e;
-                  context.router.push(const OptionsRoute());
+                  context.router.push(OptionsRoute(levelDataModel: e));
                 });
               },
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 16,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    ImageWidget(
-                      imageLocation: e.image,
-                      height: 100,
-                    ),
-                    const Gap.h16(),
-                    Center(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: LabelWidget(
-                          e.title.toString(),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: HexColor.fromHex(e.color),
-                        ),
-                      ),
-                    ),
-                  ],
+                padding:
+                    const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                height: 50,
+                width: double.infinity,
+                child: Center(
+                  child: LabelWidget(
+                    e.title,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.brown,
+                  ),
                 ),
               ),
             ),

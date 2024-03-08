@@ -28,9 +28,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     OptionsRoute.name: (routeData) {
+      final args = routeData.argsAs<OptionsRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const OptionsScreen(),
+        child: OptionsScreen(
+          key: args.key,
+          levelDataModel: args.levelDataModel,
+        ),
       );
     },
     SplashRoute.name: (routeData) {
@@ -72,16 +76,40 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [OptionsScreen]
-class OptionsRoute extends PageRouteInfo<void> {
-  const OptionsRoute({List<PageRouteInfo>? children})
-      : super(
+class OptionsRoute extends PageRouteInfo<OptionsRouteArgs> {
+  OptionsRoute({
+    Key? key,
+    required LevelDataModel levelDataModel,
+    List<PageRouteInfo>? children,
+  }) : super(
           OptionsRoute.name,
+          args: OptionsRouteArgs(
+            key: key,
+            levelDataModel: levelDataModel,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'OptionsRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<OptionsRouteArgs> page =
+      PageInfo<OptionsRouteArgs>(name);
+}
+
+class OptionsRouteArgs {
+  const OptionsRouteArgs({
+    this.key,
+    required this.levelDataModel,
+  });
+
+  final Key? key;
+
+  final LevelDataModel levelDataModel;
+
+  @override
+  String toString() {
+    return 'OptionsRouteArgs{key: $key, levelDataModel: $levelDataModel}';
+  }
 }
 
 /// generated route for

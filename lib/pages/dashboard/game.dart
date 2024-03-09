@@ -5,7 +5,6 @@ import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_game/constants/constants.dart';
 import 'package:flutter_game/extension/color_extension.dart';
-import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/models/drag_object.dart';
 import 'package:flutter_game/pages/dashboard/generator_util.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
@@ -14,6 +13,7 @@ import 'package:flutter_game/pages/dashboard/widgets/drag_object_view.dart';
 import 'package:flutter_game/pages/dashboard/widgets/game_options_view.dart';
 import 'package:flutter_game/pages/dashboard/widgets/target_player_card.dart';
 import 'package:flutter_game/utils/widget_position_utill.dart';
+import 'package:paper_card/paper_card.dart';
 
 @RoutePage()
 class GameScreen extends StatefulWidget {
@@ -74,88 +74,96 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorName.background,
-      body: SafeArea(
-        child: Stack(
-          key: dragRegion,
-          children: [
-            ...objects.map(
-              (dragObject) => DragObjectView(
-                dragObject: dragObject,
-                size: dragRegionSize,
+    return PaperCard(
+      margin: const EdgeInsets.symmetric(
+        vertical: 16,
+      ),
+      // backgroundColor: gameStoreInstance.selectedGameMode.value.color,
+      borderRadius: 8,
+      // borderThickness: 0,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
+          child: Stack(
+            key: dragRegion,
+            children: [
+              ...objects.map(
+                (dragObject) => DragObjectView(
+                  dragObject: dragObject,
+                  size: dragRegionSize,
+                ),
               ),
-            ),
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Column(
-                children: [
-                  Row(
-                    children:
-                        gameStoreInstance.selectedGame.value!.items.reversed
-                            .map(
-                              (e) => Expanded(
-                                child: CollectedItemIndicator(
-                                  color: HexColor.fromHex(e.color),
-                                  reversed: true,
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: Column(
+                  children: [
+                    Row(
+                      children:
+                          gameStoreInstance.selectedGame.value!.items.reversed
+                              .map(
+                                (e) => Expanded(
+                                  child: CollectedItemIndicator(
+                                    color: HexColor.fromHex(e.color),
+                                    reversed: true,
+                                  ),
                                 ),
+                              )
+                              .toList(),
+                    ),
+                    const Gap.h8(),
+                    const TargetPlayerCard(
+                      color: Colors.blue,
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Column(
+                  children: [
+                    const TargetPlayerCard(
+                      color: Colors.red,
+                    ),
+                    const Gap.h8(),
+                    Row(
+                      children: gameStoreInstance.selectedGame.value!.items
+                          .map(
+                            (e) => Expanded(
+                              child: CollectedItemIndicator(
+                                color: HexColor.fromHex(e.color),
                               ),
-                            )
-                            .toList(),
-                  ),
-                  const Gap.h8(),
-                  const TargetPlayerCard(
-                    color: Colors.blue,
-                  ),
-                ],
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Column(
-                children: [
-                  const TargetPlayerCard(
-                    color: Colors.red,
-                  ),
-                  const Gap.h8(),
-                  Row(
-                    children: gameStoreInstance.selectedGame.value!.items
-                        .map(
-                          (e) => Expanded(
-                            child: CollectedItemIndicator(
-                              color: HexColor.fromHex(e.color),
                             ),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ],
+                          )
+                          .toList(),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            // Positioned(
-            //   bottom: 0,
-            //   left: 0,
-            //   right: 0,
-            //   child: Row(
-            //     children: gameStoreInstance.selectedGame.value!.items
-            //         .map(
-            //           (e) => Expanded(
-            //             child: CollectedItemIndicator(
-            //               color: HexColor.fromHex(e.color),
-            //             ),
-            //           ),
-            //         )
-            //         .toList(),
-            //   ),
-            // ),
-            const Positioned.fill(
-              child: GameOptionsView(),
-            ),
-          ],
+              // Positioned(
+              //   bottom: 0,
+              //   left: 0,
+              //   right: 0,
+              //   child: Row(
+              //     children: gameStoreInstance.selectedGame.value!.items
+              //         .map(
+              //           (e) => Expanded(
+              //             child: CollectedItemIndicator(
+              //               color: HexColor.fromHex(e.color),
+              //             ),
+              //           ),
+              //         )
+              //         .toList(),
+              //   ),
+              // ),
+              const Positioned.fill(
+                child: GameOptionsView(),
+              ),
+            ],
+          ),
         ),
       ),
     );

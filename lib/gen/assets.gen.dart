@@ -20,12 +20,22 @@ class $AssetsImagesGen {
   AssetGenImage get crayonMask =>
       const AssetGenImage('assets/images/crayon_mask.png');
 
+  /// File path: assets/images/infinity.png
+  AssetGenImage get infinity =>
+      const AssetGenImage('assets/images/infinity.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
+  /// File path: assets/images/rapid.png
+  AssetGenImage get rapid => const AssetGenImage('assets/images/rapid.png');
 
   /// File path: assets/images/solar_panel.png
   AssetGenImage get solarPanel =>
       const AssetGenImage('assets/images/solar_panel.png');
+
+  /// File path: assets/images/timer.png
+  AssetGenImage get timer => const AssetGenImage('assets/images/timer.png');
 
   /// File path: assets/images/tree.png
   AssetGenImage get tree => const AssetGenImage('assets/images/tree.png');
@@ -35,7 +45,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [bg1, crayonMask, logo, solarPanel, tree, water];
+      [bg1, crayonMask, infinity, logo, rapid, solarPanel, timer, tree, water];
 }
 
 class $AssetsLottieGen {

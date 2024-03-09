@@ -13,9 +13,21 @@ final levelData = [
     levelNumber: 1,
     color: Colors.greenAccent.toHex(),
     items: [
-      ItemModel(name: 'Soil', color: Colors.brown.toHex()),
-      ItemModel(name: 'Water', color: Colors.cyan.toHex()),
-      ItemModel(name: 'Seeds', color: Colors.green.toHex()),
+      ItemModel(
+        name: 'Soil',
+        color: Colors.brown.toHex(),
+        keyType: ItemType.positive,
+      ),
+      ItemModel(
+        name: 'Water',
+        color: Colors.cyan.toHex(),
+        keyType: ItemType.positive,
+      ),
+      ItemModel(
+        name: 'Seeds',
+        color: Colors.green.toHex(),
+        keyType: ItemType.positive,
+      ),
     ],
   ),
   LevelDataModel(
@@ -26,9 +38,21 @@ final levelData = [
     levelNumber: 2,
     color: ColorName.copperGold.toHex(),
     items: [
-      ItemModel(name: 'Solar Panel', color: Colors.blueGrey.toHex()),
-      ItemModel(name: 'Sun light', color: Colors.orangeAccent.toHex()),
-      ItemModel(name: 'LED', color: Colors.grey.toHex()),
+      ItemModel(
+        name: 'Solar Panel',
+        color: Colors.blueGrey.toHex(),
+        keyType: ItemType.positive,
+      ),
+      ItemModel(
+        name: 'Sun light',
+        color: Colors.orangeAccent.toHex(),
+        keyType: ItemType.positive,
+      ),
+      ItemModel(
+        name: 'LED',
+        color: Colors.grey.toHex(),
+        keyType: ItemType.positive,
+      ),
     ],
   ),
   LevelDataModel(
@@ -39,9 +63,21 @@ final levelData = [
     levelNumber: 3,
     color: ColorName.primaryDark.toHex(),
     items: [
-      ItemModel(name: 'Sand', color: Colors.brown.toHex()),
-      ItemModel(name: 'Gravel', color: Colors.grey.toHex()),
-      ItemModel(name: 'Stone', color: Colors.blueGrey.toHex()),
+      ItemModel(
+        name: 'Sand',
+        color: Colors.brown.toHex(),
+        keyType: ItemType.positive,
+      ),
+      ItemModel(
+        name: 'Gravel',
+        color: Colors.grey.toHex(),
+        keyType: ItemType.positive,
+      ),
+      ItemModel(
+        name: 'Stone',
+        color: Colors.blueGrey.toHex(),
+        keyType: ItemType.positive,
+      ),
     ],
   ),
 ];

@@ -33,6 +33,7 @@ Map<String, dynamic> _$LevelDataModelToJson(LevelDataModel instance) =>
 
 ItemModel _$ItemModelFromJson(Map json) => ItemModel(
       name: json['name'] as String,
+      keyType: $enumDecode(_$ItemTypeEnumMap, json['keyType']),
       image: json['image'] as String? ?? '',
       color: json['color'] as String? ?? '#FFFFFF',
     );
@@ -41,4 +42,10 @@ Map<String, dynamic> _$ItemModelToJson(ItemModel instance) => <String, dynamic>{
       'name': instance.name,
       'image': instance.image,
       'color': instance.color,
+      'keyType': _$ItemTypeEnumMap[instance.keyType]!,
     };
+
+const _$ItemTypeEnumMap = {
+  ItemType.positive: 'positive',
+  ItemType.negative: 'negative',
+};

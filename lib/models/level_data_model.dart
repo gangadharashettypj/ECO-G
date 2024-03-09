@@ -47,14 +47,21 @@ class LevelDataModel {
   Map<String, dynamic> toJson() => _$LevelDataModelToJson(this);
 }
 
+enum ItemType {
+  positive,
+  negative,
+}
+
 @JsonSerializable(anyMap: true, explicitToJson: true)
 class ItemModel {
   final String name;
   final String image;
   final String color;
+  final ItemType keyType;
 
   ItemModel({
     required this.name,
+    required this.keyType,
     this.image = '',
     this.color = '#FFFFFF',
   });

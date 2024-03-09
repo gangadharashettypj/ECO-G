@@ -50,6 +50,16 @@ class DragObject {
   int visibleTime;
   int ownBy;
 
+  int get score {
+    if (item.keyType == ItemType.positive) {
+      return 1;
+    }
+    if (item.keyType == ItemType.negative) {
+      return -1;
+    }
+    return 0;
+  }
+
   DragObject({
     required this.id,
     required this.size,

@@ -8,15 +8,8 @@ class GameOptionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // const Positioned(
-        //   left: 0,
-        //   child: LabelWidget(
-        //     'T1',
-        //     color: Colors.white,
-        //   ),
-        // ),
         Positioned(
-          right: 10,
+          right: 0,
           top: 0,
           bottom: 0,
           child: Center(
@@ -28,15 +21,15 @@ class GameOptionsView extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.white,
+                    color: Colors.grey,
                     width: 1,
                   ),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                padding: const EdgeInsets.all(4),
+                padding: const EdgeInsets.all(2),
                 child: const Icon(
-                  Icons.pause,
-                  color: Colors.white,
+                  Icons.stop,
+                  color: Colors.grey,
                   size: 24,
                 ),
               ),

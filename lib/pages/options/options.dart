@@ -122,8 +122,6 @@ class _OptionsScreenState extends State<OptionsScreen> {
         child: Container(
           padding: const EdgeInsets.all(32.0),
           decoration: BoxDecoration(
-            // color:
-            //     gameStoreInstance.selectedGameMode.value.color.withOpacity(0.3),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Container(
@@ -212,7 +210,9 @@ class _OptionsScreenState extends State<OptionsScreen> {
                     child: ButtonWidget(
                       title: 'PLAY',
                       onPressed: () {
-                        context.router.push(const GameRoute());
+                        context.router.push(
+                          gameStoreInstance.selectedGameMode.value.route,
+                        );
                       },
                       backgroundColor: Colors.white,
                       expanded: false,

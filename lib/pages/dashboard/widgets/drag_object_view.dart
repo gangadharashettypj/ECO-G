@@ -8,10 +8,12 @@ class DragObjectView extends StatefulWidget {
     super.key,
     required this.dragObject,
     required this.size,
+    this.onItemReceived,
   });
 
   final DragObject dragObject;
   final Size size;
+  final Function(int playerId)? onItemReceived;
 
   @override
   State<DragObjectView> createState() => _DragObjectViewState();
@@ -53,11 +55,11 @@ class _DragObjectViewState extends State<DragObjectView> {
             }
             dragObject.targetPosition = Offset(x, y);
             if (dragObject.checkIsFirstPlayerWinner(size)) {
-              dragObject.ownBy = 1;
+              widget.onItemReceived?.call(1);
             }
 
             if (dragObject.checkIsSecondPlayerWinner(size)) {
-              dragObject.ownBy = 2;
+              widget.onItemReceived?.call(2);
             }
           },
           onDragEnd: (details) {
@@ -68,11 +70,11 @@ class _DragObjectViewState extends State<DragObjectView> {
               );
 
               if (dragObject.checkIsFirstPlayerWinner(size)) {
-                dragObject.ownBy = 1;
+                widget.onItemReceived?.call(1);
               }
 
               if (dragObject.checkIsSecondPlayerWinner(size)) {
-                dragObject.ownBy = 2;
+                widget.onItemReceived?.call(2);
               }
             });
           },

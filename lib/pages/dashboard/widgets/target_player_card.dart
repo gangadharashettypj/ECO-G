@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_game/components/image/image_widget.dart';
+import 'package:flutter_game/gen/assets.gen.dart';
 
 class TargetPlayerCard extends StatelessWidget {
   const TargetPlayerCard({
@@ -34,6 +36,33 @@ class TargetPlayerCard extends StatelessWidget {
                 height: 50,
                 width: 50,
               ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class TargetPlayerCard1 extends StatelessWidget {
+  const TargetPlayerCard1({
+    super.key,
+    this.color = Colors.red,
+  });
+
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return DragTarget<int>(
+      builder: (context, candidateItems, rejectedItems) {
+        return Center(
+          child: Center(
+            child: ImageWidget(
+              imageLocation: Assets.images.person.path,
+              height: 100,
+              width: 100,
+              color: color,
             ),
           ),
         );

@@ -43,9 +43,22 @@ class $AssetsImagesGen {
   /// File path: assets/images/water.png
   AssetGenImage get water => const AssetGenImage('assets/images/water.png');
 
+  /// File path: assets/images/person.png
+  AssetGenImage get person => const AssetGenImage('assets/images/person.png');
+
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [bg1, crayonMask, infinity, logo, rapid, solarPanel, timer, tree, water];
+  List<AssetGenImage> get values => [
+        bg1,
+        crayonMask,
+        infinity,
+        logo,
+        rapid,
+        solarPanel,
+        timer,
+        tree,
+        water,
+        person
+      ];
 }
 
 class $AssetsLottieGen {

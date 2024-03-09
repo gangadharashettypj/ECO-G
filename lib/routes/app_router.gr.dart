@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    BulletGameRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const BulletGameScreen(),
+      );
+    },
     GameRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -44,6 +50,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [BulletGameScreen]
+class BulletGameRoute extends PageRouteInfo<void> {
+  const BulletGameRoute({List<PageRouteInfo>? children})
+      : super(
+          BulletGameRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BulletGameRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

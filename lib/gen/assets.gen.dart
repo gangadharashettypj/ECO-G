@@ -39,6 +39,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/rapid.png
   AssetGenImage get rapid => const AssetGenImage('assets/images/rapid.png');
 
+  /// File path: assets/images/seed.png
+  AssetGenImage get seed => const AssetGenImage('assets/images/seed.png');
+
+  /// File path: assets/images/soil.png
+  AssetGenImage get soil => const AssetGenImage('assets/images/soil.png');
+
   /// File path: assets/images/solar_panel.png
   AssetGenImage get solarPanel =>
       const AssetGenImage('assets/images/solar_panel.png');
@@ -62,6 +68,8 @@ class $AssetsImagesGen {
         money,
         person,
         rapid,
+        seed,
+        soil,
         solarPanel,
         timer,
         tree,

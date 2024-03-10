@@ -37,11 +37,6 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
       if (controller.timeInSeconds.value == 0) {
         context.router.replace(BulletRewardsRoute(controller: controller));
       }
-      if (controller.objects.value
-          .where((element) => element.ownBy == 0)
-          .isEmpty) {
-        context.router.replace(BulletRewardsRoute(controller: controller));
-      }
     }));
 
     super.initState();
@@ -187,9 +182,19 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
                 left: 0,
                 child: Watch(
                   (context) {
-                    return LabelWidget(
-                      controller.player1Points.value.toString(),
-                      fontSize: 38,
+                    return Row(
+                      children: [
+                        LabelWidget(
+                          controller.player1Points.value.toString(),
+                          fontSize: 38,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 8, left: 8),
+                          child: const LabelWidget(
+                            'Player 1',
+                          ),
+                        ),
+                      ],
                     );
                   },
                 ),
@@ -199,9 +204,20 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
                 left: 0,
                 child: Watch(
                   (context) {
-                    return LabelWidget(
-                      controller.player2Points.value.toString(),
-                      fontSize: 38,
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        LabelWidget(
+                          controller.player2Points.value.toString(),
+                          fontSize: 38,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 8, left: 8),
+                          child: const LabelWidget(
+                            'Player 2',
+                          ),
+                        ),
+                      ],
                     );
                   },
                 ),

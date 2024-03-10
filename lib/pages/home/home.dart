@@ -81,63 +81,68 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            children: [
-              SecondaryButton(
-                title: gameStoreInstance.firstPlayer.value?.name ?? 'Select',
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return PlayerSelectionDialog(
-                        title: 'Select Player 1',
-                        onPlayerSelected: (player) {
-                          gameStoreInstance.firstPlayer.value = player;
-                        },
-                        oppositePlayer: gameStoreInstance.secondPlayer.value,
-                      );
-                    },
-                  );
-                },
-                color: ColorName.copperGold,
-                fontWeight: FontWeight.bold,
-                borderThickness: 2,
-                width: 150,
-              ),
-              const LabelWidget(
-                'Player 1',
-                fontSize: 12,
-              ),
-            ],
+          Expanded(
+            child: Column(
+              children: [
+                SecondaryButton(
+                  title: gameStoreInstance.firstPlayer.value?.name ?? 'Select',
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return PlayerSelectionDialog(
+                          title: 'Select Player 1',
+                          onPlayerSelected: (player) {
+                            gameStoreInstance.firstPlayer.value = player;
+                          },
+                          oppositePlayer: gameStoreInstance.secondPlayer.value,
+                        );
+                      },
+                    );
+                  },
+                  color: ColorName.copperGold,
+                  fontWeight: FontWeight.bold,
+                  borderThickness: 2,
+                  width: double.infinity,
+                ),
+                const LabelWidget(
+                  'Player 1',
+                  fontSize: 12,
+                ),
+              ],
+            ),
           ),
-          Column(
-            children: [
-              SecondaryButton(
-                title: gameStoreInstance.secondPlayer.value?.name ?? 'Select',
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return PlayerSelectionDialog(
-                        title: 'Select Player 2',
-                        onPlayerSelected: (player) {
-                          gameStoreInstance.secondPlayer.value = player;
-                        },
-                        oppositePlayer: gameStoreInstance.firstPlayer.value,
-                      );
-                    },
-                  );
-                },
-                width: 150,
-                color: ColorName.copperGold,
-                fontWeight: FontWeight.bold,
-                borderThickness: 2,
-              ),
-              const LabelWidget(
-                'Player 2',
-                fontSize: 12,
-              ),
-            ],
+          const Gap.w32(),
+          Expanded(
+            child: Column(
+              children: [
+                SecondaryButton(
+                  title: gameStoreInstance.secondPlayer.value?.name ?? 'Select',
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return PlayerSelectionDialog(
+                          title: 'Select Player 2',
+                          onPlayerSelected: (player) {
+                            gameStoreInstance.secondPlayer.value = player;
+                          },
+                          oppositePlayer: gameStoreInstance.firstPlayer.value,
+                        );
+                      },
+                    );
+                  },
+                  width: double.infinity,
+                  color: ColorName.copperGold,
+                  fontWeight: FontWeight.bold,
+                  borderThickness: 2,
+                ),
+                const LabelWidget(
+                  'Player 2',
+                  fontSize: 12,
+                ),
+              ],
+            ),
           ),
         ],
       ),

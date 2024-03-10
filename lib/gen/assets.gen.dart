@@ -16,6 +16,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/bg1.png
   AssetGenImage get bg1 => const AssetGenImage('assets/images/bg1.png');
 
+  /// File path: assets/images/coin.png
+  AssetGenImage get coin => const AssetGenImage('assets/images/coin.png');
+
   /// File path: assets/images/crayon_mask.png
   AssetGenImage get crayonMask =>
       const AssetGenImage('assets/images/crayon_mask.png');
@@ -26,6 +29,12 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
+  /// File path: assets/images/money.png
+  AssetGenImage get money => const AssetGenImage('assets/images/money.png');
+
+  /// File path: assets/images/person.png
+  AssetGenImage get person => const AssetGenImage('assets/images/person.png');
 
   /// File path: assets/images/rapid.png
   AssetGenImage get rapid => const AssetGenImage('assets/images/rapid.png');
@@ -43,21 +52,20 @@ class $AssetsImagesGen {
   /// File path: assets/images/water.png
   AssetGenImage get water => const AssetGenImage('assets/images/water.png');
 
-  /// File path: assets/images/person.png
-  AssetGenImage get person => const AssetGenImage('assets/images/person.png');
-
   /// List of all assets
   List<AssetGenImage> get values => [
         bg1,
+        coin,
         crayonMask,
         infinity,
         logo,
+        money,
+        person,
         rapid,
         solarPanel,
         timer,
         tree,
-        water,
-        person
+        water
       ];
 }
 

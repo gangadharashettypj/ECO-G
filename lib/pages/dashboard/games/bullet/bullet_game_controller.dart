@@ -17,9 +17,13 @@ class BulletGameController {
 
   Timer? timer;
 
+  Timer? timer1;
+
   final player1Points = signal<int>(0);
 
   final player2Points = signal<int>(0);
+
+  final timeInSeconds = signal<int>(30);
 
   void init() {
     objects.value = gameStoreInstance.selectedGame.value!.getDragObjects
@@ -36,6 +40,13 @@ class BulletGameController {
       collectibles: objects.value,
     );
 
+    timer1 = Timer.periodic(const Duration(seconds: 1), (timer) {
+      final elapsed = 30 - timer.tick;
+      if (elapsed >= 0) {
+        timeInSeconds.value = elapsed;
+      }
+    });
+
     timer = Timer.periodic(
       Duration(milliseconds: refreshTime),
       (timer) {
@@ -50,6 +61,7 @@ class BulletGameController {
 
   void dispose() {
     timer?.cancel();
+    timer1?.cancel();
   }
 
   void updateScore() {

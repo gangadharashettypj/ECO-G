@@ -15,6 +15,22 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    BlitzGameRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const BlitzGameScreen(),
+      );
+    },
+    BlitzRewardsRoute.name: (routeData) {
+      final args = routeData.argsAs<BlitzRewardsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BlitzRewardsScreen(
+          key: args.key,
+          controller: args.controller,
+        ),
+      );
+    },
     BulletGameRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -60,6 +76,58 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [BlitzGameScreen]
+class BlitzGameRoute extends PageRouteInfo<void> {
+  const BlitzGameRoute({List<PageRouteInfo>? children})
+      : super(
+          BlitzGameRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BlitzGameRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [BlitzRewardsScreen]
+class BlitzRewardsRoute extends PageRouteInfo<BlitzRewardsRouteArgs> {
+  BlitzRewardsRoute({
+    Key? key,
+    required BlitzGameController controller,
+    List<PageRouteInfo>? children,
+  }) : super(
+          BlitzRewardsRoute.name,
+          args: BlitzRewardsRouteArgs(
+            key: key,
+            controller: controller,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'BlitzRewardsRoute';
+
+  static const PageInfo<BlitzRewardsRouteArgs> page =
+      PageInfo<BlitzRewardsRouteArgs>(name);
+}
+
+class BlitzRewardsRouteArgs {
+  const BlitzRewardsRouteArgs({
+    this.key,
+    required this.controller,
+  });
+
+  final Key? key;
+
+  final BlitzGameController controller;
+
+  @override
+  String toString() {
+    return 'BlitzRewardsRouteArgs{key: $key, controller: $controller}';
+  }
 }
 
 /// generated route for

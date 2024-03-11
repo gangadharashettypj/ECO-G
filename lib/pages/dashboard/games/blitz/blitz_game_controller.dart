@@ -3,13 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_game/constants/constants.dart';
 import 'package:flutter_game/models/drag_object.dart';
-import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/generator_util.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:flutter_game/utils/widget_position_utill.dart';
 import 'package:signals/signals.dart';
 
-class BulletGameController {
+class BlitzGameController {
   final dragRegion = GlobalKey();
 
   final objects = signal<List<DragObject>>([]);
@@ -24,18 +23,15 @@ class BulletGameController {
 
   final player2Points = signal<int>(0);
 
-  final timeInSeconds = signal<int>(30);
+  final timeInSeconds = signal<int>(60);
 
   void init() {
-    var items = List.generate(
-            15,
-            (index) => gameStoreInstance.selectedGame.value!.getDragObjects[
-                index %
-                    gameStoreInstance
-                        .selectedGame.value!.getDragObjects.length])
-        .where((element) => element.item.keyType == ItemType.positive)
+    var items = gameStoreInstance.selectedGame.value!.getDragObjects
         .map((e) => e.toJson())
         .toList();
+
+    timeInSeconds.value = items.length * 2;
+
     final formattedItems = items.map((e) => DragObject.fromJson(e)).toList();
 
     formattedItems.shuffle();
@@ -55,9 +51,8 @@ class BulletGameController {
     );
 
     timer1 = Timer.periodic(const Duration(seconds: 1), (timer) {
-      final elapsed = 30 - timer.tick;
-      if (elapsed >= 0) {
-        timeInSeconds.value = elapsed;
+      if (timeInSeconds.value >= 0) {
+        timeInSeconds.value = timeInSeconds.value - 1;
       }
     });
 

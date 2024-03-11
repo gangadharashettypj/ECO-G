@@ -2,6 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/game.dart';
+import 'package:flutter_game/pages/dashboard/games/blitz/blitz_game.dart';
+import 'package:flutter_game/pages/dashboard/games/blitz/blitz_game_controller.dart';
+import 'package:flutter_game/pages/dashboard/games/blitz/blitz_rewards.dart';
 import 'package:flutter_game/pages/dashboard/games/bullet/bullet_game.dart';
 import 'package:flutter_game/pages/dashboard/games/bullet/bullet_game_controller.dart';
 import 'package:flutter_game/pages/dashboard/games/bullet/bullet_rewards.dart';
@@ -20,6 +23,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: GameRoute.page),
         AutoRoute(page: BulletGameRoute.page),
         AutoRoute(page: BulletRewardsRoute.page),
+        AutoRoute(page: BlitzGameRoute.page),
+        AutoRoute(page: BlitzRewardsRoute.page),
         AutoRoute(page: OptionsRoute.page),
       ];
 }

@@ -4,8 +4,8 @@ import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/models/level_data_model.dart';
 
-class BulletRewardCard extends StatelessWidget {
-  const BulletRewardCard({
+class BlitzRewardCard extends StatelessWidget {
+  const BlitzRewardCard({
     super.key,
     required this.item,
     required this.score,

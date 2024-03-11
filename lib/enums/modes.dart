@@ -59,7 +59,7 @@ extension GameModeExtension on GameMode {
       case GameMode.bullet:
         return const BulletGameRoute();
       case GameMode.blitz:
-        return const GameRoute();
+        return const BlitzGameRoute();
       case GameMode.rapid:
         return const GameRoute();
     }

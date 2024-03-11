@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter_game/extension/color_extension.dart';
 import 'package:flutter_game/models/drag_object.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -15,6 +16,8 @@ class LevelDataModel {
   final bool isImage;
   final String color;
   final List<ItemModel> items;
+
+  Color get formattedColor => HexColor.fromHex(color);
 
   LevelDataModel({
     required this.id,

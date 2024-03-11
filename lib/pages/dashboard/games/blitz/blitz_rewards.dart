@@ -2,28 +2,52 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
-import 'package:flutter_game/enums/modes.dart';
-import 'package:flutter_game/pages/dashboard/games/bullet/bullet_game_controller.dart';
-import 'package:flutter_game/pages/dashboard/games/bullet/widgets/reward_card.dart';
+import 'package:flutter_game/pages/dashboard/games/blitz/blitz_game_controller.dart';
+import 'package:flutter_game/pages/dashboard/games/blitz/widgets/reward_card.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:paper_card/paper_card.dart';
 import 'package:signals/signals_flutter.dart';
 
 @RoutePage()
-class BulletRewardsScreen extends StatefulWidget {
-  const BulletRewardsScreen({
+class BlitzRewardsScreen extends StatefulWidget {
+  const BlitzRewardsScreen({
     super.key,
     required this.controller,
   });
 
-  final BulletGameController controller;
+  final BlitzGameController controller;
 
   @override
-  State<BulletRewardsScreen> createState() => _BulletRewardsScreenState();
+  State<BlitzRewardsScreen> createState() => _BlitzRewardsScreenState();
 }
 
-class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
-  BulletGameController get controller => widget.controller;
+class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
+  BlitzGameController get controller => widget.controller;
+
+  Widget buildPlayer1Rewards(int playerIndex) {
+    return Column(
+      children: gameStoreInstance.selectedGame.value!.getDragObjects.map(
+        (e) {
+          final selectedItems = controller.objects.value
+              .where((element) =>
+                  element.ownBy == playerIndex &&
+                  element.item.name == e.item.name)
+              .map((e1) => e1.score)
+              .toList();
+          int score = 0;
+          if (selectedItems.isNotEmpty) {
+            score = selectedItems.reduce((value, element) => value + element);
+          }
+          return BlitzRewardCard(
+            item: e.item,
+            score: score,
+            color: gameStoreInstance.selectedGame.value!.formattedColor
+                .withOpacity(0.6),
+          );
+        },
+      ).toList(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +56,15 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
         vertical: 16,
       ),
       backgroundColor:
-          gameStoreInstance.selectedGameMode.value.color.withOpacity(0.2),
-      borderColor: gameStoreInstance.selectedGameMode.value.color,
+          gameStoreInstance.selectedGame.value!.formattedColor.withOpacity(0.2),
+      borderColor: gameStoreInstance.selectedGame.value!.formattedColor,
       borderRadius: 8,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           iconTheme: IconThemeData(
-            color: gameStoreInstance.selectedGameMode.value.color,
+            color: gameStoreInstance.selectedGame.value!.formattedColor,
           ),
           centerTitle: false,
         ),
@@ -56,7 +80,8 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                     const Gap.h16(),
                     LabelWidget(
                       gameStoreInstance.selectedGame.value!.title,
-                      color: gameStoreInstance.selectedGameMode.value.color,
+                      color:
+                          gameStoreInstance.selectedGame.value!.formattedColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                       textAlign: TextAlign.center,
@@ -65,7 +90,8 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                     Container(
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: gameStoreInstance.selectedGameMode.value.color
+                          color: gameStoreInstance
+                              .selectedGame.value!.formattedColor
                               .withOpacity(0.5),
                           width: 2,
                         ),
@@ -83,7 +109,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                                     Icon(
                                       Icons.person,
                                       color: gameStoreInstance
-                                          .selectedGameMode.value.color
+                                          .selectedGame.value!.formattedColor
                                           .withOpacity(0.8),
                                     ),
                                     const Gap.w4(),
@@ -92,7 +118,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                                               .firstPlayer.value?.name ??
                                           '',
                                       color: gameStoreInstance
-                                          .selectedGameMode.value.color
+                                          .selectedGame.value!.formattedColor
                                           .withOpacity(0.8),
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
@@ -107,7 +133,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                                     Icon(
                                       Icons.person,
                                       color: gameStoreInstance
-                                          .selectedGameMode.value.color
+                                          .selectedGame.value!.formattedColor
                                           .withOpacity(0.8),
                                     ),
                                     const Gap.w4(),
@@ -116,7 +142,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                                               .secondPlayer.value?.name ??
                                           '',
                                       color: gameStoreInstance
-                                          .selectedGameMode.value.color
+                                          .selectedGame.value!.formattedColor
                                           .withOpacity(0.8),
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
@@ -137,69 +163,13 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                                   crossAxisAlignment:
                                       CrossAxisAlignment.stretch,
                                   children: [
-                                    Column(
-                                      children: gameStoreInstance
-                                          .selectedGame.value!.getDragObjects
-                                          .map(
-                                        (e) {
-                                          final selectedItems = controller
-                                              .objects.value
-                                              .where((element) =>
-                                                  element.ownBy == 1 &&
-                                                  element.item.name ==
-                                                      e.item.name)
-                                              .map((e1) => e1.score)
-                                              .toList();
-                                          int score = 0;
-                                          if (selectedItems.isNotEmpty) {
-                                            score = selectedItems.reduce(
-                                                (value, element) =>
-                                                    value + element);
-                                          }
-                                          return BulletRewardCard(
-                                            item: e.item,
-                                            score: score,
-                                            color: gameStoreInstance
-                                                .selectedGameMode.value.color
-                                                .withOpacity(0.6),
-                                          );
-                                        },
-                                      ).toList(),
-                                    ),
+                                    buildPlayer1Rewards(1),
                                     VerticalDivider(
                                       color: gameStoreInstance
-                                          .selectedGameMode.value.color
+                                          .selectedGame.value!.formattedColor
                                           .withOpacity(0.6),
                                     ),
-                                    Column(
-                                      children: gameStoreInstance
-                                          .selectedGame.value!.getDragObjects
-                                          .map(
-                                        (e) {
-                                          final selectedItems = controller
-                                              .objects.value
-                                              .where((element) =>
-                                                  element.ownBy == 2 &&
-                                                  element.item.name ==
-                                                      e.item.name)
-                                              .map((e1) => e1.score)
-                                              .toList();
-                                          int score = 0;
-                                          if (selectedItems.isNotEmpty) {
-                                            score = selectedItems.reduce(
-                                                (value, element) =>
-                                                    value + element);
-                                          }
-                                          return BulletRewardCard(
-                                            item: e.item,
-                                            score: score,
-                                            color: gameStoreInstance
-                                                .selectedGameMode.value.color
-                                                .withOpacity(0.6),
-                                          );
-                                        },
-                                      ).toList(),
-                                    ),
+                                    buildPlayer1Rewards(2),
                                   ],
                                 ),
                               ),

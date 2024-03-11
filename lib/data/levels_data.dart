@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_game/data/recycle.dart';
 import 'package:flutter_game/data/solar_items.dart';
 import 'package:flutter_game/data/tree_items.dart';
 import 'package:flutter_game/data/water_items.dart';
@@ -34,5 +35,14 @@ final levelData = [
     levelNumber: 3,
     color: ColorName.primaryDark.toHex(),
     items: waterLevelItems,
+  ),
+  LevelDataModel(
+    id: 'LEVEL_4',
+    image: Assets.playIcons.water.path,
+    title: 'Recycling',
+    concept: 'You will learn how to filter dirt water.',
+    levelNumber: 4,
+    color: ColorName.accent.toHex(),
+    items: recycleLevel,
   ),
 ];

@@ -9,6 +9,7 @@ import 'package:flutter_game/enums/modes.dart';
 import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:paper_card/paper_card.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -48,8 +49,8 @@ class _OptionsScreenState extends State<OptionsScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           child: ImageWidget(
             imageLocation: e.image,
-            width: 82,
-            height: 82,
+            width: 52,
+            height: 52,
             color: gameStoreInstance.selectedGame.value!.color,
           ),
         ),
@@ -76,6 +77,8 @@ class _OptionsScreenState extends State<OptionsScreen> {
               borderRadius: BorderRadius.circular(8),
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   decoration: BoxDecoration(
@@ -86,8 +89,8 @@ class _OptionsScreenState extends State<OptionsScreen> {
                   child: ImageWidget(
                     imageLocation:
                         gameStoreInstance.selectedGameMode.value.image,
-                    height: 150,
-                    width: 150,
+                    height: 120,
+                    width: 120,
                     color: gameStoreInstance.selectedGame.value!.color,
                   ),
                 ),
@@ -95,7 +98,32 @@ class _OptionsScreenState extends State<OptionsScreen> {
                   gameStoreInstance.selectedGameMode.value.title.toUpperCase(),
                   color: ColorName.textLightColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 30,
+                  fontSize: 26,
+                ),
+                SizedBox(
+                  height: 300,
+                  child: Markdown(
+                    data: gameStoreInstance.selectedGameMode.value ==
+                            GameMode.bullet
+                        ? '''
+### Instruction:
+  * Features two types of items: 
+	  * Positive Items 
+	  * Negative Items.
+  * Each positive item adds +2 points.
+  * Aim to collect positive items;
+
+'''
+                        : '''
+### Instruction:
+  * Includes two types of items: 
+    * Positive Items 
+    * Negative Items.
+  * Positive Items contribute +2 points each.
+  * Negative Items deduct -1 point each.
+  * Aim to collect positive items.
+                  ''',
+                  ),
                 ),
               ],
             ),
@@ -136,9 +164,11 @@ class _OptionsScreenState extends State<OptionsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const Gap.h32(),
+                  const Gap.h32(),
                   Expanded(
                     child: buildSelectedCard(),
                   ),
+                  const Gap.h32(),
                   const Gap.h32(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

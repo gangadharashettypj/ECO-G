@@ -175,7 +175,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     buildPlayerSelectionView(),
                     const Gap.h32(),
                     ImageWidget(
-                      imageLocation: Assets.images.logo.path,
+                      imageLocation: Assets.images.logo1.path,
+                      height: 100,
                     ),
                     const Gap.h32(),
                     buildLevelView(),

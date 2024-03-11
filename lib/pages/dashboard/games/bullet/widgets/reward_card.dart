@@ -28,7 +28,7 @@ class RewardCard extends StatelessWidget {
             color: color.withOpacity(0.3),
             borderRadius: BorderRadius.circular(8),
           ),
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(4),
           margin: const EdgeInsets.symmetric(vertical: 8),
           child: ImageWidget(
             imageLocation: item.image,

@@ -47,130 +47,150 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
         body: SafeArea(
           child: Watch(
             (context) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const Gap.h16(),
-                  LabelWidget(
-                    gameStoreInstance.selectedGame.value!.title,
-                    color: gameStoreInstance.selectedGameMode.value.color,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    textAlign: TextAlign.center,
-                  ),
-                  const Gap.h16(),
-                  IntrinsicHeight(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: gameStoreInstance.selectedGameMode.value.color
-                              .withOpacity(0.5),
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      padding: const EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Column(
-                            children: [
-                              LabelWidget(
-                                gameStoreInstance.firstPlayer.value?.name ?? '',
-                                color: gameStoreInstance
-                                    .selectedGameMode.value.color
-                                    .withOpacity(0.8),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                              LabelWidget(
-                                'Player 1',
-                                color: gameStoreInstance
-                                    .selectedGameMode.value.color
-                                    .withOpacity(0.5),
-                              ),
-                              const Gap.h16(),
-                              ...gameStoreInstance
-                                  .selectedGame.value!.getDragObjects
-                                  .map(
-                                (e) {
-                                  final selectedItems = controller.objects.value
-                                      .where((element) =>
-                                          element.ownBy == 1 &&
-                                          element.item.name == e.item.name)
-                                      .map((e1) => e1.score)
-                                      .toList();
-                                  int score = 0;
-                                  if (selectedItems.isNotEmpty) {
-                                    score = selectedItems.reduce(
-                                        (value, element) => value + element);
-                                  }
-                                  return RewardCard(
-                                    item: e.item,
-                                    score: score,
-                                    color: gameStoreInstance
-                                        .selectedGameMode.value.color
-                                        .withOpacity(0.6),
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
-                          VerticalDivider(
+              return Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Gap.h16(),
+                    LabelWidget(
+                      gameStoreInstance.selectedGame.value!.title,
+                      color: gameStoreInstance.selectedGameMode.value.color,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      textAlign: TextAlign.center,
+                    ),
+                    const Gap.h16(),
+                    IntrinsicHeight(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
                             color: gameStoreInstance
                                 .selectedGameMode.value.color
-                                .withOpacity(0.6),
+                                .withOpacity(0.5),
+                            width: 2,
                           ),
-                          Column(
-                            children: [
-                              LabelWidget(
-                                gameStoreInstance.secondPlayer.value?.name ??
-                                    '',
-                                color: gameStoreInstance
-                                    .selectedGameMode.value.color
-                                    .withOpacity(0.8),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                              LabelWidget(
-                                'Player 2',
-                                color: gameStoreInstance
-                                    .selectedGameMode.value.color
-                                    .withOpacity(0.5),
-                              ),
-                              const Gap.h16(),
-                              ...gameStoreInstance
-                                  .selectedGame.value!.getDragObjects
-                                  .map(
-                                (e) {
-                                  final selectedItems = controller.objects.value
-                                      .where((element) =>
-                                          element.ownBy == 2 &&
-                                          element.item.name == e.item.name)
-                                      .map((e1) => e1.score)
-                                      .toList();
-                                  int score = 0;
-                                  if (selectedItems.isNotEmpty) {
-                                    score = selectedItems.reduce(
-                                        (value, element) => value + element);
-                                  }
-                                  return RewardCard(
-                                    item: e.item,
-                                    score: score,
-                                    color: gameStoreInstance
-                                        .selectedGameMode.value.color
-                                        .withOpacity(0.6),
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: const EdgeInsets.all(8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.person,
+                                      color: gameStoreInstance
+                                          .selectedGameMode.value.color
+                                          .withOpacity(0.8),
+                                    ),
+                                    const Gap.w4(),
+                                    LabelWidget(
+                                      gameStoreInstance
+                                              .firstPlayer.value?.name ??
+                                          '',
+                                      color: gameStoreInstance
+                                          .selectedGameMode.value.color
+                                          .withOpacity(0.8),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ],
+                                ),
+                                const Gap.h16(),
+                                ...gameStoreInstance
+                                    .selectedGame.value!.getDragObjects
+                                    .map(
+                                  (e) {
+                                    final selectedItems = controller
+                                        .objects.value
+                                        .where((element) =>
+                                            element.ownBy == 1 &&
+                                            element.item.name == e.item.name)
+                                        .map((e1) => e1.score)
+                                        .toList();
+                                    int score = 0;
+                                    if (selectedItems.isNotEmpty) {
+                                      score = selectedItems.reduce(
+                                          (value, element) => value + element);
+                                    }
+                                    return RewardCard(
+                                      item: e.item,
+                                      score: score,
+                                      color: gameStoreInstance
+                                          .selectedGameMode.value.color
+                                          .withOpacity(0.6),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                            VerticalDivider(
+                              color: gameStoreInstance
+                                  .selectedGameMode.value.color
+                                  .withOpacity(0.6),
+                            ),
+                            Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.person,
+                                      color: gameStoreInstance
+                                          .selectedGameMode.value.color
+                                          .withOpacity(0.8),
+                                    ),
+                                    const Gap.w4(),
+                                    LabelWidget(
+                                      gameStoreInstance
+                                              .secondPlayer.value?.name ??
+                                          '',
+                                      color: gameStoreInstance
+                                          .selectedGameMode.value.color
+                                          .withOpacity(0.8),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ],
+                                ),
+                                const Gap.h16(),
+                                ...gameStoreInstance
+                                    .selectedGame.value!.getDragObjects
+                                    .map(
+                                  (e) {
+                                    final selectedItems = controller
+                                        .objects.value
+                                        .where((element) =>
+                                            element.ownBy == 2 &&
+                                            element.item.name == e.item.name)
+                                        .map((e1) => e1.score)
+                                        .toList();
+                                    int score = 0;
+                                    if (selectedItems.isNotEmpty) {
+                                      score = selectedItems.reduce(
+                                          (value, element) => value + element);
+                                    }
+                                    return RewardCard(
+                                      item: e.item,
+                                      score: score,
+                                      color: gameStoreInstance
+                                          .selectedGameMode.value.color
+                                          .withOpacity(0.6),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               );
             },
           ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/pages/dashboard/games/bullet/bullet_game_controller.dart';
+import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:flutter_game/pages/dashboard/widgets/drag_object_view.dart';
 import 'package:flutter_game/pages/dashboard/widgets/game_options_view.dart';
 import 'package:flutter_game/pages/dashboard/widgets/target_player_card.dart';
@@ -145,8 +146,8 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
                         ),
                         Container(
                           margin: const EdgeInsets.only(bottom: 8, left: 8),
-                          child: const LabelWidget(
-                            'Player 1',
+                          child: LabelWidget(
+                            gameStoreInstance.firstPlayer.value?.name ?? '',
                           ),
                         ),
                       ],
@@ -168,8 +169,8 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
                         ),
                         Container(
                           margin: const EdgeInsets.only(bottom: 8, left: 8),
-                          child: const LabelWidget(
-                            'Player 2',
+                          child: LabelWidget(
+                            gameStoreInstance.secondPlayer.value?.name ?? '',
                           ),
                         ),
                       ],

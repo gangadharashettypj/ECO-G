@@ -13,15 +13,11 @@ import 'package:lottie/lottie.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/bg1.png
-  AssetGenImage get bg1 => const AssetGenImage('assets/images/bg1.png');
-
   /// File path: assets/images/coin.png
   AssetGenImage get coin => const AssetGenImage('assets/images/coin.png');
 
-  /// File path: assets/images/crayon_mask.png
-  AssetGenImage get crayonMask =>
-      const AssetGenImage('assets/images/crayon_mask.png');
+  /// File path: assets/images/fan.png
+  AssetGenImage get fan => const AssetGenImage('assets/images/fan.png');
 
   /// File path: assets/images/infinity.png
   AssetGenImage get infinity =>
@@ -39,29 +35,42 @@ class $AssetsImagesGen {
   /// File path: assets/images/rapid.png
   AssetGenImage get rapid => const AssetGenImage('assets/images/rapid.png');
 
+  /// File path: assets/images/recycle_bg.png
+  AssetGenImage get recycleBg =>
+      const AssetGenImage('assets/images/recycle_bg.png');
+
   /// File path: assets/images/solar_panel.png
   AssetGenImage get solarPanel =>
       const AssetGenImage('assets/images/solar_panel.png');
 
+  /// File path: assets/images/sun.png
+  AssetGenImage get sun => const AssetGenImage('assets/images/sun.png');
+
   /// File path: assets/images/timer.png
   AssetGenImage get timer => const AssetGenImage('assets/images/timer.png');
 
-  /// File path: assets/images/tree.png
-  AssetGenImage get tree => const AssetGenImage('assets/images/tree.png');
+  /// File path: assets/images/tree_bg.png
+  AssetGenImage get treeBg => const AssetGenImage('assets/images/tree_bg.png');
+
+  /// File path: assets/images/water_bg.png
+  AssetGenImage get waterBg =>
+      const AssetGenImage('assets/images/water_bg.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
-        bg1,
         coin,
-        crayonMask,
+        fan,
         infinity,
         logo,
         money,
         person,
         rapid,
+        recycleBg,
         solarPanel,
+        sun,
         timer,
-        tree
+        treeBg,
+        waterBg
       ];
 }
 

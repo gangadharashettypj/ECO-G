@@ -11,7 +11,7 @@ import 'package:flutter_game/models/level_data_model.dart';
 final levelData = [
   LevelDataModel(
     id: 'LEVEL_1',
-    image: Assets.images.tree.path,
+    image: Assets.images.treeBg.path,
     title: 'Tree Building',
     concept: 'You will learn how to build a tree.',
     levelNumber: 1,
@@ -29,7 +29,7 @@ final levelData = [
   ),
   LevelDataModel(
     id: 'LEVEL_3',
-    image: Assets.playIcons.water.path,
+    image: Assets.images.waterBg.path,
     title: 'Water Filtration',
     concept: 'You will learn how to filter dirt water.',
     levelNumber: 3,
@@ -38,7 +38,7 @@ final levelData = [
   ),
   LevelDataModel(
     id: 'LEVEL_4',
-    image: Assets.playIcons.water.path,
+    image: Assets.images.recycleBg.path,
     title: 'Recycling',
     concept: 'You will learn how to filter dirt water.',
     levelNumber: 4,
@@ -46,3 +46,33 @@ final levelData = [
     items: recycleLevel,
   ),
 ];
+
+final greenDoctorLevel = LevelDataModel(
+  id: 'LEVEL_1',
+  image: Assets.images.treeBg.path,
+  title: 'Green Doctor',
+  concept: 'You will learn how to build a tree.',
+  levelNumber: 1,
+  color: Colors.greenAccent.toHex(),
+  items: treeLevelItems,
+);
+
+final waterLevel = LevelDataModel(
+  id: 'LEVEL_3',
+  image: Assets.images.waterBg.path,
+  title: 'Thirsty',
+  concept: 'You will learn how to filter dirt water.',
+  levelNumber: 3,
+  color: ColorName.primaryDark.toHex(),
+  items: waterLevelItems,
+);
+
+final renewableLevel = LevelDataModel(
+  id: 'LEVEL_2',
+  image: Assets.images.solarPanel.path,
+  title: 'Renewable Energy',
+  concept: 'You will learn about how to build solar light.',
+  levelNumber: 2,
+  color: ColorName.copperGold.toHex(),
+  items: solarLevelItems,
+);

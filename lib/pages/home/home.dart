@@ -10,6 +10,7 @@ import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:flutter_game/pages/home/widgets/PlayerSelectedDialog.dart';
 import 'package:flutter_game/routes/app_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:paper_card/paper_card.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -39,44 +40,212 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
+  Widget buildGreenDoctor() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      child: InkWell(
+        onTap: () {
+          gameStoreInstance.selectedGame.value = greenDoctorLevel;
+          context.router.push(OptionsRoute(levelDataModel: greenDoctorLevel));
+        },
+        child: PaperCard(
+          backgroundColor: const Color(0xFF2F1E0D),
+          borderColor: ColorName.copperGold,
+          child: SizedBox(
+            height: 160,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  child: Transform.scale(
+                    scaleX: 1.4,
+                    scaleY: 1.4,
+                    child: ImageWidget(
+                      imageLocation: Assets.images.treeBg.path,
+                    ),
+                  ),
+                ),
+                const Positioned(
+                  top: 0,
+                  bottom: 0,
+                  left: 20,
+                  child: LabelWidget(
+                    'Green\nDoctor',
+                    color: ColorName.copperGold,
+                    fontSize: 34,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildWater() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      child: InkWell(
+        onTap: () {
+          gameStoreInstance.selectedGame.value = waterLevel;
+          context.router.push(OptionsRoute(levelDataModel: waterLevel));
+        },
+        child: PaperCard(
+          backgroundColor: const Color(0xFF102D40),
+          borderColor: const Color(0xFF02B1DA),
+          child: SizedBox(
+            height: 160,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  child: ImageWidget(
+                    imageLocation: Assets.images.waterBg.path,
+                  ),
+                ),
+                const Positioned(
+                  top: 0,
+                  bottom: 0,
+                  left: 20,
+                  child: LabelWidget(
+                    'Thirsty',
+                    color: Color(0xFF02B1DA),
+                    fontSize: 34,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildRecyclable() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      child: InkWell(
+        onTap: () {
+          gameStoreInstance.selectedGame.value = waterLevel;
+          context.router.push(OptionsRoute(levelDataModel: waterLevel));
+        },
+        child: PaperCard(
+          backgroundColor: const Color(0xFF6ACBA4),
+          borderColor: const Color(0xFF1D4F56),
+          child: SizedBox(
+            height: 160,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  child: ImageWidget(
+                    imageLocation: Assets.images.recycleBg.path,
+                  ),
+                ),
+                const Positioned(
+                  top: 0,
+                  bottom: 0,
+                  left: 20,
+                  child: LabelWidget(
+                    'Recyclable',
+                    color: Color(0xFF1D4F56),
+                    fontSize: 34,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildRenewable() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      child: InkWell(
+        onTap: () {
+          gameStoreInstance.selectedGame.value = renewableLevel;
+          context.router.push(OptionsRoute(levelDataModel: renewableLevel));
+        },
+        child: PaperCard(
+          backgroundColor: const Color(0xFF8C5400),
+          borderColor: ColorName.copperGold,
+          child: SizedBox(
+            height: 160,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: ImageWidget(
+                    imageLocation: Assets.images.solarPanel.path,
+                    width: 200,
+                  ),
+                ),
+                Positioned(
+                  right: -10,
+                  top: -10,
+                  child: ImageWidget(
+                    imageLocation: Assets.images.sun.path,
+                    width: 100,
+                  ),
+                ),
+                Positioned(
+                  left: 0,
+                  bottom: -10,
+                  child: ImageWidget(
+                    imageLocation: Assets.images.fan.path,
+                    width: 60,
+                    color: const Color(0x4FFAF2CE),
+                  ),
+                ),
+                const Positioned(
+                  top: 0,
+                  bottom: 0,
+                  left: 20,
+                  child: LabelWidget(
+                    'Renewable\nEnergy',
+                    color: Color(0xFFFAF2CE),
+                    fontSize: 34,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget buildLevelView() {
     gameStoreInstance.selectedGame.value ??= levelData[0];
 
     return Column(
       children: [
-        ...levelData.map(
-          (e) => PaperCard(
-            margin: const EdgeInsets.symmetric(
-              vertical: 16,
-            ),
-            backgroundColor: ColorName.copperGold.withOpacity(0.1),
-            borderColor: Colors.brown,
-            borderRadius: 8,
-            child: InkWell(
-              borderRadius: BorderRadius.circular(10),
-              onTap: () {
-                setState(() {
-                  gameStoreInstance.selectedGame.value = e;
-                  context.router.push(OptionsRoute(levelDataModel: e));
-                });
-              },
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                height: 50,
-                width: double.infinity,
-                child: Center(
-                  child: LabelWidget(
-                    e.title,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.brown,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        )
+        buildGreenDoctor(),
+        const Gap.h32(),
+        buildWater(),
+        const Gap.h32(),
+        buildRenewable(),
+        const Gap.h32(),
+        buildRecyclable(),
+        const Gap.h32(),
       ],
     );
   }
@@ -162,23 +331,30 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorName.background,
+      // backgroundColor: ColorName.background,
       body: SafeArea(
         child: PaperCard(
           height: double.infinity,
+          backgroundColor: ColorName.background,
           child: Watch(
             (context) {
               return SingleChildScrollView(
                 child: Column(
                   children: [
-                    const Gap.h32(),
-                    buildPlayerSelectionView(),
-                    const Gap.h32(),
-                    ImageWidget(
-                      imageLocation: Assets.images.logo.path,
-                      height: 100,
+                    Text(
+                      'ECO-G',
+                      style: GoogleFonts.rubikGlitchPop()
+                          .copyWith(color: ColorName.copperGold, fontSize: 50),
                     ),
-                    const Gap.h32(),
+
+                    buildPlayerSelectionView(),
+                    const Gap.h16(),
+                    // const Gap.h32(),
+                    // ImageWidget(
+                    //   imageLocation: Assets.images.logo.path,
+                    //   height: 100,
+                    // ),
+                    // const Gap.h32(),
                     buildLevelView(),
                     const Gap.h32(),
                   ],

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_game/data/solar_items.dart';
+import 'package:flutter_game/data/tree_items.dart';
+import 'package:flutter_game/data/water_items.dart';
 import 'package:flutter_game/extension/color_extension.dart';
 import 'package:flutter_game/gen/assets.gen.dart';
 import 'package:flutter_game/gen/colors.gen.dart';
@@ -12,23 +15,7 @@ final levelData = [
     concept: 'You will learn how to build a tree.',
     levelNumber: 1,
     color: Colors.greenAccent.toHex(),
-    items: [
-      ItemModel(
-        name: 'Soil',
-        color: Colors.brown.toHex(),
-        keyType: ItemType.positive,
-      ),
-      ItemModel(
-        name: 'Water',
-        color: Colors.cyan.toHex(),
-        keyType: ItemType.positive,
-      ),
-      ItemModel(
-        name: 'Seeds',
-        color: Colors.green.toHex(),
-        keyType: ItemType.positive,
-      ),
-    ],
+    items: treeLevelItems,
   ),
   LevelDataModel(
     id: 'LEVEL_2',
@@ -37,23 +24,7 @@ final levelData = [
     concept: 'You will learn about how to build solar light.',
     levelNumber: 2,
     color: ColorName.copperGold.toHex(),
-    items: [
-      ItemModel(
-        name: 'Solar Panel',
-        color: Colors.blueGrey.toHex(),
-        keyType: ItemType.positive,
-      ),
-      ItemModel(
-        name: 'Sun light',
-        color: Colors.orangeAccent.toHex(),
-        keyType: ItemType.positive,
-      ),
-      ItemModel(
-        name: 'LED',
-        color: Colors.grey.toHex(),
-        keyType: ItemType.positive,
-      ),
-    ],
+    items: solarLevelItems
   ),
   LevelDataModel(
     id: 'LEVEL_3',
@@ -62,22 +33,6 @@ final levelData = [
     concept: 'You will learn how to filter dirt water.',
     levelNumber: 3,
     color: ColorName.primaryDark.toHex(),
-    items: [
-      ItemModel(
-        name: 'Sand',
-        color: Colors.brown.toHex(),
-        keyType: ItemType.positive,
-      ),
-      ItemModel(
-        name: 'Gravel',
-        color: Colors.grey.toHex(),
-        keyType: ItemType.positive,
-      ),
-      ItemModel(
-        name: 'Stone',
-        color: Colors.blueGrey.toHex(),
-        keyType: ItemType.positive,
-      ),
-    ],
+    items: waterLevelItems
   ),
 ];

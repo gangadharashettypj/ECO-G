@@ -80,11 +80,246 @@ class $AssetsLottieGen {
   List<LottieGenImage> get values => [loader];
 }
 
+class $AssetsPlayIconsGen {
+  const $AssetsPlayIconsGen();
+
+  /// File path: assets/playIcons/algae1.png
+  AssetGenImage get algae1 =>
+      const AssetGenImage('assets/playIcons/algae1.png');
+
+  /// File path: assets/playIcons/algae2.png
+  AssetGenImage get algae2 =>
+      const AssetGenImage('assets/playIcons/algae2.png');
+
+  /// File path: assets/playIcons/algae3.png
+  AssetGenImage get algae3 =>
+      const AssetGenImage('assets/playIcons/algae3.png');
+
+  /// File path: assets/playIcons/algae4.png
+  AssetGenImage get algae4 =>
+      const AssetGenImage('assets/playIcons/algae4.png');
+
+  /// File path: assets/playIcons/algae5.png
+  AssetGenImage get algae5 =>
+      const AssetGenImage('assets/playIcons/algae5.png');
+
+  /// File path: assets/playIcons/algae6.png
+  AssetGenImage get algae6 =>
+      const AssetGenImage('assets/playIcons/algae6.png');
+
+  /// File path: assets/playIcons/algae7.png
+  AssetGenImage get algae7 =>
+      const AssetGenImage('assets/playIcons/algae7.png');
+
+  /// File path: assets/playIcons/apple_waste.png
+  AssetGenImage get appleWaste =>
+      const AssetGenImage('assets/playIcons/apple_waste.png');
+
+  /// File path: assets/playIcons/bulb.png
+  AssetGenImage get bulb => const AssetGenImage('assets/playIcons/bulb.png');
+
+  /// File path: assets/playIcons/cloud.png
+  AssetGenImage get cloud => const AssetGenImage('assets/playIcons/cloud.png');
+
+  /// File path: assets/playIcons/clouds.png
+  AssetGenImage get clouds =>
+      const AssetGenImage('assets/playIcons/clouds.png');
+
+  /// File path: assets/playIcons/clouds_lightning.png
+  AssetGenImage get cloudsLightning =>
+      const AssetGenImage('assets/playIcons/clouds_lightning.png');
+
+  /// File path: assets/playIcons/glass_bottle.png
+  AssetGenImage get garbageBag =>
+      const AssetGenImage('assets/playIcons/garbage_bag.png');
+
+  /// File path: assets/playIcons/glass_bottle.png
+  AssetGenImage get glassBottle =>
+      const AssetGenImage('assets/playIcons/glass_bottle.png');
+
+  /// File path: assets/playIcons/glass_bottle2.png
+  AssetGenImage get glassBottle2 =>
+      const AssetGenImage('assets/playIcons/glass_bottle2.png');
+
+  /// File path: assets/playIcons/green_trash_can.png
+  AssetGenImage get greenTrashCan =>
+      const AssetGenImage('assets/playIcons/green_trash_can.png');
+
+  /// File path: assets/playIcons/metal_trash_can.png
+  AssetGenImage get metalTrashCan =>
+      const AssetGenImage('assets/playIcons/metal_trash_can.png');
+
+  /// File path: assets/playIcons/moon_star.png
+  AssetGenImage get moonStar =>
+      const AssetGenImage('assets/playIcons/moon_star.png');
+
+  /// File path: assets/playIcons/night_time.png
+  AssetGenImage get nightTime =>
+      const AssetGenImage('assets/playIcons/night_time.png');
+
+  /// File path: assets/playIcons/palstic_bag.png
+  AssetGenImage get palsticBag =>
+      const AssetGenImage('assets/playIcons/palstic_bag.png');
+
+  /// File path: assets/playIcons/plastic_bag2.png
+  AssetGenImage get plasticBag2 =>
+      const AssetGenImage('assets/playIcons/plastic_bag2.png');
+
+  /// File path: assets/playIcons/plastic_bag3.png
+  AssetGenImage get plasticBag3 =>
+      const AssetGenImage('assets/playIcons/plastic_bag3.png');
+
+  /// File path: assets/playIcons/plastic_bottle.png
+  AssetGenImage get plasticBottle =>
+      const AssetGenImage('assets/playIcons/plastic_bottle.png');
+
+  /// File path: assets/playIcons/plastic_cup.png
+  AssetGenImage get plasticCup =>
+      const AssetGenImage('assets/playIcons/plastic_cup.png');
+
+  /// File path: assets/playIcons/rain.png
+  AssetGenImage get rain => const AssetGenImage('assets/playIcons/rain.png');
+
+  /// File path: assets/playIcons/rain2.png
+  AssetGenImage get rain2 => const AssetGenImage('assets/playIcons/rain2.png');
+
+  /// File path: assets/playIcons/rain_sun.png
+  AssetGenImage get rainSun =>
+      const AssetGenImage('assets/playIcons/rain_sun.png');
+
+  /// File path: assets/playIcons/seed.png
+  AssetGenImage get seed => const AssetGenImage('assets/playIcons/seed.png');
+
+  /// File path: assets/playIcons/seed_underground.png
+  AssetGenImage get seedUnderground =>
+      const AssetGenImage('assets/playIcons/seed_underground.png');
+
+  /// File path: assets/playIcons/soil.png
+  AssetGenImage get soil =>
+      const AssetGenImage('assets/playIcons/soil.png');
+
+  /// File path: assets/playIcons/sun.png
+  AssetGenImage get sun => const AssetGenImage('assets/playIcons/sun.png');
+
+  /// File path: assets/playIcons/sun2.png
+  AssetGenImage get sun2 => const AssetGenImage('assets/playIcons/sun2.png');
+
+  /// File path: assets/playIcons/sun3.png
+  AssetGenImage get sun3 => const AssetGenImage('assets/playIcons/sun3.png');
+
+  /// File path: assets/playIcons/sun_solar_panal.png
+  AssetGenImage get sunSolarPanal =>
+      const AssetGenImage('assets/playIcons/sun_solar_panal.png');
+
+  /// File path: assets/playIcons/solar_panel.png
+  AssetGenImage get solarPanel =>
+      const AssetGenImage('assets/playIcons/solar_panel.png');
+
+  /// File path: assets/playIcons/solar_energy.png
+  AssetGenImage get solarEnergy =>
+      const AssetGenImage('assets/playIcons/solar_energy.png');
+
+  /// File path: assets/playIcons/sunflower-seed.png
+  AssetGenImage get sunflowerSeed =>
+      const AssetGenImage('assets/playIcons/sunflower-seed.png');
+
+  /// File path: assets/playIcons/tree1.png
+  AssetGenImage get tree1 => const AssetGenImage('assets/playIcons/tree1.png');
+
+  /// File path: assets/playIcons/tree2.png
+  AssetGenImage get tree2 => const AssetGenImage('assets/playIcons/tree2.png');
+
+  /// File path: assets/playIcons/tree3.png
+  AssetGenImage get tree3 => const AssetGenImage('assets/playIcons/tree3.png');
+
+  /// File path: assets/playIcons/tree4.png
+  AssetGenImage get tree4 => const AssetGenImage('assets/playIcons/tree4.png');
+
+  /// File path: assets/playIcons/tree5.png
+  AssetGenImage get tree5 => const AssetGenImage('assets/playIcons/tree5.png');
+
+  /// File path: assets/playIcons/tree6.png
+  AssetGenImage get tree6 => const AssetGenImage('assets/playIcons/tree6.png');
+
+  /// File path: assets/playIcons/umbrella.png
+  AssetGenImage get umbrella =>
+      const AssetGenImage('assets/playIcons/umbrella.png');
+
+  /// File path: assets/playIcons/water_drop.png
+  AssetGenImage get waterDrop =>
+      const AssetGenImage('assets/playIcons/water_drop.png');
+
+  /// File path: assets/playIcons/water_drops.png
+  AssetGenImage get waterDrops =>
+      const AssetGenImage('assets/playIcons/water_drops.png');
+
+  /// File path: assets/playIcons/water_drops2.png
+  AssetGenImage get waterDrops2 =>
+      const AssetGenImage('assets/playIcons/water_drops2.png');
+
+  /// File path: assets/playIcons/watering_can.png
+  AssetGenImage get wateringCan =>
+      const AssetGenImage('assets/playIcons/watering_can.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        algae1,
+        algae2,
+        algae3,
+        algae4,
+        algae5,
+        algae6,
+        algae7,
+        appleWaste,
+        bulb,
+        cloud,
+        clouds,
+        cloudsLightning,
+        garbageBag,
+        glassBottle,
+        glassBottle2,
+        greenTrashCan,
+        metalTrashCan,
+        moonStar,
+        nightTime,
+        palsticBag,
+        plasticBag2,
+        plasticBag3,
+        plasticBottle,
+        plasticCup,
+        rain,
+        rain2,
+        rainSun,
+        seed,
+        seedUnderground,
+        soil,
+        sun,
+        sun2,
+        sun3,
+        sunSolarPanal,
+        solarEnergy,
+        solarPanel,
+        sunflowerSeed,
+        tree1,
+        tree2,
+        tree3,
+        tree4,
+        tree5,
+        tree6,
+        umbrella,
+        waterDrop,
+        waterDrops,
+        waterDrops2,
+        wateringCan
+      ];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLottieGen lottie = $AssetsLottieGen();
+  static const $AssetsPlayIconsGen playIcons = $AssetsPlayIconsGen();
 }
 
 class AssetGenImage {

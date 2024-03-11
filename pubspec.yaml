@@ -81,4 +81,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/playIcons/
     - assets/lottie/

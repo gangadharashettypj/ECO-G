@@ -3,7 +3,6 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_game/components/button/button_widget.dart';
-import 'package:flutter_game/components/button/secondary_button.dart';
 import 'package:flutter_game/components/image/image_widget.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/enums/modes.dart';
@@ -11,7 +10,6 @@ import 'package:flutter_game/extension/color_extension.dart';
 import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
-import 'package:flutter_game/pages/home/widgets/PlayerSelectedDialog.dart';
 import 'package:paper_card/paper_card.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -106,86 +104,6 @@ class _OptionsScreenState extends State<OptionsScreen> {
     );
   }
 
-  Widget buildPlayerSelectionView() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 30),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Column(
-              children: [
-                SecondaryButton(
-                  title: gameStoreInstance.firstPlayer.value?.name ?? 'Select',
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return PlayerSelectionDialog(
-                          title: 'Select Player 1',
-                          onPlayerSelected: (player) {
-                            gameStoreInstance.firstPlayer.value = player;
-                          },
-                          oppositePlayer: gameStoreInstance.secondPlayer.value,
-                        );
-                      },
-                    );
-                  },
-                  color: HexColor.fromHex(widget.levelDataModel.color),
-                  fontWeight: FontWeight.bold,
-                  borderThickness: 2,
-                  width: double.infinity,
-                ),
-                const Gap.h8(),
-                LabelWidget(
-                  'Player 1',
-                  fontSize: 12,
-                  color: HexColor.fromHex(widget.levelDataModel.color)
-                      .withOpacity(0.7),
-                ),
-              ],
-            ),
-          ),
-          const Gap.w32(),
-          Expanded(
-            child: Column(
-              children: [
-                SecondaryButton(
-                  title: gameStoreInstance.secondPlayer.value?.name ?? 'Select',
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return PlayerSelectionDialog(
-                          title: 'Select Player 2',
-                          onPlayerSelected: (player) {
-                            gameStoreInstance.secondPlayer.value = player;
-                          },
-                          oppositePlayer: gameStoreInstance.firstPlayer.value,
-                        );
-                      },
-                    );
-                  },
-                  width: double.infinity,
-                  color: HexColor.fromHex(widget.levelDataModel.color),
-                  fontWeight: FontWeight.bold,
-                  borderThickness: 2,
-                ),
-                const Gap.h8(),
-                LabelWidget(
-                  'Player 2',
-                  fontSize: 12,
-                  color: HexColor.fromHex(widget.levelDataModel.color)
-                      .withOpacity(0.7),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return PaperCard(
@@ -218,7 +136,6 @@ class _OptionsScreenState extends State<OptionsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const Gap.h32(),
-                  buildPlayerSelectionView(),
                   Expanded(
                     child: buildSelectedCard(),
                   ),

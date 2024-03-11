@@ -72,51 +72,6 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
                 ),
               ),
               Positioned(
-                left: 40,
-                right: 40,
-                bottom: 0,
-                top: 0,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.black38,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                          ),
-                        ),
-                        height: 8,
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.black38,
-                          width: 8,
-                        ),
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      height: 70,
-                      width: 70,
-                    ),
-                    Expanded(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.black38,
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                          ),
-                        ),
-                        height: 8,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Positioned(
                 left: -10,
                 bottom: 0,
                 top: 0,

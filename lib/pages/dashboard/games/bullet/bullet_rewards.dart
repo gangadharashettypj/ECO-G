@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/enums/modes.dart';
@@ -56,11 +57,15 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                         LabelWidget(
                           gameStoreInstance.firstPlayer.value?.name ?? '',
                           color: gameStoreInstance.selectedGameMode.value.color,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
                         ),
                         LabelWidget(
                           'Player 1',
-                          color: gameStoreInstance.selectedGameMode.value.color,
+                          color: gameStoreInstance.selectedGameMode.value.color
+                              .withOpacity(0.5),
                         ),
+                        const Gap.h16(),
                         ...gameStoreInstance.selectedGame.value!.getDragObjects
                             .map(
                           (e) {
@@ -95,11 +100,15 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                         LabelWidget(
                           gameStoreInstance.secondPlayer.value?.name ?? '',
                           color: gameStoreInstance.selectedGameMode.value.color,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
                         ),
                         LabelWidget(
                           'Player 2',
-                          color: gameStoreInstance.selectedGameMode.value.color,
+                          color: gameStoreInstance.selectedGameMode.value.color
+                              .withOpacity(0.5),
                         ),
+                        const Gap.h16(),
                         ...gameStoreInstance.selectedGame.value!.getDragObjects
                             .map(
                           (e) {

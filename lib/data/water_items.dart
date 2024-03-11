@@ -88,9 +88,27 @@ final waterLevelItems = [
       image: Assets.playIcons.plasticBag2.path
   ),
   ItemModel(
-      name: 'Plastic Bag',
+      name: 'Industry',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.plasticBag3.path
+      image: Assets.playIcons.industry.path
+  ),
+  ItemModel(
+      name: 'Industry',
+      color: Colors.cyan.toHex(),
+      keyType: ItemType.negative,
+      image: Assets.playIcons.industry.path
+  ),
+  ItemModel(
+      name: 'Industry',
+      color: Colors.cyan.toHex(),
+      keyType: ItemType.negative,
+      image: Assets.playIcons.industry3.path
+  ),
+  ItemModel(
+      name: 'Toxic Waste',
+      color: Colors.cyan.toHex(),
+      keyType: ItemType.negative,
+      image: Assets.playIcons.toxicWaste.path
   ),
 ];

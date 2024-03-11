@@ -111,8 +111,35 @@ class $AssetsPlayIconsGen {
   AssetGenImage get appleWaste =>
       const AssetGenImage('assets/playIcons/apple_waste.png');
 
+  /// File path: assets/playIcons/battery.png
+  AssetGenImage get battery =>
+      const AssetGenImage('assets/playIcons/battery.png');
+
+  /// File path: assets/playIcons/battery2.png
+  AssetGenImage get battery2 =>
+      const AssetGenImage('assets/playIcons/battery2.png');
+
+  /// File path: assets/playIcons/bone.png
+  AssetGenImage get bone => const AssetGenImage('assets/playIcons/bone.png');
+
   /// File path: assets/playIcons/bulb.png
   AssetGenImage get bulb => const AssetGenImage('assets/playIcons/bulb.png');
+
+  /// File path: assets/playIcons/car_battery.png
+  AssetGenImage get carBattery =>
+      const AssetGenImage('assets/playIcons/car_battery.png');
+
+  /// File path: assets/playIcons/cardboard_box.png
+  AssetGenImage get cardboardBox =>
+      const AssetGenImage('assets/playIcons/cardboard_box.png');
+
+  /// File path: assets/playIcons/cardboard_container.png
+  AssetGenImage get cardboardContainer =>
+      const AssetGenImage('assets/playIcons/cardboard_container.png');
+
+  /// File path: assets/playIcons/cement.png
+  AssetGenImage get cement =>
+      const AssetGenImage('assets/playIcons/cement.png');
 
   /// File path: assets/playIcons/cloud.png
   AssetGenImage get cloud => const AssetGenImage('assets/playIcons/cloud.png');
@@ -124,6 +151,18 @@ class $AssetsPlayIconsGen {
   /// File path: assets/playIcons/clouds_lightning.png
   AssetGenImage get cloudsLightning =>
       const AssetGenImage('assets/playIcons/clouds_lightning.png');
+
+  /// File path: assets/playIcons/eggshell.png
+  AssetGenImage get eggshell =>
+      const AssetGenImage('assets/playIcons/eggshell.png');
+
+  /// File path: assets/playIcons/extreme_temp.png
+  AssetGenImage get extremeTemp =>
+      const AssetGenImage('assets/playIcons/extreme_temp.png');
+
+  /// File path: assets/playIcons/fruits.png
+  AssetGenImage get fruits =>
+      const AssetGenImage('assets/playIcons/fruits.png');
 
   /// File path: assets/playIcons/garbage_bag.png
   AssetGenImage get garbageBag =>
@@ -137,13 +176,37 @@ class $AssetsPlayIconsGen {
   AssetGenImage get glassBottle2 =>
       const AssetGenImage('assets/playIcons/glass_bottle2.png');
 
+  /// File path: assets/playIcons/gravel.png
+  AssetGenImage get gravel =>
+      const AssetGenImage('assets/playIcons/gravel.png');
+
   /// File path: assets/playIcons/green_trash_can.png
   AssetGenImage get greenTrashCan =>
       const AssetGenImage('assets/playIcons/green_trash_can.png');
 
+  /// File path: assets/playIcons/industry.png
+  AssetGenImage get industry =>
+      const AssetGenImage('assets/playIcons/industry.png');
+
+  /// File path: assets/playIcons/industry2.png
+  AssetGenImage get industry2 =>
+      const AssetGenImage('assets/playIcons/industry2.png');
+
+  /// File path: assets/playIcons/industry3.png
+  AssetGenImage get industry3 =>
+      const AssetGenImage('assets/playIcons/industry3.png');
+
+  /// File path: assets/playIcons/laptop.png
+  AssetGenImage get laptop =>
+      const AssetGenImage('assets/playIcons/laptop.png');
+
   /// File path: assets/playIcons/metal_trash_can.png
   AssetGenImage get metalTrashCan =>
       const AssetGenImage('assets/playIcons/metal_trash_can.png');
+
+  /// File path: assets/playIcons/mobile.png
+  AssetGenImage get mobile =>
+      const AssetGenImage('assets/playIcons/mobile.png');
 
   /// File path: assets/playIcons/moon_star.png
   AssetGenImage get moonStar =>
@@ -156,6 +219,13 @@ class $AssetsPlayIconsGen {
   /// File path: assets/playIcons/palstic_bag.png
   AssetGenImage get palsticBag =>
       const AssetGenImage('assets/playIcons/palstic_bag.png');
+
+  /// File path: assets/playIcons/paper.png
+  AssetGenImage get paper => const AssetGenImage('assets/playIcons/paper.png');
+
+  /// File path: assets/playIcons/paper_bag.png
+  AssetGenImage get paperBag =>
+      const AssetGenImage('assets/playIcons/paper_bag.png');
 
   /// File path: assets/playIcons/plastic_bag2.png
   AssetGenImage get plasticBag2 =>
@@ -182,6 +252,9 @@ class $AssetsPlayIconsGen {
   /// File path: assets/playIcons/rain_sun.png
   AssetGenImage get rainSun =>
       const AssetGenImage('assets/playIcons/rain_sun.png');
+
+  /// File path: assets/playIcons/sand.png
+  AssetGenImage get sand => const AssetGenImage('assets/playIcons/sand.png');
 
   /// File path: assets/playIcons/seed.png
   AssetGenImage get seed => const AssetGenImage('assets/playIcons/seed.png');
@@ -221,6 +294,25 @@ class $AssetsPlayIconsGen {
   AssetGenImage get sunflowerSeed =>
       const AssetGenImage('assets/playIcons/sunflower-seed.png');
 
+  /// File path: assets/playIcons/tin.png
+  AssetGenImage get tin => const AssetGenImage('assets/playIcons/tin.png');
+
+  /// File path: assets/playIcons/tin_can.png
+  AssetGenImage get tinCan =>
+      const AssetGenImage('assets/playIcons/tin_can.png');
+
+  /// File path: assets/playIcons/tin_spray_bottle.png
+  AssetGenImage get tinSprayBottle =>
+      const AssetGenImage('assets/playIcons/tin_spray_bottle.png');
+
+  /// File path: assets/playIcons/toxic_waste.png
+  AssetGenImage get toxicWaste =>
+      const AssetGenImage('assets/playIcons/toxic_waste.png');
+
+  /// File path: assets/playIcons/toxic_waste2.png
+  AssetGenImage get toxicWaste2 =>
+      const AssetGenImage('assets/playIcons/toxic_waste2.png');
+
   /// File path: assets/playIcons/tree1.png
   AssetGenImage get tree1 => const AssetGenImage('assets/playIcons/tree1.png');
 
@@ -239,9 +331,21 @@ class $AssetsPlayIconsGen {
   /// File path: assets/playIcons/tree6.png
   AssetGenImage get tree6 => const AssetGenImage('assets/playIcons/tree6.png');
 
+  /// File path: assets/playIcons/tree_cutting.png
+  AssetGenImage get treeCutting =>
+      const AssetGenImage('assets/playIcons/tree_cutting.png');
+
+  /// File path: assets/playIcons/tree_cutting2.png
+  AssetGenImage get treeCutting2 =>
+      const AssetGenImage('assets/playIcons/tree_cutting2.png');
+
   /// File path: assets/playIcons/umbrella.png
   AssetGenImage get umbrella =>
       const AssetGenImage('assets/playIcons/umbrella.png');
+
+  /// File path: assets/playIcons/vegetables.png
+  AssetGenImage get vegetables =>
+      const AssetGenImage('assets/playIcons/vegetables.png');
 
   /// File path: assets/playIcons/water.png
   AssetGenImage get water => const AssetGenImage('assets/playIcons/water.png');
@@ -262,6 +366,17 @@ class $AssetsPlayIconsGen {
   AssetGenImage get wateringCan =>
       const AssetGenImage('assets/playIcons/watering_can.png');
 
+  /// File path: assets/playIcons/wild_fire.png
+  AssetGenImage get wildFire =>
+      const AssetGenImage('assets/playIcons/wild_fire.png');
+
+  /// File path: assets/playIcons/woods.png
+  AssetGenImage get woods => const AssetGenImage('assets/playIcons/woods.png');
+
+  /// File path: assets/playIcons/woods2.png
+  AssetGenImage get woods2 =>
+      const AssetGenImage('assets/playIcons/woods2.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         algae1,
@@ -272,18 +387,36 @@ class $AssetsPlayIconsGen {
         algae6,
         algae7,
         appleWaste,
+        battery,
+        battery2,
+        bone,
         bulb,
+        carBattery,
+        cardboardBox,
+        cardboardContainer,
+        cement,
         cloud,
         clouds,
         cloudsLightning,
+        eggshell,
+        extremeTemp,
+        fruits,
         garbageBag,
         glassBottle,
         glassBottle2,
+        gravel,
         greenTrashCan,
+        industry,
+        industry2,
+        industry3,
+        laptop,
         metalTrashCan,
+        mobile,
         moonStar,
         nightTime,
         palsticBag,
+        paper,
+        paperBag,
         plasticBag2,
         plasticBag3,
         plasticBottle,
@@ -291,6 +424,7 @@ class $AssetsPlayIconsGen {
         rain,
         rain2,
         rainSun,
+        sand,
         seed,
         seedUnderground,
         soil,
@@ -302,18 +436,29 @@ class $AssetsPlayIconsGen {
         sun3,
         sunSolarPanal,
         sunflowerSeed,
+        tin,
+        tinCan,
+        tinSprayBottle,
+        toxicWaste,
+        toxicWaste2,
         tree1,
         tree2,
         tree3,
         tree4,
         tree5,
         tree6,
+        treeCutting,
+        treeCutting2,
         umbrella,
+        vegetables,
         water,
         waterDrop,
         waterDrops,
         waterDrops2,
-        wateringCan
+        wateringCan,
+        wildFire,
+        woods,
+        woods2
       ];
 }
 

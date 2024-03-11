@@ -80,39 +80,45 @@ final treeLevelItems = [
   //negative Values
 
   ItemModel(
-      name: 'Plastic Bottle',
+      name: 'Tree Cutting',
       color: Colors.brown.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.plasticBottle.path
+      image: Assets.playIcons.treeCutting.path
   ),
   ItemModel(
-      name: 'Plastic Cup',
+      name: 'Tree Cutting',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.plasticCup.path
+      image: Assets.playIcons.treeCutting2.path
   ),
   ItemModel(
-      name: 'Garbage',
+      name: 'Pesticides',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.garbageBag.path
+      image: Assets.playIcons.toxicWaste2.path
   ),
   ItemModel(
-      name: 'Plastic Bag',
+      name: 'Industry',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.palsticBag.path
+      image: Assets.playIcons.industry.path
   ),
   ItemModel(
-      name: 'Plastic Bag',
+      name: 'Wild Fire',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.plasticBag2.path
+      image: Assets.playIcons.wildFire.path
   ),
   ItemModel(
-      name: 'Plastic Bag',
+      name: 'Extreme Heat',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.plasticBag3.path
+      image: Assets.playIcons.extremeTemp.path
+  ),
+  ItemModel(
+      name: 'Sand',
+      color: Colors.cyan.toHex(),
+      keyType: ItemType.negative,
+      image: Assets.playIcons.sand.path
   ),
 ];

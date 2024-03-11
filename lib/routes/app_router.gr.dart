@@ -21,6 +21,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const BulletGameScreen(),
       );
     },
+    BulletRewardsRoute.name: (routeData) {
+      final args = routeData.argsAs<BulletRewardsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BulletRewardsScreen(
+          key: args.key,
+          controller: args.controller,
+        ),
+      );
+    },
     GameRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -64,6 +74,44 @@ class BulletGameRoute extends PageRouteInfo<void> {
   static const String name = 'BulletGameRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [BulletRewardsScreen]
+class BulletRewardsRoute extends PageRouteInfo<BulletRewardsRouteArgs> {
+  BulletRewardsRoute({
+    Key? key,
+    required BulletGameController controller,
+    List<PageRouteInfo>? children,
+  }) : super(
+          BulletRewardsRoute.name,
+          args: BulletRewardsRouteArgs(
+            key: key,
+            controller: controller,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'BulletRewardsRoute';
+
+  static const PageInfo<BulletRewardsRouteArgs> page =
+      PageInfo<BulletRewardsRouteArgs>(name);
+}
+
+class BulletRewardsRouteArgs {
+  const BulletRewardsRouteArgs({
+    this.key,
+    required this.controller,
+  });
+
+  final Key? key;
+
+  final BulletGameController controller;
+
+  @override
+  String toString() {
+    return 'BulletRewardsRouteArgs{key: $key, controller: $controller}';
+  }
 }
 
 /// generated route for

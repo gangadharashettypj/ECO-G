@@ -17,15 +17,28 @@ class BulletGameController {
 
   Timer? timer;
 
+  Timer? timer1;
+
   final player1Points = signal<int>(0);
 
   final player2Points = signal<int>(0);
 
+  final timeInSeconds = signal<int>(30);
+
   void init() {
-    objects.value = gameStoreInstance.selectedGame.value!.getDragObjects
-        .map((e) => e.toJson())
-        .map((e) => DragObject.fromJson(e))
-        .toList();
+    var items = List.generate(
+        15,
+        (index) => gameStoreInstance.selectedGame.value!.getDragObjects[index %
+            gameStoreInstance.selectedGame.value!.getDragObjects
+                .length]).map((e) => e.toJson()).toList();
+    final formattedItems = items.map((e) => DragObject.fromJson(e)).toList();
+
+    formattedItems.shuffle();
+    for (int i = 0; i < formattedItems.length; i++) {
+      formattedItems[i].visibleTime =
+          DateTime.now().millisecondsSinceEpoch + (i * 2000);
+    }
+    objects.value = formattedItems;
   }
 
   void postInit() {
@@ -35,6 +48,13 @@ class BulletGameController {
       screenHeight: dragRegionSize.height,
       collectibles: objects.value,
     );
+
+    timer1 = Timer.periodic(const Duration(seconds: 1), (timer) {
+      final elapsed = 30 - timer.tick;
+      if (elapsed >= 0) {
+        timeInSeconds.value = elapsed;
+      }
+    });
 
     timer = Timer.periodic(
       Duration(milliseconds: refreshTime),
@@ -50,6 +70,7 @@ class BulletGameController {
 
   void dispose() {
     timer?.cancel();
+    timer1?.cancel();
   }
 
   void updateScore() {

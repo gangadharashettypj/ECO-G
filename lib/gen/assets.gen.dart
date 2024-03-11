@@ -30,6 +30,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/logo1.png
+  AssetGenImage get logo1 => const AssetGenImage('assets/images/logo1.png');
+
   /// File path: assets/images/money.png
   AssetGenImage get money => const AssetGenImage('assets/images/money.png');
 
@@ -49,9 +52,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/tree.png
   AssetGenImage get tree => const AssetGenImage('assets/images/tree.png');
 
-  /// File path: assets/images/water.png
-  AssetGenImage get water => const AssetGenImage('assets/images/water.png');
-
   /// List of all assets
   List<AssetGenImage> get values => [
         bg1,
@@ -59,13 +59,13 @@ class $AssetsImagesGen {
         crayonMask,
         infinity,
         logo,
+        logo1,
         money,
         person,
         rapid,
         solarPanel,
         timer,
-        tree,
-        water
+        tree
       ];
 }
 
@@ -129,7 +129,7 @@ class $AssetsPlayIconsGen {
   AssetGenImage get cloudsLightning =>
       const AssetGenImage('assets/playIcons/clouds_lightning.png');
 
-  /// File path: assets/playIcons/glass_bottle.png
+  /// File path: assets/playIcons/garbage_bag.png
   AssetGenImage get garbageBag =>
       const AssetGenImage('assets/playIcons/garbage_bag.png');
 
@@ -195,8 +195,18 @@ class $AssetsPlayIconsGen {
       const AssetGenImage('assets/playIcons/seed_underground.png');
 
   /// File path: assets/playIcons/soil.png
-  AssetGenImage get soil =>
-      const AssetGenImage('assets/playIcons/soil.png');
+  AssetGenImage get soil => const AssetGenImage('assets/playIcons/soil.png');
+
+  /// File path: assets/playIcons/soil1.png
+  AssetGenImage get soil1 => const AssetGenImage('assets/playIcons/soil1.png');
+
+  /// File path: assets/playIcons/solar_energy.png
+  AssetGenImage get solarEnergy =>
+      const AssetGenImage('assets/playIcons/solar_energy.png');
+
+  /// File path: assets/playIcons/solar_panel.png
+  AssetGenImage get solarPanel =>
+      const AssetGenImage('assets/playIcons/solar_panel.png');
 
   /// File path: assets/playIcons/sun.png
   AssetGenImage get sun => const AssetGenImage('assets/playIcons/sun.png');
@@ -210,14 +220,6 @@ class $AssetsPlayIconsGen {
   /// File path: assets/playIcons/sun_solar_panal.png
   AssetGenImage get sunSolarPanal =>
       const AssetGenImage('assets/playIcons/sun_solar_panal.png');
-
-  /// File path: assets/playIcons/solar_panel.png
-  AssetGenImage get solarPanel =>
-      const AssetGenImage('assets/playIcons/solar_panel.png');
-
-  /// File path: assets/playIcons/solar_energy.png
-  AssetGenImage get solarEnergy =>
-      const AssetGenImage('assets/playIcons/solar_energy.png');
 
   /// File path: assets/playIcons/sunflower-seed.png
   AssetGenImage get sunflowerSeed =>
@@ -244,6 +246,9 @@ class $AssetsPlayIconsGen {
   /// File path: assets/playIcons/umbrella.png
   AssetGenImage get umbrella =>
       const AssetGenImage('assets/playIcons/umbrella.png');
+
+  /// File path: assets/playIcons/water.png
+  AssetGenImage get water => const AssetGenImage('assets/playIcons/water.png');
 
   /// File path: assets/playIcons/water_drop.png
   AssetGenImage get waterDrop =>
@@ -293,12 +298,13 @@ class $AssetsPlayIconsGen {
         seed,
         seedUnderground,
         soil,
+        soil1,
+        solarEnergy,
+        solarPanel,
         sun,
         sun2,
         sun3,
         sunSolarPanal,
-        solarEnergy,
-        solarPanel,
         sunflowerSeed,
         tree1,
         tree2,
@@ -307,6 +313,7 @@ class $AssetsPlayIconsGen {
         tree5,
         tree6,
         umbrella,
+        water,
         waterDrop,
         waterDrops,
         waterDrops2,

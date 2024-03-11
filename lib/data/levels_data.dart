@@ -24,15 +24,15 @@ final levelData = [
     concept: 'You will learn about how to build solar light.',
     levelNumber: 2,
     color: ColorName.copperGold.toHex(),
-    items: solarLevelItems
+    items: solarLevelItems,
   ),
   LevelDataModel(
     id: 'LEVEL_3',
-    image: Assets.images.water.path,
+    image: Assets.playIcons.water.path,
     title: 'Water Filtration',
     concept: 'You will learn how to filter dirt water.',
     levelNumber: 3,
     color: ColorName.primaryDark.toHex(),
-    items: waterLevelItems
+    items: waterLevelItems,
   ),
 ];

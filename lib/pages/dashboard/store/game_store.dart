@@ -31,12 +31,23 @@ class GameStore {
           ),
         )
         .toList();
-    if (cachedPlayers.firstWhereOrNull((element) => element.id == 0) == null) {
+    if (cachedPlayers.firstWhereOrNull((element) => element.id == '0') ==
+        null) {
       cachedPlayers.insert(
         0,
         PlayerModel(
           id: '0',
-          name: 'You',
+          name: 'Player 1',
+        ),
+      );
+    }
+    if (cachedPlayers.firstWhereOrNull((element) => element.id == '1') ==
+        null) {
+      cachedPlayers.insert(
+        1,
+        PlayerModel(
+          id: '1',
+          name: 'Player 2',
         ),
       );
     }

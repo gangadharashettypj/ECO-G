@@ -30,6 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     gameStoreInstance.loadAllPlayers();
 
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      gameStoreInstance.firstPlayer.value =
+          gameStoreInstance.players.value.first;
+      gameStoreInstance.secondPlayer.value = gameStoreInstance.players.value[1];
+    });
+
     super.initState();
   }
 
@@ -105,9 +111,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderThickness: 2,
                   width: double.infinity,
                 ),
-                const LabelWidget(
+                const Gap.h8(),
+                LabelWidget(
                   'Player 1',
                   fontSize: 12,
+                  color: ColorName.copperGold.withOpacity(0.7),
                 ),
               ],
             ),
@@ -137,9 +145,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontWeight: FontWeight.bold,
                   borderThickness: 2,
                 ),
-                const LabelWidget(
+                const Gap.h8(),
+                LabelWidget(
                   'Player 2',
                   fontSize: 12,
+                  color: ColorName.copperGold.withOpacity(0.7),
                 ),
               ],
             ),
@@ -161,10 +171,12 @@ class _HomeScreenState extends State<HomeScreen> {
               return SingleChildScrollView(
                 child: Column(
                   children: [
+                    const Gap.h32(),
                     buildPlayerSelectionView(),
                     const Gap.h32(),
                     ImageWidget(
-                      imageLocation: Assets.images.logo.path,
+                      imageLocation: Assets.images.logo1.path,
+                      height: 100,
                     ),
                     const Gap.h32(),
                     buildLevelView(),

@@ -1,11 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/pages/dashboard/games/bullet/bullet_game_controller.dart';
+import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:flutter_game/pages/dashboard/widgets/drag_object_view.dart';
 import 'package:flutter_game/pages/dashboard/widgets/game_options_view.dart';
 import 'package:flutter_game/pages/dashboard/widgets/target_player_card.dart';
+import 'package:flutter_game/routes/app_router.dart';
 import 'package:flutter_game/utils/store_helper.dart';
 import 'package:paper_card/paper_card.dart';
 import 'package:signals/signals_flutter.dart';
@@ -32,10 +35,8 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
     });
 
     _disposers.add(effect(() {
-      if (controller.objects.value
-          .where((element) => element.ownBy == 0)
-          .isEmpty) {
-        // context.popRoute();
+      if (controller.timeInSeconds.value == 0) {
+        context.router.replace(BulletRewardsRoute(controller: controller));
       }
     }));
 
@@ -72,51 +73,6 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
                 ),
               ),
               Positioned(
-                left: 40,
-                right: 40,
-                bottom: 0,
-                top: 0,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.black38,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                          ),
-                        ),
-                        height: 8,
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.black38,
-                          width: 8,
-                        ),
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      height: 70,
-                      width: 70,
-                    ),
-                    Expanded(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.black38,
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                          ),
-                        ),
-                        height: 8,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Positioned(
                 left: -10,
                 bottom: 0,
                 top: 0,
@@ -126,7 +82,10 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
                     child: Watch(
                       (context) {
                         return LabelWidget(
-                          '00:30',
+                          DateTime.fromMillisecondsSinceEpoch(
+                            controller.timeInSeconds.value * 1000,
+                            isUtc: true,
+                          ).format('mm:ss'),
                           fontSize: 30,
                           color: ColorName.textColor.withOpacity(0.5),
                         );
@@ -179,9 +138,19 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
                 left: 0,
                 child: Watch(
                   (context) {
-                    return LabelWidget(
-                      controller.player1Points.value.toString(),
-                      fontSize: 38,
+                    return Row(
+                      children: [
+                        LabelWidget(
+                          controller.player1Points.value.toString(),
+                          fontSize: 38,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 8, left: 8),
+                          child: LabelWidget(
+                            gameStoreInstance.firstPlayer.value?.name ?? '',
+                          ),
+                        ),
+                      ],
                     );
                   },
                 ),
@@ -191,9 +160,20 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
                 left: 0,
                 child: Watch(
                   (context) {
-                    return LabelWidget(
-                      controller.player2Points.value.toString(),
-                      fontSize: 38,
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        LabelWidget(
+                          controller.player2Points.value.toString(),
+                          fontSize: 38,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 8, left: 8),
+                          child: LabelWidget(
+                            gameStoreInstance.secondPlayer.value?.name ?? '',
+                          ),
+                        ),
+                      ],
                     );
                   },
                 ),

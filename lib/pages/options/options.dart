@@ -6,7 +6,6 @@ import 'package:flutter_game/components/button/button_widget.dart';
 import 'package:flutter_game/components/image/image_widget.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/enums/modes.dart';
-import 'package:flutter_game/extension/color_extension.dart';
 import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
@@ -51,6 +50,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
             imageLocation: e.image,
             width: 82,
             height: 82,
+            color: gameStoreInstance.selectedGame.value!.color,
           ),
         ),
       ),
@@ -88,6 +88,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                         gameStoreInstance.selectedGameMode.value.image,
                     height: 150,
                     width: 150,
+                    color: gameStoreInstance.selectedGame.value!.color,
                   ),
                 ),
                 LabelWidget(
@@ -110,9 +111,8 @@ class _OptionsScreenState extends State<OptionsScreen> {
       margin: const EdgeInsets.symmetric(
         vertical: 16,
       ),
-      backgroundColor:
-          HexColor.fromHex(widget.levelDataModel.color).withOpacity(0.2),
-      borderColor: HexColor.fromHex(widget.levelDataModel.color),
+      backgroundColor: widget.levelDataModel.color.withOpacity(0.2),
+      borderColor: widget.levelDataModel.color,
       borderRadius: 8,
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -120,12 +120,12 @@ class _OptionsScreenState extends State<OptionsScreen> {
           backgroundColor: Colors.transparent,
           title: LabelWidget(
             'BACK',
-            color: HexColor.fromHex(widget.levelDataModel.color),
+            color: widget.levelDataModel.color,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
           iconTheme: IconThemeData(
-            color: HexColor.fromHex(widget.levelDataModel.color),
+            color: widget.levelDataModel.color,
           ),
           centerTitle: false,
         ),

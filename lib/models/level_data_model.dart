@@ -6,6 +6,14 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'level_data_model.g.dart';
 
+Color colorFromJson(json) {
+  return HexColor.fromHex(json['color']);
+}
+
+String colorToJson(Color color) {
+  return color.toHex();
+}
+
 @JsonSerializable(anyMap: true, explicitToJson: true)
 class LevelDataModel {
   final String id;
@@ -14,10 +22,9 @@ class LevelDataModel {
   final String image;
   final String concept;
   final bool isImage;
-  final String color;
+  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  final Color color;
   final List<ItemModel> items;
-
-  Color get formattedColor => HexColor.fromHex(color);
 
   LevelDataModel({
     required this.id,
@@ -26,7 +33,7 @@ class LevelDataModel {
     required this.concept,
     required this.levelNumber,
     required this.items,
-    this.color = '#FFFFFF',
+    required this.color,
     this.isImage = false,
   });
 

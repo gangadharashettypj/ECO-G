@@ -63,20 +63,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Transform.scale(
                     scaleX: 1.4,
                     scaleY: 1.4,
-                    child: ImageWidget(
-                      imageLocation: Assets.images.treeBg.path,
+                    child: Opacity(
+                      opacity: 0.9,
+                      child: ImageWidget(
+                        imageLocation: Assets.images.treeBg.path,
+                      ),
                     ),
                   ),
                 ),
-                const Positioned(
+                Positioned(
                   top: 0,
                   bottom: 0,
                   left: 20,
-                  child: LabelWidget(
+                  child: Text(
                     'Green\nDoctor',
-                    color: ColorName.copperGold,
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold,
+                    style: GoogleFonts.rubikDoodleShadow().copyWith(
+                      color: ColorName.copperGold,
+                      fontSize: 40,
+                    ),
                   ),
                 ),
               ],
@@ -107,19 +111,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   right: 0,
                   top: 0,
                   bottom: 0,
-                  child: ImageWidget(
-                    imageLocation: Assets.images.waterBg.path,
+                  child: Opacity(
+                    opacity: 0.9,
+                    child: ImageWidget(
+                      imageLocation: Assets.images.waterBg.path,
+                    ),
                   ),
                 ),
-                const Positioned(
+                Positioned(
                   top: 0,
                   bottom: 0,
                   left: 20,
-                  child: LabelWidget(
+                  child: Text(
                     'Thirsty',
-                    color: Color(0xFF02B1DA),
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold,
+                    style: GoogleFonts.rubikDoodleShadow().copyWith(
+                      color: const Color(0xFF02B1DA),
+                      fontSize: 40,
+                    ),
                   ),
                 ),
               ],
@@ -135,34 +143,39 @@ class _HomeScreenState extends State<HomeScreen> {
       margin: const EdgeInsets.symmetric(horizontal: 16),
       child: InkWell(
         onTap: () {
-          gameStoreInstance.selectedGame.value = waterLevel;
-          context.router.push(OptionsRoute(levelDataModel: waterLevel));
+          gameStoreInstance.selectedGame.value = recyclableLevel;
+          context.router.push(OptionsRoute(levelDataModel: recyclableLevel));
         },
         child: PaperCard(
-          backgroundColor: const Color(0xFF6ACBA4),
-          borderColor: const Color(0xFF1D4F56),
+          backgroundColor: const Color(0xFF3D6A7D),
+          borderColor: ColorName.accent,
           child: SizedBox(
             height: 160,
             width: double.infinity,
             child: Stack(
               children: [
                 Positioned(
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                  child: ImageWidget(
-                    imageLocation: Assets.images.recycleBg.path,
+                  right: 20,
+                  top: 14,
+                  bottom: 14,
+                  child: Opacity(
+                    opacity: 0.8,
+                    child: ImageWidget(
+                      imageLocation: Assets.images.recycleBg.path,
+                      color: ColorName.accent,
+                    ),
                   ),
                 ),
-                const Positioned(
+                Positioned(
                   top: 0,
                   bottom: 0,
                   left: 20,
-                  child: LabelWidget(
+                  child: Text(
                     'Recyclable',
-                    color: Color(0xFF1D4F56),
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold,
+                    style: GoogleFonts.rubikDoodleShadow().copyWith(
+                      color: ColorName.accent,
+                      fontSize: 40,
+                    ),
                   ),
                 ),
               ],
@@ -195,6 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ImageWidget(
                     imageLocation: Assets.images.solarPanel.path,
                     width: 200,
+                    color: const Color(0xDFFAF2CE),
                   ),
                 ),
                 Positioned(
@@ -203,6 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ImageWidget(
                     imageLocation: Assets.images.sun.path,
                     width: 100,
+                    color: const Color(0xDFFAF2CE),
                   ),
                 ),
                 Positioned(
@@ -214,15 +229,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: const Color(0x4FFAF2CE),
                   ),
                 ),
-                const Positioned(
+                Positioned(
                   top: 0,
                   bottom: 0,
                   left: 20,
-                  child: LabelWidget(
+                  child: Text(
                     'Renewable\nEnergy',
-                    color: Color(0xFFFAF2CE),
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold,
+                    style: GoogleFonts.rubikDoodleShadow().copyWith(
+                      color: const Color(0xFFFAF2CE),
+                      fontSize: 40,
+                    ),
                   ),
                 ),
               ],
@@ -234,15 +250,13 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildLevelView() {
-    gameStoreInstance.selectedGame.value ??= levelData[0];
-
     return Column(
       children: [
-        buildGreenDoctor(),
+        buildRenewable(),
         const Gap.h32(),
         buildWater(),
         const Gap.h32(),
-        buildRenewable(),
+        buildGreenDoctor(),
         const Gap.h32(),
         buildRecyclable(),
         const Gap.h32(),
@@ -343,8 +357,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Text(
                       'ECO-G',
-                      style: GoogleFonts.rubikGlitchPop()
-                          .copyWith(color: ColorName.copperGold, fontSize: 50),
+                      style: GoogleFonts.rubikGlitchPop().copyWith(
+                        color: ColorName.copperGold,
+                        fontSize: 50,
+                      ),
                     ),
 
                     buildPlayerSelectionView(),

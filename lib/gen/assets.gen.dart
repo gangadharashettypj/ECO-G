@@ -16,8 +16,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/coin.png
   AssetGenImage get coin => const AssetGenImage('assets/images/coin.png');
 
+  /// File path: assets/images/easy_icon.png
+  AssetGenImage get easyIcon =>
+      const AssetGenImage('assets/images/easy_icon.png');
+
   /// File path: assets/images/fan.png
   AssetGenImage get fan => const AssetGenImage('assets/images/fan.png');
+
+  /// File path: assets/images/hard_icon.png
+  AssetGenImage get hardIcon =>
+      const AssetGenImage('assets/images/hard_icon.png');
 
   /// File path: assets/images/infinity.png
   AssetGenImage get infinity =>
@@ -59,7 +67,9 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         coin,
+        easyIcon,
         fan,
+        hardIcon,
         infinity,
         logo,
         money,

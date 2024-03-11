@@ -15,7 +15,7 @@ LevelDataModel _$LevelDataModelFromJson(Map json) => LevelDataModel(
       items: (json['items'] as List<dynamic>)
           .map((e) => ItemModel.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
-      color: json['color'] as String? ?? '#FFFFFF',
+      color: colorFromJson(json['color']),
       isImage: json['isImage'] as bool? ?? false,
     );
 
@@ -27,7 +27,7 @@ Map<String, dynamic> _$LevelDataModelToJson(LevelDataModel instance) =>
       'image': instance.image,
       'concept': instance.concept,
       'isImage': instance.isImage,
-      'color': instance.color,
+      'color': colorToJson(instance.color),
       'items': instance.items.map((e) => e.toJson()).toList(),
     };
 

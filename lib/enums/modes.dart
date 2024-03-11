@@ -13,9 +13,9 @@ extension GameModeExtension on GameMode {
   String get title {
     switch (this) {
       case GameMode.bullet:
-        return 'Blitz';
+        return 'Easy';
       case GameMode.blitz:
-        return 'Rapid';
+        return 'Hard';
       // case GameMode.rapid:
       //   return 'Rapid';
     }
@@ -35,9 +35,9 @@ extension GameModeExtension on GameMode {
   String get image {
     switch (this) {
       case GameMode.bullet:
-        return Assets.images.rapid.path;
+        return Assets.images.easyIcon.path;
       case GameMode.blitz:
-        return Assets.images.infinity.path;
+        return Assets.images.hardIcon.path;
       // case GameMode.rapid:
       //   return Assets.images.timer.path;
     }

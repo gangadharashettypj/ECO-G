@@ -41,8 +41,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
           return BlitzRewardCard(
             item: e.item,
             score: score,
-            color: gameStoreInstance.selectedGame.value!.formattedColor
-                .withOpacity(0.6),
+            color: gameStoreInstance.selectedGame.value!.color.withOpacity(0.6),
           );
         },
       ).toList(),
@@ -56,15 +55,15 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
         vertical: 16,
       ),
       backgroundColor:
-          gameStoreInstance.selectedGame.value!.formattedColor.withOpacity(0.2),
-      borderColor: gameStoreInstance.selectedGame.value!.formattedColor,
+          gameStoreInstance.selectedGame.value!.color.withOpacity(0.2),
+      borderColor: gameStoreInstance.selectedGame.value!.color,
       borderRadius: 8,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           iconTheme: IconThemeData(
-            color: gameStoreInstance.selectedGame.value!.formattedColor,
+            color: gameStoreInstance.selectedGame.value!.color,
           ),
           centerTitle: false,
         ),
@@ -80,8 +79,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                     const Gap.h16(),
                     LabelWidget(
                       gameStoreInstance.selectedGame.value!.title,
-                      color:
-                          gameStoreInstance.selectedGame.value!.formattedColor,
+                      color: gameStoreInstance.selectedGame.value!.color,
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                       textAlign: TextAlign.center,
@@ -90,8 +88,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                     Container(
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: gameStoreInstance
-                              .selectedGame.value!.formattedColor
+                          color: gameStoreInstance.selectedGame.value!.color
                               .withOpacity(0.5),
                           width: 2,
                         ),
@@ -109,7 +106,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                                     Icon(
                                       Icons.person,
                                       color: gameStoreInstance
-                                          .selectedGame.value!.formattedColor
+                                          .selectedGame.value!.color
                                           .withOpacity(0.8),
                                     ),
                                     const Gap.w4(),
@@ -118,7 +115,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                                               .firstPlayer.value?.name ??
                                           '',
                                       color: gameStoreInstance
-                                          .selectedGame.value!.formattedColor
+                                          .selectedGame.value!.color
                                           .withOpacity(0.8),
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
@@ -133,7 +130,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                                     Icon(
                                       Icons.person,
                                       color: gameStoreInstance
-                                          .selectedGame.value!.formattedColor
+                                          .selectedGame.value!.color
                                           .withOpacity(0.8),
                                     ),
                                     const Gap.w4(),
@@ -142,7 +139,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                                               .secondPlayer.value?.name ??
                                           '',
                                       color: gameStoreInstance
-                                          .selectedGame.value!.formattedColor
+                                          .selectedGame.value!.color
                                           .withOpacity(0.8),
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
@@ -166,7 +163,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                                     buildPlayer1Rewards(1),
                                     VerticalDivider(
                                       color: gameStoreInstance
-                                          .selectedGame.value!.formattedColor
+                                          .selectedGame.value!.color
                                           .withOpacity(0.6),
                                     ),
                                     buildPlayer1Rewards(2),

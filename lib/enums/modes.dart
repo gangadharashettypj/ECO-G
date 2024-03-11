@@ -6,18 +6,18 @@ import 'package:flutter_game/routes/app_router.dart';
 enum GameMode {
   bullet,
   blitz,
-  rapid,
+  // rapid,
 }
 
 extension GameModeExtension on GameMode {
   String get title {
     switch (this) {
       case GameMode.bullet:
-        return 'Bullet';
-      case GameMode.blitz:
         return 'Blitz';
-      case GameMode.rapid:
+      case GameMode.blitz:
         return 'Rapid';
+      // case GameMode.rapid:
+      //   return 'Rapid';
     }
   }
 
@@ -27,8 +27,8 @@ extension GameModeExtension on GameMode {
         return 'Fast';
       case GameMode.blitz:
         return 'Choose';
-      case GameMode.rapid:
-        return 'Timer';
+      // case GameMode.rapid:
+      //   return 'Timer';
     }
   }
 
@@ -38,8 +38,8 @@ extension GameModeExtension on GameMode {
         return Assets.images.rapid.path;
       case GameMode.blitz:
         return Assets.images.infinity.path;
-      case GameMode.rapid:
-        return Assets.images.timer.path;
+      // case GameMode.rapid:
+      //   return Assets.images.timer.path;
     }
   }
 
@@ -49,8 +49,8 @@ extension GameModeExtension on GameMode {
         return Colors.yellow;
       case GameMode.blitz:
         return Colors.purple;
-      case GameMode.rapid:
-        return Colors.greenAccent;
+      // case GameMode.rapid:
+      //   return Colors.greenAccent;
     }
   }
 
@@ -60,8 +60,8 @@ extension GameModeExtension on GameMode {
         return const BulletGameRoute();
       case GameMode.blitz:
         return const BlitzGameRoute();
-      case GameMode.rapid:
-        return const GameRoute();
+      // case GameMode.rapid:
+      //   return const GameRoute();
     }
   }
 }

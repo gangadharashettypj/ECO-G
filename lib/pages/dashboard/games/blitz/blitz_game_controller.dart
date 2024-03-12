@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_game/constants/constants.dart';
+import 'package:flutter_game/extension/list_extension.dart';
 import 'package:flutter_game/models/drag_object.dart';
+import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/generator_util.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:flutter_game/utils/widget_position_utill.dart';
@@ -33,8 +35,15 @@ class BlitzGameController {
     timeInSeconds.value = items.length * 2;
 
     final formattedItems = items.map((e) => DragObject.fromJson(e)).toList();
-
     formattedItems.shuffle();
+
+    final randomItems = List.generate(formattedItems.length, (index) => index)
+        .pickRandomItemsAsList(formattedItems.length ~/ 2);
+
+    for (var element in randomItems) {
+      formattedItems[element].item.viewType = ViewType.coin;
+    }
+
     for (int i = 0; i < formattedItems.length; i++) {
       formattedItems[i].visibleTime =
           DateTime.now().millisecondsSinceEpoch + (i * 2000);

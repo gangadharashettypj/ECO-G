@@ -43,7 +43,6 @@ class _BlitzGameScreenState extends State<BlitzGameScreen> {
           },
           barrierDismissible: false,
         );
-        // context.router.replace(BulletRewardsRoute(controller: controller));
       }
     }));
 

@@ -3,6 +3,7 @@ import 'package:flutter_game/components/image/image_widget.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/gen/assets.gen.dart';
 import 'package:flutter_game/models/drag_object.dart';
+import 'package:flutter_game/models/level_data_model.dart';
 
 class DragObjectView extends StatefulWidget {
   const DragObjectView({
@@ -90,17 +91,29 @@ class _DragObjectViewState extends State<DragObjectView> {
                 child: Stack(
                   children: [
                     ImageWidget(
-                      imageLocation: Assets.images.money.path,
+                      imageLocation: dragObject.item.viewType == ViewType.coin
+                          ? Assets.images.coin.path
+                          : Assets.images.money.path,
                     ),
-                    Positioned.fill(
-                      child: Center(
-                        child: LabelWidget(
-                          dragObject.item.name,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
+                    if (dragObject.item.viewType == ViewType.coin)
+                      Positioned.fill(
+                        child: Center(
+                          child: ImageWidget(
+                            imageLocation: dragObject.item.image,
+                            height: 60,
+                          ),
                         ),
                       ),
-                    ),
+                    if (dragObject.item.viewType != ViewType.coin)
+                      Positioned.fill(
+                        child: Center(
+                          child: LabelWidget(
+                            dragObject.item.name,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),

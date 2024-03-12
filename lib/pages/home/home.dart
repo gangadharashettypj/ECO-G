@@ -336,11 +336,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: PaperCard(
-          height: double.infinity,
-          backgroundColor: ColorName.background,
+    return PaperCard(
+      height: double.infinity,
+      backgroundColor: ColorName.background,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
           child: Watch(
             (context) {
               return SingleChildScrollView(

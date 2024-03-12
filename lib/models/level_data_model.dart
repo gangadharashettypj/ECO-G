@@ -62,16 +62,23 @@ enum ItemType {
   negative,
 }
 
+enum ViewType {
+  currency,
+  coin,
+}
+
 @JsonSerializable(anyMap: true, explicitToJson: true)
 class ItemModel {
   final String name;
   final String image;
   final String color;
   final ItemType keyType;
+  ViewType viewType;
 
   ItemModel({
     required this.name,
     required this.keyType,
+    this.viewType = ViewType.currency,
     this.image = '',
     this.color = '#FFFFFF',
   });

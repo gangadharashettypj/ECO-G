@@ -16,6 +16,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/coin.png
   AssetGenImage get coin => const AssetGenImage('assets/images/coin.png');
 
+  /// File path: assets/images/congrats.png
+  AssetGenImage get congrats =>
+      const AssetGenImage('assets/images/congrats.png');
+
   /// File path: assets/images/easy_icon.png
   AssetGenImage get easyIcon =>
       const AssetGenImage('assets/images/easy_icon.png');
@@ -60,10 +64,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/tree_bg.png
   AssetGenImage get treeBg => const AssetGenImage('assets/images/tree_bg.png');
 
-  /// File path: assets/images/congrats.png
-  AssetGenImage get congrats =>
-      const AssetGenImage('assets/images/congrats.png');
-
   /// File path: assets/images/water_bg.png
   AssetGenImage get waterBg =>
       const AssetGenImage('assets/images/water_bg.png');
@@ -71,6 +71,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         coin,
+        congrats,
         easyIcon,
         fan,
         hardIcon,
@@ -84,7 +85,6 @@ class $AssetsImagesGen {
         sun,
         timer,
         treeBg,
-        congrats,
         waterBg
       ];
 }

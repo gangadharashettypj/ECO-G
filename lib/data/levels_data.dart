@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_game/data/eco_life.dart';
 import 'package:flutter_game/data/recycle.dart';
-import 'package:flutter_game/data/solar_items.dart';
 import 'package:flutter_game/data/tree_items.dart';
 import 'package:flutter_game/data/water_items.dart';
 import 'package:flutter_game/gen/assets.gen.dart';
@@ -34,7 +34,7 @@ final renewableLevel = LevelDataModel(
   concept: 'You will learn about how to build solar light.',
   levelNumber: 2,
   color: ColorName.copperGold,
-  items: solarLevelItems,
+  items: ecoLife,
 );
 
 final recyclableLevel = LevelDataModel(

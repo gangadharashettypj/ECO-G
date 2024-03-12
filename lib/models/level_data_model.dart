@@ -26,6 +26,8 @@ class LevelDataModel {
   final Color color;
   final List<ItemModel> items;
 
+  Color get formattedColor => HexColor.fromHex(color);
+
   LevelDataModel({
     required this.id,
     required this.title,

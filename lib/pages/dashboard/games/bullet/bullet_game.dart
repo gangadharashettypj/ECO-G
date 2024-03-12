@@ -36,6 +36,7 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
 
     _disposers.add(effect(() {
       if (controller.timeInSeconds.value == 0) {
+        return;
         showDialog(
           context: context,
           builder: (BuildContext context) {

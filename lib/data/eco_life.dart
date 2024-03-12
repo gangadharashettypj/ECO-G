@@ -3,12 +3,12 @@ import 'package:flutter_game/extension/color_extension.dart';
 import 'package:flutter_game/gen/assets.gen.dart';
 import 'package:flutter_game/models/level_data_model.dart';
 
-final solarLevelItems = [
+final ecoLife = [
   ItemModel(
     name: 'Solar Panel',
     color: Colors.blueGrey.toHex(),
     keyType: ItemType.positive,
-    image: Assets.playIcons.sunSolarPanal.path
+    image: Assets.playIcons.solarPanel.path
   ),
   ItemModel(
     name: 'Solar Panel',
@@ -29,54 +29,66 @@ final solarLevelItems = [
     image: Assets.playIcons.sun2.path
   ),
   ItemModel(
-    name: 'LED',
+    name: 'Windmill',
     color: Colors.grey.toHex(),
     keyType: ItemType.positive,
-    image: Assets.playIcons.bulb.path
+    image: Assets.playIcons.windmill.path
+  ),
+  ItemModel(
+    name: 'Windmill',
+    color: Colors.grey.toHex(),
+    keyType: ItemType.positive,
+    image: Assets.playIcons.windmill2.path
+  ),
+  ItemModel(
+    name: 'Eco-Fuel',
+    color: Colors.grey.toHex(),
+    keyType: ItemType.positive,
+    image: Assets.playIcons.ecoFuel.path
+  ),
+  ItemModel(
+    name: 'Water Energy',
+    color: Colors.grey.toHex(),
+    keyType: ItemType.positive,
+    image: Assets.playIcons.water.path
   ),
 
   //negative Values
 
   ItemModel(
-      name: 'Night',
+      name: 'Industry',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.nightTime.path
+      image: Assets.playIcons.industry2.path
   ),
   ItemModel(
-      name: 'Moon',
+      name: 'Industry',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.moonStar.path
+      image: Assets.playIcons.industry3.path
   ),
   ItemModel(
-      name: 'Cloud',
+      name: 'Plastic Bag',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.clouds.path
+      image: Assets.playIcons.palsticBag.path
   ),
   ItemModel(
-      name: 'Bad Weather',
+      name: 'Plastic Bottle',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.cloudsLightning.path
+      image: Assets.playIcons.plasticBottle.path
   ),
   ItemModel(
-      name: 'Rain',
+      name: 'Nuclear Waste',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.rain.path
+      image: Assets.playIcons.toxicWaste.path
   ),
   ItemModel(
-      name: 'Rain',
+      name: 'Toxic Waste',
       color: Colors.cyan.toHex(),
       keyType: ItemType.negative,
-      image: Assets.playIcons.rain2.path
-  ),
-  ItemModel(
-      name: 'Rain',
-      color: Colors.cyan.toHex(),
-      keyType: ItemType.negative,
-      image: Assets.playIcons.rainSun.path
+      image: Assets.playIcons.toxicWaste2.path
   ),
 ];

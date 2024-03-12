@@ -1,16 +1,29 @@
-# flutter_game
+# Eco-G
 
-A new Flutter project.
+Eco-G is a two player game which not only provides fun, also helps you think about the sustainability,
+And puts conscious thought in your mind regarding our environment.
 
-## Getting Started
+In Game you have to make quick decisions to score points but there's a interesting part
 
-This project is a starting point for a Flutter application.
+> We have Multiple Sources Like
+* Green Doctor, creates awareness about Trees.
+* Aqua Revive, creates awareness about Water.
+* Energy Shift, creates awareness about Renewable Energy.
+* Eco-Life, creates awareness about using Recyclable things.
 
-A few resources to get you started if this is your first Flutter project:
+Inside each Stage, we you'll get 2-mode
+> Easy Mode:
+* Finish levels within 30 seconds.
+* Accumulate +1 point for each Positive Item.
+* No Negative Points in Easy Mode.
+* Gather Positive Items by dragging them to your side.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+> Hard Mode:
+* Finish levels within 1 minute.
+* Collect +1 point for each Positive Item.
+* Negative Items deduct -1 points, push them to another person.
+* Gather Positive Items by dragging them to your side.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Android app link
+[Download](https://drive.google.com/file/d/1rw7O9RvmykvFO6-P5fU28brHTr-RbRQn/view?usp=sharing)

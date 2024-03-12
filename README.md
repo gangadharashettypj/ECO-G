@@ -24,6 +24,5 @@ Inside each Stage, we you'll get 2-mode
 * Negative Items deduct -1 points, push them to another person.
 * Gather Positive Items by dragging them to your side.
 
-
 ## Android app link
 [Download](https://drive.google.com/file/d/1rw7O9RvmykvFO6-P5fU28brHTr-RbRQn/view?usp=sharing)

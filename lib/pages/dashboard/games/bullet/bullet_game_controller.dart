@@ -95,4 +95,15 @@ class BulletGameController {
           player2Items.reduce((value, element) => value + element);
     }
   }
+
+  (int, int) getPointsStats(int playerIndex) {
+    final rights = objects.value
+        .where((element) => element.ownBy == playerIndex && element.score == 1)
+        .length;
+    final wrongs = objects.value
+        .where((element) => element.ownBy == playerIndex && element.score == -1)
+        .length;
+
+    return (rights, wrongs);
+  }
 }

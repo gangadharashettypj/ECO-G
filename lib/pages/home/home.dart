@@ -49,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           context.router.push(OptionsRoute(levelDataModel: greenDoctorLevel));
         },
         child: PaperCard(
+          borderRadius: 8,
           backgroundColor: const Color(0xFF2F1E0D),
           borderColor: ColorName.copperGold,
           child: SizedBox(
@@ -100,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
           context.router.push(OptionsRoute(levelDataModel: waterLevel));
         },
         child: PaperCard(
+          borderRadius: 8,
           backgroundColor: const Color(0xFF102D40),
           borderColor: const Color(0xFF02B1DA),
           child: SizedBox(
@@ -147,6 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
           context.router.push(OptionsRoute(levelDataModel: recyclableLevel));
         },
         child: PaperCard(
+          borderRadius: 8,
           backgroundColor: const Color(0xFF3D6A7D),
           borderColor: ColorName.accent,
           child: SizedBox(
@@ -195,6 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
           context.router.push(OptionsRoute(levelDataModel: renewableLevel));
         },
         child: PaperCard(
+          borderRadius: 8,
           backgroundColor: const Color(0xFF8C5400),
           borderColor: ColorName.copperGold,
           child: SizedBox(

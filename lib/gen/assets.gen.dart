@@ -60,6 +60,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/tree_bg.png
   AssetGenImage get treeBg => const AssetGenImage('assets/images/tree_bg.png');
 
+  /// File path: assets/images/congrats.png
+  AssetGenImage get congrats =>
+      const AssetGenImage('assets/images/congrats.png');
+
   /// File path: assets/images/water_bg.png
   AssetGenImage get waterBg =>
       const AssetGenImage('assets/images/water_bg.png');
@@ -80,6 +84,7 @@ class $AssetsImagesGen {
         sun,
         timer,
         treeBg,
+        congrats,
         waterBg
       ];
 }

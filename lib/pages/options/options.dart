@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bot_toast/bot_toast.dart';
 import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_game/components/button/button_widget.dart';
 import 'package:flutter_game/components/image/image_widget.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/enums/modes.dart';
@@ -10,6 +8,7 @@ import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:paper_card/paper_card.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -157,51 +156,53 @@ class _OptionsScreenState extends State<OptionsScreen> {
           ),
           centerTitle: false,
         ),
-        body: SafeArea(
-          child: Watch(
-            (context) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+        body: Watch((context) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Gap.h32(),
+              Expanded(
+                child: buildSelectedCard(),
+              ),
+              const Gap.h32(),
+              const Gap.h32(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Gap.h32(),
-                  const Gap.h32(),
-                  Expanded(
-                    child: buildSelectedCard(),
-                  ),
-                  const Gap.h32(),
-                  const Gap.h32(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ...GameMode.values.map(
-                        (e) => buildModeCard(e),
-                      )
-                    ],
-                  ),
-                  Center(
-                    child: ButtonWidget(
-                      title: 'PLAY',
-                      onPressed: () {
-                        if (gameStoreInstance.firstPlayer.value == null ||
-                            gameStoreInstance.secondPlayer.value == null) {
-                          BotToast.showText(
-                              text: 'Please select players first');
-                          return;
-                        }
-                        context.router.push(
-                          gameStoreInstance.selectedGameMode.value.route,
-                        );
-                      },
-                      backgroundColor: Colors.white,
-                      expanded: false,
-                      color: Colors.black,
+                  ...GameMode.values.map(
+                    (e) => buildModeCard(e),
+                  )
+                ],
+              ),
+              const Gap.h32(),
+              Center(
+                child: InkWell(
+                  onTap: () {
+                    context.router.push(
+                      gameStoreInstance.selectedGameMode.value.route,
+                    );
+                  },
+                  borderRadius: BorderRadius.circular(8),
+                  child: PaperCard(
+                    borderRadius: 8,
+                    backgroundColor: Colors.transparent,
+                    borderColor: gameStoreInstance.selectedGame.value!.color,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 32),
+                      child: Text(
+                        'PLAY',
+                        style: GoogleFonts.rubikDoodleShadow().copyWith(
+                          color: gameStoreInstance.selectedGame.value!.color,
+                          fontSize: 40,
+                        ),
+                      ),
                     ),
                   ),
-                ],
-              );
-            },
-          ),
-        ),
+                ),
+              ),
+            ],
+          );
+        }),
       ),
     );
   }

@@ -29,7 +29,7 @@ class SecondaryButton extends StatelessWidget {
     this.color = ColorName.primary,
     this.fontSize,
     this.fontWeight,
-    this.borderRadius = 8,
+    this.borderRadius = 4,
     this.borderThickness = 1,
     this.padding,
     this.height,

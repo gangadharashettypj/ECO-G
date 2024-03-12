@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_game/components/label/label_widget.dart';
 import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/pages/dashboard/games/bullet/bullet_game_controller.dart';
+import 'package:flutter_game/pages/dashboard/games/bullet/bullet_rewards.dart';
 import 'package:flutter_game/pages/dashboard/store/game_store.dart';
 import 'package:flutter_game/pages/dashboard/widgets/drag_object_view.dart';
 import 'package:flutter_game/pages/dashboard/widgets/game_options_view.dart';
 import 'package:flutter_game/pages/dashboard/widgets/target_player_card.dart';
-import 'package:flutter_game/routes/app_router.dart';
 import 'package:flutter_game/utils/store_helper.dart';
 import 'package:paper_card/paper_card.dart';
 import 'package:signals/signals_flutter.dart';
@@ -36,7 +36,13 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
 
     _disposers.add(effect(() {
       if (controller.timeInSeconds.value == 0) {
-        context.router.replace(BulletRewardsRoute(controller: controller));
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return BulletRewardsScreen(controller: controller);
+          },
+        );
+        // context.router.replace(BulletRewardsRoute(controller: controller));
       }
     }));
 

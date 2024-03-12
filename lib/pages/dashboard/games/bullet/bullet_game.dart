@@ -41,6 +41,7 @@ class _BulletGameScreenState extends State<BulletGameScreen> {
           builder: (BuildContext context) {
             return BulletRewardsScreen(controller: controller);
           },
+          barrierDismissible: false,
         );
         // context.router.replace(BulletRewardsRoute(controller: controller));
       }

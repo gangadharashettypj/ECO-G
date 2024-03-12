@@ -48,8 +48,8 @@ class _OptionsScreenState extends State<OptionsScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           child: ImageWidget(
             imageLocation: e.image,
-            width: 52,
-            height: 52,
+            width: 46,
+            height: 46,
             color: gameStoreInstance.selectedGame.value!.color,
           ),
         ),
@@ -58,9 +58,12 @@ class _OptionsScreenState extends State<OptionsScreen> {
   }
 
   Widget buildSelectedCard() {
-    return Center(
+    return Align(
+      alignment: Alignment.bottomCenter,
       child: PaperCard(
         borderRadius: 32,
+        margin: EdgeInsets.zero,
+        padding: EdgeInsets.zero,
         backgroundColor: const Color(0xFFFAF1C6),
         child: Container(
           padding: const EdgeInsets.all(32.0),
@@ -157,50 +160,53 @@ class _OptionsScreenState extends State<OptionsScreen> {
           centerTitle: false,
         ),
         body: Watch((context) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Gap.h32(),
-              Expanded(
-                child: buildSelectedCard(),
-              ),
-              const Gap.h32(),
-              const Gap.h32(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ...GameMode.values.map(
-                    (e) => buildModeCard(e),
-                  )
-                ],
-              ),
-              const Gap.h32(),
-              Center(
-                child: InkWell(
-                  onTap: () {
-                    context.router.push(
-                      gameStoreInstance.selectedGameMode.value.route,
-                    );
-                  },
-                  borderRadius: BorderRadius.circular(8),
-                  child: PaperCard(
-                    borderRadius: 8,
-                    backgroundColor: Colors.transparent,
-                    borderColor: gameStoreInstance.selectedGame.value!.color,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: Text(
-                        'PLAY',
-                        style: GoogleFonts.rubikDoodleShadow().copyWith(
-                          color: gameStoreInstance.selectedGame.value!.color,
-                          fontSize: 40,
+          return SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Gap.h32(),
+                Container(
+                  child: buildSelectedCard(),
+                ),
+                const Gap.h32(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ...GameMode.values.map(
+                      (e) => buildModeCard(e),
+                    )
+                  ],
+                ),
+                const Gap.h32(),
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      context.router.push(
+                        gameStoreInstance.selectedGameMode.value.route,
+                      );
+                    },
+                    borderRadius: BorderRadius.circular(8),
+                    child: PaperCard(
+                      borderRadius: 8,
+                      padding: EdgeInsets.zero,
+                      backgroundColor: Colors.transparent,
+                      borderColor: gameStoreInstance.selectedGame.value!.color,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 32),
+                        child: Text(
+                          'PLAY',
+                          style: GoogleFonts.rubikDoodleShadow().copyWith(
+                            color: gameStoreInstance.selectedGame.value!.color,
+                            fontSize: 40,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         }),
       ),

@@ -170,12 +170,43 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                     ],
                   ),
                   const Gap.h16(),
-                  LabelWidget(
-                    '"${(gameStoreInstance.selectedGame.value!.concept..shuffle())[0]}"',
-                    maxLine: 5,
-                    color: ColorName.textDarkColor,
-                    fontSize: 13,
+                  RichText(
                     textAlign: TextAlign.justify,
+                    text: TextSpan(
+                      style: const TextStyle(
+                        color: ColorName.textDarkColor,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      children: [
+                        WidgetSpan(
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 2.0),
+                            child: Transform.flip(
+                              flipX: true,
+                              child: const Icon(
+                                Icons.format_quote_outlined,
+                                size: 18,
+                              ),
+                            ),
+                          ),
+                        ),
+                        TextSpan(
+                          text: (gameStoreInstance.selectedGame.value!.concept
+                            ..shuffle())[0],
+                        ),
+                        const WidgetSpan(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 2.0),
+                            child: Icon(
+                              Icons.format_quote_outlined,
+                              size: 18,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const Gap.h16(),
                   Row(

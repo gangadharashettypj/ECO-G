@@ -25,7 +25,7 @@ final greenDoctorLevel = LevelDataModel(
 final waterLevel = LevelDataModel(
   id: 'LEVEL_3',
   image: Assets.images.waterBg.path,
-  title: 'Thirsty',
+  title: 'Aqua Revive',
   concept: [
     'By conserving water usage, you\'ve contributed to preserving precious freshwater resources for future generations.',
     'Supporting initiatives to reduce water pollution aids in safeguarding aquatic life and ecosystems.',
@@ -40,7 +40,7 @@ final waterLevel = LevelDataModel(
 final renewableLevel = LevelDataModel(
   id: 'LEVEL_2',
   image: Assets.images.solarPanel.path,
-  title: 'Renewable Energy',
+  title: 'Energy Shift',
   concept: [
     'Investing in renewable energy sources like solar and wind power decreases reliance on fossil fuels, leading to cleaner air and reduced greenhouse gas emissions.',
     'Supporting renewable energy initiatives contributes to energy independence and resilience against fuel price fluctuations.',
@@ -55,7 +55,7 @@ final renewableLevel = LevelDataModel(
 final recyclableLevel = LevelDataModel(
   id: 'LEVEL_4',
   image: Assets.images.recycleBg.path,
-  title: 'Recycling',
+  title: 'Eco-Life',
   concept: [
     'Opting for recyclable materials reduces the strain on natural resources and minimizes the amount of waste sent to landfills.',
     'Recycling conserves energy by reducing the need for raw material extraction and manufacturing processes.',

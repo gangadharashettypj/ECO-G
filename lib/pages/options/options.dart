@@ -114,16 +114,13 @@ class _OptionsScreenState extends State<OptionsScreen> {
 - Accumulate +1 point for each Positive Item.
 - No Negative Points in Easy Mode.
 - Gather Positive Items by dragging them to your side.
-- Try to move Fast.
 '''
                           : '''
 ### Instruction:
-- Complete levels with max 1 minute.
-- Gather Positive and Negative Items.
-- Positive Items add +1 point.
-- Negative Items deduct -1 point.
-- Avoid Negative Items and push to another person
-- Collect Positive Items by dragging them to your side.
+- Finish levels within 1 minute.
+- Collect +1 point for each Positive Item.
+- Negative Items deduct -1 points, push them to another person, 
+- Gather Positive Items by dragging them to your side.
                     ''',
                     ),
                   ),

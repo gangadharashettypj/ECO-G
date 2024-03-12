@@ -230,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 bottom: 0,
                 left: 20,
                 child: Text(
-                  'Renewable\nEnergy',
+                  'Energy\nShift',
                   style: GoogleFonts.rubikDoodleShadow().copyWith(
                     color: const Color(0xFFFAF2CE),
                     fontSize: 32,

@@ -79,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: GoogleFonts.rubikDoodleShadow().copyWith(
                     color: ColorName.copperGold,
                     fontSize: 32,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
@@ -124,6 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: GoogleFonts.rubikDoodleShadow().copyWith(
                     color: const Color(0xFF02B1DA),
                     fontSize: 32,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
@@ -170,6 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: GoogleFonts.rubikDoodleShadow().copyWith(
                     color: Colors.lime,
                     fontSize: 32,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
@@ -231,6 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: GoogleFonts.rubikDoodleShadow().copyWith(
                     color: const Color(0xFFFAF2CE),
                     fontSize: 32,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),

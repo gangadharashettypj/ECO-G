@@ -38,7 +38,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.white,
-              width: gameStoreInstance.selectedGameMode.value == e ? 3 : 0,
+              width: gameStoreInstance.selectedGameMode.value == e ? 3 : 1,
             ),
             borderRadius: BorderRadius.circular(8),
             color: gameStoreInstance.selectedGameMode.value == e
@@ -112,14 +112,17 @@ class _OptionsScreenState extends State<OptionsScreen> {
 ### Instruction:
 - Finish levels within 30 seconds.
 - Accumulate +1 point for each Positive Item.
+- No Negative Points in Easy Mode.
 - Gather Positive Items by dragging them to your side.
+- Try to move Fast.
 '''
                           : '''
 ### Instruction:
-- Complete levels max 1 minute.
+- Complete levels with max 1 minute.
 - Gather Positive and Negative Items.
 - Positive Items add +1 point.
-- Avoid Negative Items, which deduct -1 point.
+- Negative Items deduct -1 point.
+- Avoid Negative Items and push to another person
 - Collect Positive Items by dragging them to your side.
                     ''',
                     ),
@@ -145,12 +148,15 @@ class _OptionsScreenState extends State<OptionsScreen> {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: LabelWidget(
+          title: Text(
             'BACK',
-            color: widget.levelDataModel.color,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+            style: GoogleFonts.rubikDoodleShadow().copyWith(
+              color: gameStoreInstance.selectedGame.value!.color,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
+          leadingWidth: 30,
           iconTheme: IconThemeData(
             color: widget.levelDataModel.color,
           ),
@@ -194,6 +200,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                         style: GoogleFonts.rubikDoodleShadow().copyWith(
                           color: gameStoreInstance.selectedGame.value!.color,
                           fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),

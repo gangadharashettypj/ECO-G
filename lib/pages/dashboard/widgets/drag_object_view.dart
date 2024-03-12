@@ -90,10 +90,23 @@ class _DragObjectViewState extends State<DragObjectView> {
               child: Center(
                 child: Stack(
                   children: [
-                    ImageWidget(
-                      imageLocation: dragObject.item.viewType == ViewType.coin
-                          ? Assets.images.coin.path
-                          : Assets.images.money.path,
+                    Container(
+                      decoration: BoxDecoration(
+                        border: dragObject.item.viewType == ViewType.coin
+                            ? null
+                            : Border.all(
+                                color: const Color(0xFFFFF9E3),
+                              ),
+                        borderRadius: BorderRadius.circular(
+                          dragObject.item.viewType == ViewType.coin ? 100 : 0,
+                        ),
+                        color: Colors.white,
+                      ),
+                      child: ImageWidget(
+                        imageLocation: dragObject.item.viewType == ViewType.coin
+                            ? Assets.images.coin.path
+                            : Assets.images.money.path,
+                      ),
                     ),
                     if (dragObject.item.viewType == ViewType.coin)
                       Positioned.fill(

@@ -169,7 +169,15 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                       ),
                     ],
                   ),
-                  const Gap.h32(),
+                  const Gap.h16(),
+                  LabelWidget(
+                    '"${(gameStoreInstance.selectedGame.value!.concept..shuffle())[0]}"',
+                    maxLine: 5,
+                    color: ColorName.textDarkColor,
+                    fontSize: 13,
+                    textAlign: TextAlign.justify,
+                  ),
+                  const Gap.h16(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -199,6 +207,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                                       GoogleFonts.rubikDoodleShadow().copyWith(
                                     color: ColorName.copperGold,
                                     fontSize: 20,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ],
@@ -240,6 +249,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                                       GoogleFonts.rubikDoodleShadow().copyWith(
                                     color: ColorName.copperGold,
                                     fontSize: 20,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ],

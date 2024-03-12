@@ -199,6 +199,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                                       GoogleFonts.rubikDoodleShadow().copyWith(
                                     color: ColorName.copperGold,
                                     fontSize: 20,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ],
@@ -240,6 +241,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                                       GoogleFonts.rubikDoodleShadow().copyWith(
                                     color: ColorName.copperGold,
                                     fontSize: 20,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ],

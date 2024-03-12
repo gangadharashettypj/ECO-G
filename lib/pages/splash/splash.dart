@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return PaperCard(
-      backgroundColor: ColorName.copperGold.withOpacity(0.4),
+      backgroundColor: ColorName.copperGold.withOpacity(0.3),
       borderColor: ColorName.copperGold,
       borderThickness: 15,
       child: Scaffold(

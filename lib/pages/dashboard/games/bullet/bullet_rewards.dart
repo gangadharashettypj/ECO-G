@@ -271,32 +271,35 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: buildScoreView(),
-            ),
-            Positioned.fill(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ImageWidget(
-                    imageLocation: Assets.images.congrats.path,
-                    height: 40,
-                  ),
-                  Opacity(
-                    opacity: 0,
-                    child: buildScoreView(),
-                  ),
-                ],
+    return PopScope(
+      canPop: false,
+      child: Material(
+        color: Colors.transparent,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: buildScoreView(),
               ),
-            ),
-          ],
+              Positioned.fill(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ImageWidget(
+                      imageLocation: Assets.images.congrats.path,
+                      height: 40,
+                    ),
+                    Opacity(
+                      opacity: 0,
+                      child: buildScoreView(),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

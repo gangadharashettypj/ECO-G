@@ -349,7 +349,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: ColorName.background,
       body: SafeArea(
         child: PaperCard(
           height: double.infinity,
@@ -359,12 +358,25 @@ class _HomeScreenState extends State<HomeScreen> {
               return SingleChildScrollView(
                 child: Column(
                   children: [
-                    Text(
-                      'ECO-G',
-                      style: GoogleFonts.rubikGlitchPop().copyWith(
-                        color: ColorName.copperGold,
-                        fontSize: 50,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'ECO -',
+                          style: GoogleFonts.rubikGlitchPop().copyWith(
+                            color: ColorName.copperGold,
+                            fontSize: 50,
+                          ),
+                        ),
+                        const Gap.w8(),
+                        Text(
+                          'G',
+                          style: GoogleFonts.rubikGlitch().copyWith(
+                            color: Colors.green,
+                            fontSize: 50,
+                          ),
+                        ),
+                      ],
                     ),
 
                     buildPlayerSelectionView(),

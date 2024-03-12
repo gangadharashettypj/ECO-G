@@ -60,7 +60,7 @@ class BlitzGameController {
     );
 
     timer1 = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (timeInSeconds.value >= 0) {
+      if (timeInSeconds.value > 0) {
         timeInSeconds.value = timeInSeconds.value - 1;
       }
     });

@@ -20,7 +20,7 @@ class LevelDataModel {
   final int levelNumber;
   final String title;
   final String image;
-  final String concept;
+  final List<String> concept;
   final bool isImage;
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
   final Color color;
@@ -43,8 +43,8 @@ class LevelDataModel {
             (e) => DragObject(
               id: e,
               size: const Size(
-                150,
-                100,
+                120,
+                80,
               ),
               item: items[e],
             ),

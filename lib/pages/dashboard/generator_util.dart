@@ -17,7 +17,11 @@ Offset generateRandomCoordinates({
   double randomX = randomInRange(min: 1, max: (screenWidth - size.width));
   double randomY = randomInRange(
     min: targetPlayerHeight + 30,
-    max: (screenHeight - size.height - targetPlayerHeight + 30),
+    max: (screenHeight -
+        size.height -
+        targetPlayerHeight -
+        targetPlayerHeight +
+        30),
   );
 
   return Offset(randomX, randomY);

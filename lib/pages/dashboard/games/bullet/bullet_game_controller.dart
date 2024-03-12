@@ -29,7 +29,7 @@ class BulletGameController {
 
   void init() {
     var items = List.generate(
-            15,
+            20,
             (index) => gameStoreInstance.selectedGame.value!.getDragObjects[
                 index %
                     gameStoreInstance
@@ -37,6 +37,8 @@ class BulletGameController {
         .where((element) => element.item.keyType == ItemType.positive)
         .map((e) => e.toJson())
         .toList();
+    timeInSeconds.value = items.length * 2;
+
     final formattedItems = items.map((e) => DragObject.fromJson(e)).toList();
 
     formattedItems.shuffle();

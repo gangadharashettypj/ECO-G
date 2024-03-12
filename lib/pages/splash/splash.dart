@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Future.delayed(const Duration(milliseconds: 500), () {
+      Future.delayed(const Duration(milliseconds: 800), () {
         context.replaceRoute(const HomeRoute());
       });
     });
@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     'ECO - ',
                     style: GoogleFonts.rubikGlitchPop().copyWith(
                       color: ColorName.copperGold,
-                      fontSize: 50,
+                      fontSize: 46,
                     ),
                   ),
                   Text(

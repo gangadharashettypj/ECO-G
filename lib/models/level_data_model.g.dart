@@ -10,7 +10,8 @@ LevelDataModel _$LevelDataModelFromJson(Map json) => LevelDataModel(
       id: json['id'] as String,
       title: json['title'] as String,
       image: json['image'] as String,
-      concept: json['concept'] as String,
+      concept:
+          (json['concept'] as List<dynamic>).map((e) => e as String).toList(),
       levelNumber: json['levelNumber'] as int,
       items: (json['items'] as List<dynamic>)
           .map((e) => ItemModel.fromJson(Map<String, dynamic>.from(e as Map)))

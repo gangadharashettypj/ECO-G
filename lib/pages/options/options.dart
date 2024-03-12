@@ -110,21 +110,17 @@ class _OptionsScreenState extends State<OptionsScreen> {
                               GameMode.bullet
                           ? '''
 ### Instruction:
-  * Features two types of items: 
-	  * Positive Items 
-	  * Negative Items.
-  * Each positive item adds +2 points.
-  * Aim to collect positive items;
-
+- Finish levels within 30 seconds.
+- Accumulate +1 point for each Positive Item.
+- Gather Positive Items by dragging them to your side.
 '''
                           : '''
 ### Instruction:
-  * Includes two types of items: 
-    * Positive Items 
-    * Negative Items.
-  * Positive Items contribute +2 points each.
-  * Negative Items deduct -1 point each.
-  * Aim to collect positive items.
+- Complete levels max 1 minute.
+- Gather Positive and Negative Items.
+- Positive Items add +1 point.
+- Avoid Negative Items, which deduct -1 point.
+- Collect Positive Items by dragging them to your side.
                     ''',
                     ),
                   ),

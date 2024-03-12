@@ -1,5 +1,5 @@
 bool enableDebugLogs = true;
 
-int deltaUpdatePX = 2;
-int refreshTime = 10;
+int deltaUpdatePX = 3;
+int refreshTime = 6;
 int targetPlayerHeight = 130;

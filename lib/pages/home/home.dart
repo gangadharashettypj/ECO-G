@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: const Color(0xFF2F1E0D),
         borderColor: ColorName.copperGold,
         child: SizedBox(
-          height: 160,
+          height: 140,
           width: double.infinity,
           child: Stack(
             children: [
@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Green\nDoctor',
                   style: GoogleFonts.rubikDoodleShadow().copyWith(
                     color: ColorName.copperGold,
-                    fontSize: 40,
+                    fontSize: 32,
                   ),
                 ),
               ),
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: const Color(0xFF102D40),
         borderColor: const Color(0xFF02B1DA),
         child: SizedBox(
-          height: 160,
+          height: 140,
           width: double.infinity,
           child: Stack(
             children: [
@@ -120,10 +120,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 bottom: 0,
                 left: 20,
                 child: Text(
-                  'Thirsty',
+                  'Aqua\nRevive',
                   style: GoogleFonts.rubikDoodleShadow().copyWith(
                     color: const Color(0xFF02B1DA),
-                    fontSize: 40,
+                    fontSize: 32,
                   ),
                 ),
               ),
@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.lime.withOpacity(0.1),
         borderColor: Colors.lime,
         child: SizedBox(
-          height: 160,
+          height: 140,
           width: double.infinity,
           child: Stack(
             children: [
@@ -166,10 +166,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 bottom: 0,
                 left: 20,
                 child: Text(
-                  'Recyclable',
+                  'Eco-Life',
                   style: GoogleFonts.rubikDoodleShadow().copyWith(
                     color: Colors.lime,
-                    fontSize: 40,
+                    fontSize: 32,
                   ),
                 ),
               ),
@@ -191,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: const Color(0xFF8C5400),
         borderColor: ColorName.copperGold,
         child: SizedBox(
-          height: 160,
+          height: 140,
           width: double.infinity,
           child: Stack(
             children: [
@@ -230,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Renewable\nEnergy',
                   style: GoogleFonts.rubikDoodleShadow().copyWith(
                     color: const Color(0xFFFAF2CE),
-                    fontSize: 40,
+                    fontSize: 32,
                   ),
                 ),
               ),
@@ -354,7 +354,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           'ECO -',
                           style: GoogleFonts.rubikGlitchPop().copyWith(
                             color: ColorName.copperGold,
-                            fontSize: 50,
+                            fontSize: 46,
                           ),
                         ),
                         const Gap.w8(),
@@ -367,15 +367,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-
                     buildPlayerSelectionView(),
                     const Gap.h16(),
-                    // const Gap.h32(),
-                    // ImageWidget(
-                    //   imageLocation: Assets.images.logo.path,
-                    //   height: 100,
-                    // ),
-                    // const Gap.h32(),
                     buildLevelView(),
                     const Gap.h32(),
                   ],

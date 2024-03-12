@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_game/constants/constants.dart';
 import 'package:flutter_game/extension/list_extension.dart';
+import 'package:flutter_game/gen/colors.gen.dart';
 import 'package:flutter_game/models/drag_object.dart';
 import 'package:flutter_game/models/level_data_model.dart';
 import 'package:flutter_game/pages/dashboard/generator_util.dart';
@@ -26,6 +27,26 @@ class BulletGameController {
   final player2Points = signal<int>(0);
 
   final timeInSeconds = signal<int>(30);
+
+  Color get getPlayer2Color {
+    if (player1Points.value == player2Points.value) {
+      return ColorName.textDarkColor;
+    }
+    if (player2Points.value > player1Points.value) {
+      return Colors.green;
+    }
+    return Colors.red;
+  }
+
+  Color get getPlayer1Color {
+    if (player1Points.value == player2Points.value) {
+      return ColorName.textDarkColor;
+    }
+    if (player1Points.value > player2Points.value) {
+      return Colors.green;
+    }
+    return Colors.red;
+  }
 
   void init() {
     var items = List.generate(

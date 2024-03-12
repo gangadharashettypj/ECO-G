@@ -65,7 +65,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                           gameStoreInstance.firstPlayer.value?.name ?? '',
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: ColorName.textDarkColor,
+                          color: widget.controller.getPlayer1Color,
                         ),
                       ),
                       if (gameStoreInstance.selectedGameMode.value ==
@@ -124,7 +124,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                           gameStoreInstance.secondPlayer.value?.name ?? '',
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: ColorName.textDarkColor,
+                          color: widget.controller.getPlayer2Color,
                         ),
                       ),
                       if (gameStoreInstance.selectedGameMode.value ==

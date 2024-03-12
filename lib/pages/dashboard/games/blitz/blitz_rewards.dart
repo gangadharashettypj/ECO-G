@@ -65,7 +65,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                           gameStoreInstance.firstPlayer.value?.name ?? '',
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: ColorName.textDarkColor,
+                          color: widget.controller.getPlayer1Color,
                         ),
                       ),
                       if (gameStoreInstance.selectedGameMode.value ==
@@ -124,7 +124,7 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                           gameStoreInstance.secondPlayer.value?.name ?? '',
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: ColorName.textDarkColor,
+                          color: widget.controller.getPlayer2Color,
                         ),
                       ),
                       if (gameStoreInstance.selectedGameMode.value ==
@@ -169,7 +169,15 @@ class _BlitzRewardsScreenState extends State<BlitzRewardsScreen> {
                       ),
                     ],
                   ),
-                  const Gap.h32(),
+                  const Gap.h16(),
+                  LabelWidget(
+                    '"${(gameStoreInstance.selectedGame.value!.concept..shuffle())[0]}"',
+                    maxLine: 5,
+                    color: ColorName.textDarkColor,
+                    fontSize: 13,
+                    textAlign: TextAlign.justify,
+                  ),
+                  const Gap.h16(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

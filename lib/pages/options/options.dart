@@ -58,56 +58,57 @@ class _OptionsScreenState extends State<OptionsScreen> {
   }
 
   Widget buildSelectedCard() {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: PaperCard(
-        borderRadius: 32,
-        margin: EdgeInsets.zero,
-        padding: EdgeInsets.zero,
-        backgroundColor: const Color(0xFFFAF1C6),
-        child: Container(
-          padding: const EdgeInsets.all(32.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-          ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        PaperCard(
+          borderRadius: 8,
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.zero,
+          backgroundColor: const Color(0xFFFAF1C6),
           child: Container(
-            width: MediaQuery.sizeOf(context).width * 0.6,
+            margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.grey.shade400,
-              ),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white54,
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  margin: const EdgeInsets.symmetric(vertical: 16),
-                  child: ImageWidget(
-                    imageLocation:
-                        gameStoreInstance.selectedGameMode.value.image,
-                    height: 120,
-                    width: 120,
-                    color: gameStoreInstance.selectedGame.value!.color,
-                  ),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.grey.shade400,
                 ),
-                LabelWidget(
-                  gameStoreInstance.selectedGameMode.value.title.toUpperCase(),
-                  color: ColorName.textLightColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 26,
-                ),
-                SizedBox(
-                  height: 300,
-                  child: Markdown(
-                    data: gameStoreInstance.selectedGameMode.value ==
-                            GameMode.bullet
-                        ? '''
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: ColorName.copperGold.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    margin: const EdgeInsets.symmetric(vertical: 16),
+                    child: ImageWidget(
+                      imageLocation:
+                          gameStoreInstance.selectedGameMode.value.image,
+                      height: 70,
+                      width: 70,
+                      color: ColorName.textDarkColor,
+                    ),
+                  ),
+                  LabelWidget(
+                    gameStoreInstance.selectedGameMode.value.title
+                        .toUpperCase(),
+                    color: ColorName.textLightColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.sizeOf(context).height * 0.3,
+                    child: Markdown(
+                      data: gameStoreInstance.selectedGameMode.value ==
+                              GameMode.bullet
+                          ? '''
 ### Instruction:
   * Features two types of items: 
 	  * Positive Items 
@@ -116,7 +117,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
   * Aim to collect positive items;
 
 '''
-                        : '''
+                          : '''
 ### Instruction:
   * Includes two types of items: 
     * Positive Items 
@@ -124,26 +125,26 @@ class _OptionsScreenState extends State<OptionsScreen> {
   * Positive Items contribute +2 points each.
   * Negative Items deduct -1 point each.
   * Aim to collect positive items.
-                  ''',
+                    ''',
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return PaperCard(
-      margin: const EdgeInsets.symmetric(
-        vertical: 16,
-      ),
       backgroundColor: widget.levelDataModel.color.withOpacity(0.2),
       borderColor: widget.levelDataModel.color,
       borderRadius: 8,
+      padding: EdgeInsets.zero,
+      margin: EdgeInsets.zero,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -160,53 +161,51 @@ class _OptionsScreenState extends State<OptionsScreen> {
           centerTitle: false,
         ),
         body: Watch((context) {
-          return SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Gap.h32(),
-                Container(
-                  child: buildSelectedCard(),
-                ),
-                const Gap.h32(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ...GameMode.values.map(
-                      (e) => buildModeCard(e),
-                    )
-                  ],
-                ),
-                const Gap.h32(),
-                Center(
-                  child: InkWell(
-                    onTap: () {
-                      context.router.push(
-                        gameStoreInstance.selectedGameMode.value.route,
-                      );
-                    },
-                    borderRadius: BorderRadius.circular(8),
-                    child: PaperCard(
-                      borderRadius: 8,
-                      padding: EdgeInsets.zero,
-                      backgroundColor: Colors.transparent,
-                      borderColor: gameStoreInstance.selectedGame.value!.color,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 32),
-                        child: Text(
-                          'PLAY',
-                          style: GoogleFonts.rubikDoodleShadow().copyWith(
-                            color: gameStoreInstance.selectedGame.value!.color,
-                            fontSize: 40,
-                          ),
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: buildSelectedCard(),
+              ),
+              const Gap.h16(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ...GameMode.values.map(
+                    (e) => buildModeCard(e),
+                  )
+                ],
+              ),
+              const Gap.h32(),
+              Center(
+                child: InkWell(
+                  onTap: () {
+                    context.router.push(
+                      gameStoreInstance.selectedGameMode.value.route,
+                    );
+                  },
+                  borderRadius: BorderRadius.circular(8),
+                  child: PaperCard(
+                    borderRadius: 8,
+                    padding: EdgeInsets.zero,
+                    backgroundColor: Colors.transparent,
+                    borderColor: gameStoreInstance.selectedGame.value!.color,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 32),
+                      child: Text(
+                        'PLAY',
+                        style: GoogleFonts.rubikDoodleShadow().copyWith(
+                          color: gameStoreInstance.selectedGame.value!.color,
+                          fontSize: 20,
                         ),
                       ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+              const Gap.h16(),
+            ],
           );
         }),
       ),

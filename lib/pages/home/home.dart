@@ -41,51 +41,48 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildGreenDoctor() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: InkWell(
-        onTap: () {
-          gameStoreInstance.selectedGame.value = greenDoctorLevel;
-          context.router.push(OptionsRoute(levelDataModel: greenDoctorLevel));
-        },
-        child: PaperCard(
-          borderRadius: 8,
-          backgroundColor: const Color(0xFF2F1E0D),
-          borderColor: ColorName.copperGold,
-          child: SizedBox(
-            height: 160,
-            width: double.infinity,
-            child: Stack(
-              children: [
-                Positioned(
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                  child: Transform.scale(
-                    scaleX: 1.4,
-                    scaleY: 1.4,
-                    child: Opacity(
-                      opacity: 0.9,
-                      child: ImageWidget(
-                        imageLocation: Assets.images.treeBg.path,
-                      ),
+    return InkWell(
+      onTap: () {
+        gameStoreInstance.selectedGame.value = greenDoctorLevel;
+        context.router.push(OptionsRoute(levelDataModel: greenDoctorLevel));
+      },
+      child: PaperCard(
+        borderRadius: 8,
+        backgroundColor: const Color(0xFF2F1E0D),
+        borderColor: ColorName.copperGold,
+        child: SizedBox(
+          height: 160,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              Positioned(
+                right: 0,
+                top: 0,
+                bottom: 0,
+                child: Transform.scale(
+                  scaleX: 1.4,
+                  scaleY: 1.4,
+                  child: Opacity(
+                    opacity: 0.9,
+                    child: ImageWidget(
+                      imageLocation: Assets.images.treeBg.path,
                     ),
                   ),
                 ),
-                Positioned(
-                  top: 0,
-                  bottom: 0,
-                  left: 20,
-                  child: Text(
-                    'Green\nDoctor',
-                    style: GoogleFonts.rubikDoodleShadow().copyWith(
-                      color: ColorName.copperGold,
-                      fontSize: 40,
-                    ),
+              ),
+              Positioned(
+                top: 0,
+                bottom: 0,
+                left: 20,
+                child: Text(
+                  'Green\nDoctor',
+                  style: GoogleFonts.rubikDoodleShadow().copyWith(
+                    color: ColorName.copperGold,
+                    fontSize: 40,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -93,47 +90,44 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildWater() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: InkWell(
-        onTap: () {
-          gameStoreInstance.selectedGame.value = waterLevel;
-          context.router.push(OptionsRoute(levelDataModel: waterLevel));
-        },
-        child: PaperCard(
-          borderRadius: 8,
-          backgroundColor: const Color(0xFF102D40),
-          borderColor: const Color(0xFF02B1DA),
-          child: SizedBox(
-            height: 160,
-            width: double.infinity,
-            child: Stack(
-              children: [
-                Positioned(
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                  child: Opacity(
-                    opacity: 0.9,
-                    child: ImageWidget(
-                      imageLocation: Assets.images.waterBg.path,
-                    ),
+    return InkWell(
+      onTap: () {
+        gameStoreInstance.selectedGame.value = waterLevel;
+        context.router.push(OptionsRoute(levelDataModel: waterLevel));
+      },
+      child: PaperCard(
+        borderRadius: 8,
+        backgroundColor: const Color(0xFF102D40),
+        borderColor: const Color(0xFF02B1DA),
+        child: SizedBox(
+          height: 160,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              Positioned(
+                right: 0,
+                top: 0,
+                bottom: 0,
+                child: Opacity(
+                  opacity: 0.9,
+                  child: ImageWidget(
+                    imageLocation: Assets.images.waterBg.path,
                   ),
                 ),
-                Positioned(
-                  top: 0,
-                  bottom: 0,
-                  left: 20,
-                  child: Text(
-                    'Thirsty',
-                    style: GoogleFonts.rubikDoodleShadow().copyWith(
-                      color: const Color(0xFF02B1DA),
-                      fontSize: 40,
-                    ),
+              ),
+              Positioned(
+                top: 0,
+                bottom: 0,
+                left: 20,
+                child: Text(
+                  'Thirsty',
+                  style: GoogleFonts.rubikDoodleShadow().copyWith(
+                    color: const Color(0xFF02B1DA),
+                    fontSize: 40,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -141,48 +135,45 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildRecyclable() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: InkWell(
-        onTap: () {
-          gameStoreInstance.selectedGame.value = recyclableLevel;
-          context.router.push(OptionsRoute(levelDataModel: recyclableLevel));
-        },
-        child: PaperCard(
-          borderRadius: 8,
-          backgroundColor: Colors.lime.withOpacity(0.1),
-          borderColor: Colors.lime,
-          child: SizedBox(
-            height: 160,
-            width: double.infinity,
-            child: Stack(
-              children: [
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: Opacity(
-                    opacity: 0.8,
-                    child: ImageWidget(
-                      imageLocation: Assets.images.recycleBg.path,
-                      color: Colors.lime,
-                      width: 110,
-                    ),
+    return InkWell(
+      onTap: () {
+        gameStoreInstance.selectedGame.value = recyclableLevel;
+        context.router.push(OptionsRoute(levelDataModel: recyclableLevel));
+      },
+      child: PaperCard(
+        borderRadius: 8,
+        backgroundColor: Colors.lime.withOpacity(0.1),
+        borderColor: Colors.lime,
+        child: SizedBox(
+          height: 160,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: Opacity(
+                  opacity: 0.8,
+                  child: ImageWidget(
+                    imageLocation: Assets.images.recycleBg.path,
+                    color: Colors.lime,
+                    width: 110,
                   ),
                 ),
-                Positioned(
-                  top: 0,
-                  bottom: 0,
-                  left: 20,
-                  child: Text(
-                    'Recyclable',
-                    style: GoogleFonts.rubikDoodleShadow().copyWith(
-                      color: Colors.lime,
-                      fontSize: 40,
-                    ),
+              ),
+              Positioned(
+                top: 0,
+                bottom: 0,
+                left: 20,
+                child: Text(
+                  'Recyclable',
+                  style: GoogleFonts.rubikDoodleShadow().copyWith(
+                    color: Colors.lime,
+                    fontSize: 40,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -190,63 +181,60 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildRenewable() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: InkWell(
-        onTap: () {
-          gameStoreInstance.selectedGame.value = renewableLevel;
-          context.router.push(OptionsRoute(levelDataModel: renewableLevel));
-        },
-        child: PaperCard(
-          borderRadius: 8,
-          backgroundColor: const Color(0xFF8C5400),
-          borderColor: ColorName.copperGold,
-          child: SizedBox(
-            height: 160,
-            width: double.infinity,
-            child: Stack(
-              children: [
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: ImageWidget(
-                    imageLocation: Assets.images.solarPanel.path,
-                    width: 200,
-                    color: const Color(0xDFFAF2CE),
+    return InkWell(
+      onTap: () {
+        gameStoreInstance.selectedGame.value = renewableLevel;
+        context.router.push(OptionsRoute(levelDataModel: renewableLevel));
+      },
+      child: PaperCard(
+        borderRadius: 8,
+        backgroundColor: const Color(0xFF8C5400),
+        borderColor: ColorName.copperGold,
+        child: SizedBox(
+          height: 160,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: ImageWidget(
+                  imageLocation: Assets.images.solarPanel.path,
+                  width: 200,
+                  color: const Color(0xDFFAF2CE),
+                ),
+              ),
+              Positioned(
+                right: -10,
+                top: -10,
+                child: ImageWidget(
+                  imageLocation: Assets.images.sun.path,
+                  width: 100,
+                  color: const Color(0xDFFAF2CE),
+                ),
+              ),
+              Positioned(
+                left: 0,
+                bottom: -10,
+                child: ImageWidget(
+                  imageLocation: Assets.images.fan.path,
+                  width: 60,
+                  color: const Color(0x4FFAF2CE),
+                ),
+              ),
+              Positioned(
+                top: 0,
+                bottom: 0,
+                left: 20,
+                child: Text(
+                  'Renewable\nEnergy',
+                  style: GoogleFonts.rubikDoodleShadow().copyWith(
+                    color: const Color(0xFFFAF2CE),
+                    fontSize: 40,
                   ),
                 ),
-                Positioned(
-                  right: -10,
-                  top: -10,
-                  child: ImageWidget(
-                    imageLocation: Assets.images.sun.path,
-                    width: 100,
-                    color: const Color(0xDFFAF2CE),
-                  ),
-                ),
-                Positioned(
-                  left: 0,
-                  bottom: -10,
-                  child: ImageWidget(
-                    imageLocation: Assets.images.fan.path,
-                    width: 60,
-                    color: const Color(0x4FFAF2CE),
-                  ),
-                ),
-                Positioned(
-                  top: 0,
-                  bottom: 0,
-                  left: 20,
-                  child: Text(
-                    'Renewable\nEnergy',
-                    style: GoogleFonts.rubikDoodleShadow().copyWith(
-                      color: const Color(0xFFFAF2CE),
-                      fontSize: 40,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

@@ -59,11 +59,11 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                         color: ColorName.textDarkColor,
                       ),
                       const Gap.w4(),
-                      const Expanded(
+                      Expanded(
                         child: LabelWidget(
-                          'Player 1',
+                          gameStoreInstance.firstPlayer.value?.name ?? '',
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 16,
                           color: ColorName.textDarkColor,
                         ),
                       ),
@@ -74,7 +74,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                             LabelWidget(
                               '$rights1',
                               fontWeight: FontWeight.bold,
-                              fontSize: 24,
+                              fontSize: 20,
                             ),
                             const Icon(
                               Icons.check,
@@ -88,7 +88,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                             LabelWidget(
                               '$wrongs1',
                               fontWeight: FontWeight.bold,
-                              fontSize: 24,
+                              fontSize: 20,
                             ),
                             const Icon(
                               Icons.close,
@@ -105,7 +105,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                       LabelWidget(
                         widget.controller.player1Points.value.toString(),
                         fontWeight: FontWeight.bold,
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     ],
                   ),
@@ -118,11 +118,11 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                         color: ColorName.textDarkColor,
                       ),
                       const Gap.w4(),
-                      const Expanded(
+                      Expanded(
                         child: LabelWidget(
-                          'Player 2',
+                          gameStoreInstance.secondPlayer.value?.name ?? '',
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 16,
                           color: ColorName.textDarkColor,
                         ),
                       ),
@@ -133,7 +133,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                             LabelWidget(
                               '$rights2',
                               fontWeight: FontWeight.bold,
-                              fontSize: 24,
+                              fontSize: 20,
                             ),
                             const Icon(
                               Icons.check,
@@ -147,7 +147,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                             LabelWidget(
                               '$wrongs2',
                               fontWeight: FontWeight.bold,
-                              fontSize: 24,
+                              fontSize: 20,
                             ),
                             const Icon(
                               Icons.close,
@@ -164,13 +164,13 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                       LabelWidget(
                         widget.controller.player2Points.value.toString(),
                         fontWeight: FontWeight.bold,
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     ],
                   ),
                   const Gap.h32(),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
                         onTap: () {
@@ -207,10 +207,17 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                           ),
                         ),
                       ),
+                    ],
+                  ),
+                  const Gap.h16(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
                       InkWell(
-                        onTap: () {
+                        onTap: () async {
                           Navigator.pop(context);
-                          context.router.replace(
+                          await context.router.pop();
+                          context.router.push(
                               gameStoreInstance.selectedGameMode.value.route);
                         },
                         borderRadius: BorderRadius.circular(8),

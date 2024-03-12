@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_game/data/solar_items.dart';
+import 'package:flutter_game/data/eco_life.dart';
 import 'package:flutter_game/data/tree_items.dart';
 import 'package:flutter_game/data/water_items.dart';
 import 'package:flutter_game/extension/color_extension.dart';
@@ -24,7 +24,7 @@ final levelData = [
     concept: 'You will learn about how to build solar light.',
     levelNumber: 2,
     color: ColorName.copperGold.toHex(),
-    items: solarLevelItems,
+    items: ecoLife,
   ),
   LevelDataModel(
     id: 'LEVEL_3',

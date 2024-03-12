@@ -156,6 +156,10 @@ class $AssetsPlayIconsGen {
   AssetGenImage get cloudsLightning =>
       const AssetGenImage('assets/playIcons/clouds_lightning.png');
 
+  /// File path: assets/playIcons/eco_fuel.png
+  AssetGenImage get ecoFuel =>
+      const AssetGenImage('assets/playIcons/eco_fuel.png');
+
   /// File path: assets/playIcons/eggshell.png
   AssetGenImage get eggshell =>
       const AssetGenImage('assets/playIcons/eggshell.png');
@@ -277,6 +281,10 @@ class $AssetsPlayIconsGen {
   AssetGenImage get solarEnergy =>
       const AssetGenImage('assets/playIcons/solar_energy.png');
 
+  /// File path: assets/playIcons/solar_panal.png
+  AssetGenImage get solarPanal =>
+      const AssetGenImage('assets/playIcons/solar_panal.png');
+
   /// File path: assets/playIcons/solar_panel.png
   AssetGenImage get solarPanel =>
       const AssetGenImage('assets/playIcons/solar_panel.png');
@@ -374,6 +382,14 @@ class $AssetsPlayIconsGen {
   AssetGenImage get wildFire =>
       const AssetGenImage('assets/playIcons/wild_fire.png');
 
+  /// File path: assets/playIcons/windmill.png
+  AssetGenImage get windmill =>
+      const AssetGenImage('assets/playIcons/windmill.png');
+
+  /// File path: assets/playIcons/windmill2.png
+  AssetGenImage get windmill2 =>
+      const AssetGenImage('assets/playIcons/windmill2.png');
+
   /// File path: assets/playIcons/woods.png
   AssetGenImage get woods => const AssetGenImage('assets/playIcons/woods.png');
 
@@ -402,6 +418,7 @@ class $AssetsPlayIconsGen {
         cloud,
         clouds,
         cloudsLightning,
+        ecoFuel,
         eggshell,
         extremeTemp,
         fruits,
@@ -434,6 +451,7 @@ class $AssetsPlayIconsGen {
         soil,
         soil1,
         solarEnergy,
+        solarPanal,
         solarPanel,
         sun,
         sun2,
@@ -461,6 +479,8 @@ class $AssetsPlayIconsGen {
         waterDrops2,
         wateringCan,
         wildFire,
+        windmill,
+        windmill2,
         woods,
         woods2
       ];

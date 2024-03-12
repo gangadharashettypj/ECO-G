@@ -35,6 +35,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
       children: [
         Expanded(
           child: PaperCard(
+            borderRadius: 8,
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -180,8 +181,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                         borderRadius: BorderRadius.circular(8),
                         child: PaperCard(
                           borderRadius: 8,
-                          borderColor:
-                              gameStoreInstance.selectedGame.value!.color,
+                          borderColor: ColorName.copperGold,
                           padding: EdgeInsets.zero,
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -197,8 +197,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                                   'Home',
                                   style:
                                       GoogleFonts.rubikDoodleShadow().copyWith(
-                                    color: gameStoreInstance
-                                        .selectedGame.value!.color,
+                                    color: ColorName.copperGold,
                                     fontSize: 20,
                                   ),
                                 ),
@@ -223,8 +222,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                         borderRadius: BorderRadius.circular(8),
                         child: PaperCard(
                           borderRadius: 8,
-                          borderColor:
-                              gameStoreInstance.selectedGame.value!.color,
+                          borderColor: ColorName.copperGold,
                           padding: EdgeInsets.zero,
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -240,8 +238,7 @@ class _BulletRewardsScreenState extends State<BulletRewardsScreen> {
                                   'Play Again',
                                   style:
                                       GoogleFonts.rubikDoodleShadow().copyWith(
-                                    color: gameStoreInstance
-                                        .selectedGame.value!.color,
+                                    color: ColorName.copperGold,
                                     fontSize: 20,
                                   ),
                                 ),

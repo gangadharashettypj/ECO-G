@@ -43,6 +43,6 @@ final recyclableLevel = LevelDataModel(
   title: 'Recycling',
   concept: 'You will learn how to filter dirt water.',
   levelNumber: 4,
-  color: ColorName.accent,
+  color: Colors.teal,
   items: recycleLevel,
 );

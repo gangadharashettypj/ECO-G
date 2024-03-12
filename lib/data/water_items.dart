@@ -9,51 +9,63 @@ final waterLevelItems = [
     name: 'Algae',
     color: Colors.brown.toHex(),
     keyType: ItemType.positive,
+      image: Assets.playIcons.algae1.path
   ),
   ItemModel(
     name: 'Algae',
     color: Colors.cyan.toHex(),
     keyType: ItemType.positive,
+      image: Assets.playIcons.algae2.path
+
   ),
   ItemModel(
     name: 'Algae',
     color: Colors.cyan.toHex(),
     keyType: ItemType.positive,
+      image: Assets.playIcons.algae4.path
+
   ),
   ItemModel(
     name: 'Algae',
     color: Colors.cyan.toHex(),
     keyType: ItemType.positive,
+      image: Assets.playIcons.algae6.path
+
   ),
   ItemModel(
     name: 'Rain',
     color: Colors.cyan.toHex(),
     keyType: ItemType.positive,
+      image: Assets.playIcons.rain.path
+
   ),
   ItemModel(
     name: 'Rain',
     color: Colors.cyan.toHex(),
     keyType: ItemType.positive,
+      image: Assets.playIcons.rainSun.path
+
   ),
   ItemModel(
     name: 'Water Drops',
     color: Colors.cyan.toHex(),
     keyType: ItemType.positive,
+      image: Assets.playIcons.waterDrops2.path
+
   ),
   ItemModel(
     name: 'Sand',
     color: Colors.brown.toHex(),
     keyType: ItemType.positive,
-  ),
-  ItemModel(
-    name: 'Gravel',
-    color: Colors.grey.toHex(),
-    keyType: ItemType.positive,
+      image: Assets.playIcons.sand.path
+
   ),
   ItemModel(
     name: 'Stone',
     color: Colors.blueGrey.toHex(),
     keyType: ItemType.positive,
+      image: Assets.playIcons.gravel.path
+
   ),
 
   //negative Values
@@ -74,6 +86,7 @@ final waterLevelItems = [
     name: 'Garbage',
     color: Colors.cyan.toHex(),
     keyType: ItemType.negative,
+      image: Assets.playIcons.garbageBag.path
   ),
   ItemModel(
       name: 'Plastic Bag',

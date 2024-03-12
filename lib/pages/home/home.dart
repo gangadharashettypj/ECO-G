@@ -150,22 +150,22 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         child: PaperCard(
           borderRadius: 8,
-          backgroundColor: Colors.teal.withOpacity(0.3),
-          borderColor: Colors.teal,
+          backgroundColor: Colors.lime.withOpacity(0.1),
+          borderColor: Colors.lime,
           child: SizedBox(
             height: 160,
             width: double.infinity,
             child: Stack(
               children: [
                 Positioned(
-                  right: 20,
-                  top: 14,
-                  bottom: 14,
+                  right: 0,
+                  bottom: 0,
                   child: Opacity(
                     opacity: 0.8,
                     child: ImageWidget(
                       imageLocation: Assets.images.recycleBg.path,
-                      color: Colors.teal,
+                      color: Colors.lime,
+                      width: 110,
                     ),
                   ),
                 ),
@@ -176,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(
                     'Recyclable',
                     style: GoogleFonts.rubikDoodleShadow().copyWith(
-                      color: Colors.teal,
+                      color: Colors.lime,
                       fontSize: 40,
                     ),
                   ),
